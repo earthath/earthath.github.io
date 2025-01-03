@@ -46,19 +46,33 @@ section {
     transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
-    flex-direction: column; /* Change to column for mobile view */
-    text-align: center;
+    flex-direction: row; /* Align items in a row */
+    text-align: left;
 }
 
 #typing-container {
     margin-left: 20px;
 }
 
-#typing-name {
+#typing-name,
+#typing-title {
     font-size: 2em;
     white-space: pre-line; /* This will ensure the text breaks into new lines */
     word-wrap: break-word; /* Ensures words are properly wrapped */
-    margin-top: 1em;
+    margin: 0; /* No extra margin between the lines */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    #intro {
+        flex-direction: column; /* Stack items in a column for mobile view */
+        text-align: center;
+    }
+
+    #typing-name,
+    #typing-title {
+        font-size: 1.5em; /* Adjust font size for smaller screens */
+    }
 }
 
 #profile-pic {
@@ -216,6 +230,8 @@ section {
     text-decoration: none;
     cursor: pointer;
 }
+
+
 #contact {
     background: #fff;
 }

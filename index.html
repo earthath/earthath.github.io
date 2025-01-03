@@ -25,10 +25,9 @@
             <img src="profile.jpg" id="profile-pic" alt="Profile Picture">
             <div id="typing-container">
                 <h1 id="typing-name">
-                    안녕하세요 <span>😊</span><br>
-                    xxx입니다!
+                    안녕하세요 😊
                 </h1>
-                
+                <h1 id="typing-title">xxx입니다!</h1>
             </div>
         </div>
         <p>Discover my work and projects.</p>
@@ -52,33 +51,13 @@
         <div class="projects">
             <button class="scroll-btn" id="scroll-left">&lt;</button>
             <div class="project-container">
-                <div class="project">
+                <div class="project" data-title="Project Title 1" data-description="Description of Project 1">
                     <img src="project1.jpg" alt="Project 1">
                     <h3>Project Title 1</h3>
                     <p>Description of Project 1</p>
                 </div>
-                <div class="project">
+                <div class="project" data-title="Project Title 2" data-description="Description of Project 2">
                     <img src="project2.jpg" alt="Project 2">
-                    <h3>Project Title 2</h3>
-                    <p>Description of Project 2</p>
-                </div>
-                <div class="project">
-                    <img src="project1.jpg" alt="Project 3">
-                    <h3>Project Title 1</h3>
-                    <p>Description of Project 1</p>
-                </div>
-                <div class="project">
-                    <img src="project2.jpg" alt="Project 4">
-                    <h3>Project Title 2</h3>
-                    <p>Description of Project 2</p>
-                </div>
-                <div class="project">
-                    <img src="project1.jpg" alt="Project 5">
-                    <h3>Project Title 1</h3>
-                    <p>Description of Project 1</p>
-                </div>
-                <div class="project">
-                    <img src="project2.jpg" alt="Project 6">
                     <h3>Project Title 2</h3>
                     <p>Description of Project 2</p>
                 </div>
@@ -106,6 +85,14 @@
     <footer>
         <p>&copy; 2025 My Portfolio. All rights reserved.</p>
     </footer>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h3 id="popup-title">Project Title</h3>
+            <p id="popup-description">Project Description</p>
+        </div>
+    </div>
 
     <script src="scripts.js"></script>
 </body>

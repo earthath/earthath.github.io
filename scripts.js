@@ -1,19 +1,32 @@
 // Typing Effect
 document.addEventListener('DOMContentLoaded', () => {
     const nameElement = document.getElementById('typing-name');
+    const titleElement = document.getElementById('typing-title');
     const nameText = nameElement.innerHTML;
+    const titleText = titleElement.innerHTML;
     nameElement.innerHTML = '';
-    let i = 0;
+    titleElement.innerHTML = '';
+    let i = 0, j = 0;
 
-    function typeWriter() {
+    function typeWriter1() {
         if (i < nameText.length) {
             nameElement.innerHTML += nameText.charAt(i);
             i++;
-            setTimeout(typeWriter, 100);
+            setTimeout(typeWriter1, 100);
         }
     }
 
-    typeWriter();
+    function typeWriter2() {
+        if (j < titleText.length) {
+            titleElement.innerHTML += titleText.charAt(j);
+            j++;
+            setTimeout(typeWriter2, 100);
+        }
+    }
+
+    // Start both typewriter functions simultaneously
+    typeWriter1();
+    typeWriter2();
 });
 
 // Parallax Effect
@@ -69,8 +82,8 @@ document.getElementById('scroll-right').addEventListener('click', () => {
 document.querySelectorAll('.project').forEach(project => {
     project.addEventListener('click', () => {
         document.getElementById('popup').style.display = 'block';
-        document.getElementById('popup-title').innerText = project.querySelector('h3').innerText;
-        document.getElementById('popup-description').innerText = project.querySelector('p').innerText;
+        document.getElementById('popup-title').innerText = project.getAttribute('data-title');
+        document.getElementById('popup-description').innerText = project.getAttribute('data-description');
     });
 });
 
