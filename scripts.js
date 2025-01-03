@@ -35,25 +35,6 @@ document.querySelectorAll('nav a').forEach(anchor => {
     });
 });
 
-// document.addEventListener('DOMContentLoaded', () => {
-//     document.getElementById('resume-kr').addEventListener('click', () => {
-//         const userChoice = confirm(
-//             'Unfortunately, you don\'t have access to the file. Contact me for more information.\n\n불행히도 파일에 접근할 수 없습니다. 자세한 내용은 저에게 문의하십시오.\n\nContact me?'
-//         );
-//         if (userChoice) {
-//             document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-//         }
-//     });
-
-//     document.getElementById('resume-en').addEventListener('click', () => {
-//         const userChoice = confirm(
-//             'Unfortunately, you don\'t have access to the file. Contact me for more information.\n\n불행히도 파일에 접근할 수 없습니다. 자세한 내용은 저에게 문의하십시오.\n\nContact me?'
-//         );
-//         if (userChoice) {
-//             document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-//         }
-//     });
-// });
 // Resume Buttons
 document.getElementById('resume-kr').addEventListener('click', () => {
     const userChoice = confirm('Unfortunately, you don\'t have access to the file. Contact me for more information.\n\n불행히도 파일에 접근할 수 없습니다. 자세한 내용은 저에게 문의하십시오.\n\nContact me?');
@@ -68,3 +49,37 @@ document.getElementById('resume-en').addEventListener('click', () => {
         window.location.href = '#contact';
     }
 });
+
+// Scrolling buttons functionality
+document.getElementById('scroll-left').addEventListener('click', () => {
+    document.querySelector('.project-container').scrollBy({
+        left: -300,
+        behavior: 'smooth'
+    });
+});
+
+document.getElementById('scroll-right').addEventListener('click', () => {
+    document.querySelector('.project-container').scrollBy({
+        left: 300,
+        behavior: 'smooth'
+    });
+});
+
+// Pop-up functionality
+document.querySelectorAll('.project').forEach(project => {
+    project.addEventListener('click', () => {
+        document.getElementById('popup').style.display = 'block';
+        document.getElementById('popup-title').innerText = project.querySelector('h3').innerText;
+        document.getElementById('popup-description').innerText = project.querySelector('p').innerText;
+    });
+});
+
+document.querySelector('.close').addEventListener('click', () => {
+    document.getElementById('popup').style.display = 'none';
+});
+
+window.onclick = function(event) {
+    if (event.target == document.getElementById('popup')) {
+        document.getElementById('popup').style.display = 'none';
+    }
+};
