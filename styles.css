@@ -39,13 +39,33 @@ section {
     height: 100vh;
 }
 
-#typing-name {
-    font-size: 3em;
+#intro {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    white-space: nowrap;
+    display: flex;
+    align-items: center;
+}
+
+#typing-container {
+    margin-left: 20px;
+}
+
+#typing-name {
+    font-size: 3em;
+    white-space: pre-line; /* This will ensure the text breaks into new lines */
+}
+
+#profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+#profile-pic:hover {
+    transform: scale(1.1);
 }
 
 #parallax {
@@ -71,6 +91,25 @@ section {
 #star2 {
     top: 60%;
     left: 80%;
+}
+
+#resume-buttons {
+    margin-top: 20px;
+}
+
+#resume-buttons button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#resume-buttons button:hover {
+    background: #555;
 }
 
 #about {
