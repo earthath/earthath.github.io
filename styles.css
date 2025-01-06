@@ -9,28 +9,23 @@
 }
 
 @font-face {
-    font-family: 'GmarketSansTTFBold';
-    src: url('src/fonts/GmarketSansTTFBold.ttf') format('truetype');
+    font-family: 'GmarketSansBold';
+    src: url('src/fonts/GmarketSansBold.otf') format('truetype');
 }
 
 @font-face {
-    font-family: 'GmarketSansTTFLight';
-    src: url('src/fonts/GmarketSansTTFLight.ttf') format('truetype');
+    font-family: 'GmarketSansLight';
+    src: url('src/fonts/GmarketSansLight.otf') format('truetype');
 }
 
 @font-face {
-    font-family: 'GmarketSansTTFMedium';
-    src: url('src/fonts/GmarketSansTTFMedium.ttf') format('truetype');
+    font-family: 'GmarketSansMedium';
+    src: url('src/fonts/GmarketSansMedium.otf') format('truetype');
 }
 
 @font-face {
     font-family: 'NanumPen';
     src: url('src/fonts/NanumPen.otf') format('opentype');
-}
-
-@font-face {
-    font-family: 'NanumPen-TTF';
-    src: url('src/fonts/NanumPen.ttf') format('truetype');
 }
 
 @font-face {
@@ -101,7 +96,7 @@ section {
 }
 .txt-title {
     font-size: 3em;
-    font-family: 'GmarketSansTTFBold'; /* Apply the GmarketSansTTFBold font */
+    font-family: 'GmarketSansBold'; /* Apply the GmarketSansBold font */
     color: #000000; /* Change text color to white for better contrast */
     white-space: normal; /* Ensure the text breaks into new lines */
     word-wrap: break-word; /* Ensure words are properly wrapped */
