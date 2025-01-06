@@ -171,15 +171,23 @@ section {
     text-align: left;
 }
 
+#scrolldown{
+    --lottie-player-seeker-track-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* --lottie-player-seeker-thumb-color: #ffcc00; */
+}
+
 #typing-container {
     margin-left: 20px;
 }
 .txt-title {
-    font-size: 3em;
+    font-size: 2.5em;
     font-family: 'GmarketSansBold'; /* Apply the GmarketSansBold font */
     color: #000000; /* Change text color to white for better contrast */
     white-space: normal; /* Ensure the text breaks into new lines */
-    word-wrap: break-word; /* Ensure words are properly wrapped */
+    word-wrap: normal; /* Ensure words are properly wrapped */
     margin: 0; /* No extra margin between the lines */
 }
 
@@ -224,7 +232,8 @@ section {
     z-index: 1; /* Ensure the parallax content is above the background */
 }
 
-#parallax img {
+/* #parallax img, */
+#parallax dotlottie-player { /* Target both images and Lottie player */
     position: absolute;
     width: 100px;
     height: 100px;
@@ -236,9 +245,10 @@ section {
 }
 
 #star2 {
-    top: 60%;
+    top: 10%;
     left: 80%;
 }
+
 
 /* Create 4 large colorful gradient circles */
 .circle {
@@ -453,7 +463,23 @@ section {
 /* Navigation buttons */
 .btn-next,
 .btn-prev {
+    background-color: #333; /* Dark background */
+    color: #fff; /* White icon color */
+    border: none; /* Remove border */
+    cursor: pointer;
+    padding: 15px; /* Adjust padding for a larger clickable area */
     position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    border-radius: 50%; /* Make the button circular */
+    width: 50px; /* Set fixed width */
+    height: 50px; /* Set fixed height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+    /* position: absolute;
     padding: 8px 14px 7px 8px;
     background-color: #333;
     color: white;
@@ -462,7 +488,7 @@ section {
     border-radius: 100%;
     top: 50%;
     transform: translateY(-50%);
-}
+} */
 
 .btn-next {
     right: 18px;
@@ -541,7 +567,7 @@ section {
 
 .btn-about button:hover {
     cursor: pointer;
-    background-color: #c4c8f1;
+    background-color: #068554;
     color: #555;
     transition: 0.5s ease-out;
 }
