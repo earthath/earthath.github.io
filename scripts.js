@@ -24,9 +24,9 @@ backToTop.addEventListener('click', () => {
 });
 
 
-// 타이핑 효과
 const $txt = document.querySelector(".txt-title");
-const content = "안녕하세요 😊\nAI 개발자\niii아티프입니다!";
+const $profileImage = document.querySelector("#profile-image");
+const content = "안녕하세요 😊\nAI개발자 아티프입니다!";
 let contentIndex = 0;
 
 let typing = function () {
@@ -37,11 +37,17 @@ let typing = function () {
         }
         contentIndex++;
         setTimeout(typing, 200); // Delay between each character
+    } else {
+        // After typing is done, move the profile image into place
+        setTimeout(() => {
+            $profileImage.style.bottom = "20px"; // Move the profile image upwards into view
+        }, 500); // Slight delay to allow typing to finish before moving the image
     }
 };
 
 // Run the typing effect once when the page loads
 typing();
+
 
 // Parallax Effect
 window.addEventListener('scroll', () => {
