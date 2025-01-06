@@ -74,10 +74,16 @@ section {
     text-align: center;
 }
 
+/* Container for home section */
 #home {
-    background: #f4f4f4;
     position: relative;
-    height: 100vh;
+    padding: 100px 0;
+    text-align: center;
+    color: white;
+    background: #000; /* Default background */
+    overflow: hidden; /* Prevent circles from spilling over */
+    z-index: 0;
+    height: 100vh; /* Full viewport height */
 }
 
 #intro {
@@ -160,6 +166,127 @@ section {
     left: 80%;
 }
 
+/* Create 4 large colorful gradient circles */
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px); /* Increased blur for blending */
+    z-index: -1; /* Ensure circles stay behind content */
+    pointer-events: none; /* Prevent interference with mouse events */
+    animation: move-randomly 20s ease-in-out infinite;
+}
+
+/* Circle Sizes (larger circles) */
+.circle1 {
+    width: 1200px;
+    height: 1200px;
+    background: linear-gradient(45deg, #ff007f, #6a11cb); /* Pink to Purple */
+    top: 0;
+    left: 0;
+    animation: move-randomly1 20s ease-in-out infinite;
+}
+
+.circle2 {
+    width: 1300px;
+    height: 1300px;
+    background: linear-gradient(45deg, #00c6ff, #0072ff); /* Blue to Light Blue */
+    top: 0;
+    right: 0;
+    animation: move-randomly2 20s ease-in-out infinite;
+}
+
+.circle3 {
+    width: 1400px;
+    height: 1400px;
+    background: linear-gradient(45deg, #ffac41, #ff006d); /* Orange to Red */
+    bottom: 0;
+    left: 0;
+    animation: move-randomly3 20s ease-in-out infinite;
+}
+
+.circle4 {
+    width: 1500px;
+    height: 1500px;
+    background: linear-gradient(45deg, #2af598, #009efd); /* Green to Blue */
+    bottom: 0;
+    right: 0;
+    animation: move-randomly4 20s ease-in-out infinite;
+}
+
+/* Independent random movement for each circle */
+@keyframes move-randomly1 {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(250px, -300px); /* Random movement */
+    }
+    50% {
+        transform: translate(-350px, 500px);
+    }
+    75% {
+        transform: translate(500px, 700px);
+    }
+    100% {
+        transform: translate(-450px, -600px);
+    }
+}
+
+@keyframes move-randomly2 {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(-300px, 200px); /* Random movement */
+    }
+    50% {
+        transform: translate(400px, -350px);
+    }
+    75% {
+        transform: translate(-600px, 600px);
+    }
+    100% {
+        transform: translate(350px, -450px);
+    }
+}
+
+@keyframes move-randomly3 {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(400px, -200px); /* Random movement */
+    }
+    50% {
+        transform: translate(-500px, 300px);
+    }
+    75% {
+        transform: translate(250px, -600px);
+    }
+    100% {
+        transform: translate(-700px, 450px);
+    }
+}
+
+@keyframes move-randomly4 {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(-500px, 400px); /* Random movement */
+    }
+    50% {
+        transform: translate(600px, -500px);
+    }
+    75% {
+        transform: translate(-300px, 700px);
+    }
+    100% {
+        transform: translate(450px, -350px);
+    }
+}
+
+
 #resume-buttons {
     margin-top: 20px;
 }
@@ -223,7 +350,7 @@ section {
     transform: scale(1.05);
 }
 
-.scroll-btn {
+/* .scroll-btn {
     background-color: #333;
     color: #fff;
     border: none;
@@ -241,8 +368,40 @@ section {
 
 #scroll-right {
     right: 0;
+} */
+/* Scroll Buttons */
+.scroll-btn {
+    background-color: #333; /* Dark background */
+    color: #fff; /* White icon color */
+    border: none; /* Remove border */
+    cursor: pointer;
+    padding: 15px; /* Adjust padding for a larger clickable area */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    border-radius: 50%; /* Make the button circular */
+    width: 50px; /* Set fixed width */
+    height: 50px; /* Set fixed height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/* Scroll buttons on the left and right */
+#scroll-left {
+    left: 10px; /* Position left button */
+}
+
+#scroll-right {
+    right: 10px; /* Position right button */
+}
+
+/* Optional: Hover effect */
+.scroll-btn:hover {
+    background-color: #555; /* Darken button on hover */
+    transform: translateY(-50%) scale(1.1); /* Zoom effect */
+}
 /* Pop-up Styles */
 .popup {
     display: none;
