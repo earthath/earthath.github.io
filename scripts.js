@@ -1,7 +1,28 @@
 // 맨 위로 이동 버튼
-let moveToTop = function () {
-    document.body.scrollIntoView({ behavior: "smooth" });
-};
+// let moveToTop = function () {
+//     document.body.scrollIntoView({ behavior: "smooth" });
+// };
+
+// Back-to-top button functionality
+const backToTop = document.getElementById('backToTop');
+
+// Show the icon after scrolling down a bit
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+        backToTop.classList.add('show');
+    } else {
+        backToTop.classList.remove('show');
+    }
+});
+
+// Scroll smoothly to the top when clicked
+backToTop.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
+});
+
 
 // 타이핑 효과
 const $txt = document.querySelector(".txt-title");
@@ -42,15 +63,15 @@ document.querySelectorAll('nav a').forEach(anchor => {
 });
 
 // Resume Buttons
-document.getElementById('resume-kr').addEventListener('click', () => {
-    const userChoice = confirm('Unfortunately, you don\'t have access to the file. Contact me for more information.\n\n불행히도 파일에 접근할 수 없습니다. 자세한 내용은 저에게 문의하십시오.\n\nContact me?');
+document.getElementById('resume-en').addEventListener('click', () => {
+    const userChoice = confirm('Unfortunately, you don\'t have access to the file. Contact me for more information.');
     if (userChoice) {
         window.location.href = '#contact';
     }
 });
 
-document.getElementById('resume-en').addEventListener('click', () => {
-    const userChoice = confirm('Unfortunately, you don\'t have access to the file. Contact me for more information.\n\n불행히도 파일에 접근할 수 없습니다. 자세한 내용은 저에게 문의하십시오.\n\nContact me?');
+document.getElementById('resume-kr').addEventListener('click', () => {
+    const userChoice = confirm('죄송합니다만, 해당 파일에 접근할 수 없습니다. 자세한 정보는 문의해 주세요.');
     if (userChoice) {
         window.location.href = '#contact';
     }

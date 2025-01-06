@@ -180,7 +180,7 @@ section {
 }
 
 #about {
-    background: #fff;
+    background: #ffffff;
 }
 
 #work {
@@ -201,13 +201,22 @@ section {
 }
 
 .project {
-    min-width: 300px;
+    /* min-width: 300px; */
+    width: 300px;
     margin: 0 15px;
     border: 1px solid #ddd;
     background: #fff;
     flex: 0 0 auto;
     cursor: pointer;
     transition: transform 0.3s ease;
+}
+
+/* Style the images */
+.project img {
+    width: 100%; /* Make the image fill the container width */
+    height: 200px; /* Set a consistent height */
+    object-fit: cover; /* Maintain aspect ratio and crop if necessary */
+    border-radius: 8px; /* Optional: rounded corners for images */
 }
 
 .project:hover {
@@ -303,7 +312,7 @@ section {
     background: #fff;
 }
 
-form {
+/* form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -331,9 +340,33 @@ button {
 
 button:hover {
     background: #555;
+} */
+/* Back-to-top Icon */
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 40px; /* Adjust size */
+    color: #333; /* Primary color */
+    cursor: pointer;
+    opacity: 0; /* Hidden by default */
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#backToTop:hover {
+    color: #555; /* Darker shade on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Show the icon when scrolling */
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
 }
 
 footer {
+    font-family: sans-serif;
     background: #333;
     color: #fff;
     text-align: center;
