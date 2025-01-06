@@ -26,7 +26,7 @@ backToTop.addEventListener('click', () => {
 
 // 타이핑 효과
 const $txt = document.querySelector(".txt-title");
-const content = "안녕하세요 😊\n맛있는 페페 개구리입니다.";
+const content = "안녕하세요 😊\nAI 개발자\n아티프입니다!";
 let contentIndex = 0;
 
 let typing = function () {
