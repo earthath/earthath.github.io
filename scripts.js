@@ -1,33 +1,26 @@
-// Typing Effect
-document.addEventListener('DOMContentLoaded', () => {
-    const nameElement = document.getElementById('typing-name');
-    const titleElement = document.getElementById('typing-title');
-    const nameText = nameElement.innerHTML;
-    const titleText = titleElement.innerHTML;
-    nameElement.innerHTML = '';
-    titleElement.innerHTML = '';
-    let i = 0, j = 0;
+// 맨 위로 이동 버튼
+let moveToTop = function () {
+    document.body.scrollIntoView({ behavior: "smooth" });
+};
 
-    function typeWriter1() {
-        if (i < nameText.length) {
-            nameElement.innerHTML += nameText.charAt(i);
-            i++;
-            setTimeout(typeWriter1, 100);
+// 타이핑 효과
+const $txt = document.querySelector(".txt-title");
+const content = "안녕하세요 😊\n페페로 개구리입니다.";
+let contentIndex = 0;
+
+let typing = function () {
+    if (contentIndex < content.length) {
+        $txt.innerHTML += content[contentIndex];
+        if (content[contentIndex] === "\n") {
+            $txt.innerHTML += "<br />";
         }
+        contentIndex++;
+        setTimeout(typing, 200); // Delay between each character
     }
+};
 
-    function typeWriter2() {
-        if (j < titleText.length) {
-            titleElement.innerHTML += titleText.charAt(j);
-            j++;
-            setTimeout(typeWriter2, 100);
-        }
-    }
-
-    // Start both typewriter functions simultaneously
-    typeWriter1();
-    typeWriter2();
-});
+// Run the typing effect once when the page loads
+typing();
 
 // Parallax Effect
 window.addEventListener('scroll', () => {

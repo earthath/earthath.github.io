@@ -1,5 +1,51 @@
+@font-face {
+    font-family: 'Eulyoo1945-Regular';
+    src: url('src/fonts/Eulyoo1945-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Eulyoo1945-SemiBold';
+    src: url('src/fonts/Eulyoo1945-SemiBold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'GmarketSansTTFBold';
+    src: url('src/fonts/GmarketSansTTFBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'GmarketSansTTFLight';
+    src: url('src/fonts/GmarketSansTTFLight.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'GmarketSansTTFMedium';
+    src: url('src/fonts/GmarketSansTTFMedium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'NanumPen';
+    src: url('src/fonts/NanumPen.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'NanumPen-TTF';
+    src: url('src/fonts/NanumPen.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'SportingGrotesque-Bold';
+    src: url('src/fonts/SportingGrotesque-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'SportingGrotesque-Regular';
+    src: url('src/fonts/SportingGrotesque-Regular.otf') format('opentype');
+}
+
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: SportingGrotesque-Regular, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -53,12 +99,12 @@ section {
 #typing-container {
     margin-left: 20px;
 }
-
-#typing-name,
-#typing-title {
-    font-size: 2em;
-    white-space: pre-line; /* This will ensure the text breaks into new lines */
-    word-wrap: break-word; /* Ensures words are properly wrapped */
+.txt-title {
+    font-size: 3em;
+    font-family: 'GmarketSansTTFBold'; /* Apply the GmarketSansTTFBold font */
+    color: #000000; /* Change text color to white for better contrast */
+    white-space: normal; /* Ensure the text breaks into new lines */
+    word-wrap: break-word; /* Ensure words are properly wrapped */
     margin: 0; /* No extra margin between the lines */
 }
 
@@ -69,8 +115,7 @@ section {
         text-align: center;
     }
 
-    #typing-name,
-    #typing-title {
+    .txt-title {
         font-size: 1.5em; /* Adjust font size for smaller screens */
     }
 }
@@ -101,6 +146,7 @@ section {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    z-index: 1; /* Ensure the parallax content is above the background */
 }
 
 #parallax img {
@@ -230,6 +276,32 @@ section {
     text-decoration: none;
     cursor: pointer;
 }
+
+
+/* Contact Links */
+.contact-links {
+    display: flex;
+    justify-content: center; /* Center the icons horizontally */
+    margin-bottom: 20px;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    margin: 0 10px; /* Add space between the icons */
+}
+
+.contact-link ion-icon {
+    font-size: 1.8em; /* Increase the size of the icons by 20% */
+}
+
+.contact-link:hover {
+    color: #555;
+}
+
 
 
 #contact {
