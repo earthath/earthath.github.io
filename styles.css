@@ -46,7 +46,7 @@ body {
     box-sizing: border-box;
 }
 
-header {
+/* header {
     background: #333;
     color: #fff;
     padding: 10px 0;
@@ -67,7 +67,81 @@ nav ul li {
 nav ul li a {
     color: #fff;
     text-decoration: none;
+} */
+
+/* Navigation Bar Styles */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    z-index: 10; /* Ensure it stays on top of content */
+    padding: 10px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
+
+/* Navigation Menu */
+nav ul {
+    display: flex;
+    justify-content: center; /* Spread out the items across the width */
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Ensure the items stretch across the entire width */
+}
+
+nav ul li {
+    margin: 0 10px; /* Adjust spacing between items */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px; /* Default font size */
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* nav ul li a:hover {
+    border-radius: 8px;
+    background-color: #555; 
+    color: white;
+} */
+
+/* Space after the fixed header */
+#home {
+    padding-top: 80px; /* Ensure content isn't hidden behind the nav */
+}
+
+/* Mobile Menu */
+@media screen and (max-width: 768px) {
+    nav ul {
+        display: flex; /* Keep the menu horizontal */
+        justify-content: normal; /* Evenly space the items across the screen */
+        width: 100%; /* Ensure it takes up the full width */
+        font-size: 12px; /* Smaller font size for mobile */
+        padding: 5px 0; /* Reduced padding for mobile */
+    }
+
+    nav ul li {
+        margin: 0 px; /* Adjust margin for mobile */
+    }
+
+    nav ul li a {
+        font-size: 14px; /* Smaller font size for links on mobile */
+        padding: 5px 5px; /* Adjust padding for mobile */
+    }
+}
+
+/* Space after the fixed header */
+#home {
+    padding-top: 80px; /* Ensure content isn't hidden behind the nav */
+}
+
+
 
 section {
     padding: 50px;
@@ -308,6 +382,224 @@ section {
 
 #about {
     background: #ffffff;
+}
+
+/* about섹션 */
+.section-about {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center vertically */
+    flex-direction: column;
+    background-color: white;
+    padding: 80px 20px 140px 20px; /* Adjust padding */
+    margin: 0 0 140px 0;
+    min-height: 100vh; /* Ensure the section takes full height */
+}
+
+/* Section heading */
+.section-about h2 {
+    margin: 0 auto 50px; /* Reduce bottom margin */
+    display: inline-block;
+    font-family: "GmarketSansBold";
+    color: #333;
+    font-size: 40px;
+    text-align: center; /* Center align the heading */
+}
+
+/* Content container */
+.cont-about {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin: 0 auto;
+    flex-wrap: wrap; /* Allow content to wrap on smaller screens */
+}
+
+/* Slide container */
+.slide-container {
+    flex: 1; /* Allow equal space */
+    display: flex;
+    justify-content: center;
+    max-width: 438px;
+    margin: 0 20px; /* Add some margin */
+}
+
+/* Slide album */
+.slide-album {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Slide images */
+.slide-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-images img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensure images cover the area */
+    border-radius: 20px;
+}
+
+/* Navigation buttons */
+.btn-next,
+.btn-prev {
+    position: absolute;
+    padding: 8px 14px 7px 8px;
+    background-color: #333;
+    color: white;
+    border: none;
+    font-size: 20px;
+    border-radius: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.btn-next {
+    right: 18px;
+}
+
+.btn-prev {
+    left: 18px;
+}
+
+.btn-next:disabled,
+.btn-prev:disabled {
+    background-color: lightgray;
+}
+
+.btn-next:hover,
+.btn-prev:hover {
+    cursor: pointer;
+    background-color: white;
+    color: #555;
+    transition: 0.7s ease-out;
+}
+
+/* Info section */
+.info-about {
+    flex: 1; /* Allow equal space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 438px;
+    margin: 0 20px; /* Add some margin */
+}
+
+/* About text */
+.txt-about {
+    width: 100%;
+    margin-top: 55px;
+}
+
+.txt-about dt {
+    display: inline-block;
+    width: 110px;
+    font-size: 22px;
+    font-family: "GmarketSansBold";
+    color: #068554;
+    text-align: right; /* Align dt elements to the right */
+    margin-bottom: 17px;
+}
+
+.txt-about dd {
+    display: inline-block;
+    font-family: "GmarketSansMedium";
+    font-size: 22px;
+    text-align: left; /* Align dd elements to the left */
+    margin-left: 0; /* Reset the default margin */
+}
+
+/* Button section */
+.btn-about {
+    margin: 45px 0 0 20px;
+}
+
+.btn-about button {
+    width: 100px;
+    height: 100px;
+    margin: 0 45px 0 0;
+    border-radius: 100%;
+    background-color: #333;
+    border: none;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-about button:hover {
+    cursor: pointer;
+    background-color: #c4c8f1;
+    color: #555;
+    transition: 0.5s ease-out;
+}
+
+/* Image inside button */
+.btn-about button img {
+    width: 43px;
+    margin: 10px auto;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    /* Section padding */
+    .section-about {
+        padding: 40px 15px 80px 15px; /* Adjust for smaller screens */
+    }
+
+    /* Heading */
+    .section-about h2 {
+        font-size: 30px; /* Adjust heading size */
+        margin-bottom: 30px; /* Adjust spacing */
+    }
+
+    /* Content container */
+    .cont-about {
+        flex-direction: column; /* Stack columns vertically on small screens */
+    }
+
+    /* Slide container */
+    .slide-container {
+        width: 100%; /* Make slide container take full width */
+        max-width: 500px; /* Optional, for better scaling */
+        margin: 0 auto 30px; /* Add margin at the bottom */
+    }
+
+    /* Slide album */
+    .slide-album {
+        width: 100%;
+        height: auto;
+        padding-bottom: 25%; /* Maintain aspect ratio */
+    }
+
+    /* Info section */
+    .info-about {
+        width: 100%;
+        text-align: center; /* Center info text */
+        align-items: center; /* Center content horizontally */
+    }
+
+    /* Text section */
+    .txt-about {
+        text-align: justify; /* Center the text */
+    }
+
+    .txt-about dt,
+    .txt-about dd {
+        font-size: 18px; /* Smaller font size */
+    }
 }
 
 #work {
