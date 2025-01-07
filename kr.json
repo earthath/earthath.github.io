@@ -1,0 +1,49 @@
+{
+"home": {
+    "intro": "저의 작업과 프로젝트를 발견하세요.",
+    "profileAlt": "프로필 사진"
+},
+"about": {
+    "heading": "소개",
+    "description": "저에 대한 간단한 소개입니다.",
+    "resumeKr": "이력서 다운로드 (한국어)",
+    "resumeEn": "이력서 다운로드 (영어)",
+    "details": {
+    "name": "이름",
+    "birthdate": "생년월일",
+    "residence": "거주지",
+    "school": "학교",
+    "major": "전공"
+    },
+    "values": {
+    "name": "솜땀 아티프",
+    "birthdate": "1998.02.22",
+    "residence": "경기도 광주시",
+    "school": "선문대학교",
+    "major": "컴퓨터공학과 (석사과정)"
+    },
+    "modal": {
+    "hobbyTitle": "취미",
+    "hobbyDesc": "다이어리 꾸미기",
+    "hobbyText": "취미는 다이어리꾸미기예요🎀 빈 종이를 저만의 취향으로 가득 채우고, 하루를 되돌아보며 일기를 쓰는 것을 좋아해요✍🏻.",
+    "personalityTitle": "성격",
+    "personalityDesc": "차분하고 꼼꼼해요",
+    "personalityText": "계획을 세우고 실천하는 것을 좋아해요📝. 그리고 책임감이 강해 한 번 맡은 일은 끝까지 해낸다는 장점을 가지고 있어요💪🏻."
+    }
+},
+"work": {
+    "heading": "작업물",
+    "projectTitle1": "프로젝트 제목 1",
+    "projectDesc1": "프로젝트 설명 1",
+    "projectTitle2": "프로젝트 제목 2",
+    "projectDesc2": "프로젝트 설명 2"
+},
+"contact": {
+    "heading": "연락하기",
+    "emailAlt": "이메일로 연락",
+    "linkedinAlt": "LinkedIn 프로필"
+},
+"footer": {
+    "copyright": "&copy; 2025 솜땀 아티프. 모든 권리 보유."
+}
+}

@@ -38,6 +38,11 @@
     src: url('src/fonts/SportingGrotesque-Regular.otf') format('opentype');
 }
 
+@font-face {
+    font-family: 'Inter-Regular';
+    src: url('src/fonts/Inter-Regular.otf') format('opentype');
+}
+
 
 body {
     font-family: SportingGrotesque-Regular, sans-serif;
@@ -79,6 +84,118 @@ header {
     z-index: 10; /* Ensure it stays on top of content */
     padding: 10px 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Main Menu Styling */
+/* header {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+} */
+
+nav.main-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 0 auto;
+    width: fit-content;
+    padding: 5px 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+}
+
+nav.main-menu ul.menu-links {
+    display: flex;
+    list-style-type: none;
+}
+
+nav.main-menu ul.menu-links li {
+    margin: 0 5px;
+}
+
+nav.main-menu ul.menu-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    border-radius: 8px;
+    /* border: 2px solid white; White border added */
+    transition: all 0.3s ease;
+    font-family: Inter-Regular;
+}
+
+nav.main-menu ul.menu-links li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.7); /* Slightly change border color on hover */
+    border-radius: 15px;
+    padding: 5px 10px;
+
+    /* transform: scale(1.1); */
+}
+
+
+/* Language Switcher */
+/* .language-switcher {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+    z-index: 11;
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.lang-btn.active,
+.lang-btn:hover {
+    opacity: 1;
+} */
+
+/* Mobile View */
+@media screen and (max-width: 768px) {
+    nav.main-menu {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 2px;
+    }
+
+    nav.main-menu ul.menu-links li a span {
+        display: none;
+    }
+
+    /* .language-switcher {
+        bottom: 20px;
+        right: 10px;
+        top: auto;
+    } */
 }
 
 /* Navigation Menu */

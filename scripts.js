@@ -177,3 +177,20 @@ function modal(num) {
 for (let i = 0; i < $btnOpen.length; i++) {
   modal(i);
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Get all menu links
+    const menuLinks = document.querySelectorAll('nav.main-menu ul.menu-links li a');
+    
+    // Get the current page's URL
+    const currentPage = window.location.pathname; // You can modify this if needed (e.g., for query parameters)
+    
+    // Loop through all menu links and add 'current-page' to the active one
+    menuLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+            link.classList.add('current-page'); // Add the 'current-page' class to the active link
+        } else {
+            link.classList.remove('current-page'); // Remove it from others
+        }
+    });
+});
