@@ -194,3 +194,24 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+function sendEmail(event) {
+    event.preventDefault();  // Prevent form from submitting the usual way
+    
+    // Get form data
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+    
+    // Construct the mailto link with subject and body
+    const subject = "Message from " + name;
+    const body = "Name: " + name + "%0D%0A" + 
+                 "Email: " + email + "%0D%0A" + 
+                 "Message: " + message;
+
+    // Construct mailto URL
+    const mailtoLink = "mailto:your-email@example.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    
+    // Open the mail client with pre-filled details
+    window.location.href = mailtoLink;
+}

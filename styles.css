@@ -95,13 +95,13 @@ header {
 }
 
 /* Main Menu Styling */
-header {
+/* header {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     z-index: 10;
-}
+} */
 
 nav.main-menu {
     display: flex;
@@ -754,15 +754,20 @@ section {
 /* Modal */
 .modal {
   position: relative;
-  background-color: #e0e3fd;
-  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5); /* Translucent background */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
   text-align: center;
-  width: 80%; /* Adjust width for smaller screen sizes */
-  max-width: 400px; /* Limit max width to make it smaller */
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
-  padding: 15px 20px; /* Add padding but reduce the overall space */
+  width: 80%; /* Allow the modal to fit its content */
+  max-width: 400px; /* Limit the max width but let it grow based on content */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  /* box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5); */
+  padding: 15px 20px; /* Add padding but let the box adjust to content size */
   overflow: hidden; /* Ensure content does not overflow the modal */
+  backdrop-filter: blur(10px); /* Apply blur effect to the content behind the modal */
+  /* margin: 0 auto; Center the modal horizontally */
 }
+
 
 /* Close Button */
 .btn-close {
@@ -771,25 +776,28 @@ section {
   right: 10px;
   background-color: transparent;
   border: none;
-  color: #6a75ca;
+  color: #ffffff;
   font-size: 25px;
   cursor: pointer;
 }
 
 .btn-close:hover {
-  color: white;
+  color: #068554;
 }
 
 /* Title Styling */
 .modal h3 {
   margin: 20px 0 7px 0;
   font-size: 22px; /* Reduce title font size */
-  color: #6a75ca;
-  font-family: "GmarketBold";
+  color: #068554;
+  font-family: "GmarketSansBold";
 }
-
+/* Text Styling under heading*/
 .modal h4 {
-  font-size: 18px; /* Reduce subtitle font size */
+  font-size: 32px; /* Reduce subtitle font size */
+  font-family: "NanumPen";
+  font-weight: 300;
+  color: #fff;
 }
 
 /* Image Styling */
@@ -807,7 +815,9 @@ section {
   width: 90%; /* Ensure text fits properly */
   font-size: 15px; /* Slightly reduce paragraph font size */
   line-height: 22px; /* Adjust line-height for better readability */
-  overflow-y: auto; /* Allow scrolling if needed */
+  overflow-y: visible; /* Allow scrolling if needed */
+  font-family: "GmarketSansLight";
+  color: #fff;
 }
 
 /* Responsive Design for Mobile */
@@ -1063,9 +1073,9 @@ section {
 
 form label {
     margin-top: 10px;
-}
-
-form input, form textarea {
+} */
+/* --------------------------------------- */
+/* form input, form textarea {
     padding: 10px;
     margin-top: 5px;
     width: 100%;
@@ -1084,6 +1094,89 @@ button {
 button:hover {
     background: #555;
 } */
+/* General form styling */
+/* General form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    font-family: "GmarketSansLight";
+
+}
+
+/* Input and Textarea Styling */
+form input, form textarea {
+    background-color: #181818; /* Light gray background */
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 20px; /* Rounded corners */
+    padding: 20px 15px; /* Equal padding for top, bottom, left, and right */
+    width: 100%; /* Full width */
+    box-sizing: border-box; /* Include padding in width calculation */
+    margin-bottom: 15px; /* Space between fields */
+    font-size: 14px; /* Font size */
+    color: #fff; /* Default text color */
+    position: relative; /* To position the label */
+    transition: background-color 0.3s ease; /* Smooth transition */
+    /* height: 60px; Fixed height for input */
+}
+
+/* Label styling */
+form label {
+    position: absolute;
+    left: 20px; /* Left padding inside input box */
+    top: 50%; /* Vertically center the label initially */
+    transform: translateY(-50%); /* Center label vertically */
+    font-size: 14px;
+    color: #666; /* Dark gray color for label */
+    transition: all 0.3s ease; /* Smooth transition */
+    pointer-events: none; /* Prevent the label from being clickable */
+}
+
+/* Input fields focus state */
+form input:focus, form textarea:focus {
+    background-color: #343434; /* Brighter gray background on focus */
+    border-color: #fff; /* Border color when focused */
+    outline: none; /* Remove default outline */
+}
+
+/* Label when input is focused or has value */
+form input:focus + label, 
+form input:not(:placeholder-shown) + label,
+form textarea:focus + label,
+form textarea:not(:placeholder-shown) + label {
+    top: 10px; /* Move label to the top of the box */
+    left: 15px; /* Align label with the left side of the input */
+    font-size: 10px; /* Shrink the label */
+    color: #fff; /* Change color of label when focused */
+    transform: translateY(0); /* Remove vertical translation to keep label at top */
+}
+
+/* Styling for the button */
+form button {
+    font-family: "GmarketSansMedium";
+    background-color: black; /* Black background */
+    color: white; /* White text */
+    border: 1px solid white; /* 1px white border */
+    border-radius: 20px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for the button */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    /* width: 100%; Full width */
+    box-sizing: border-box; /* Include padding in width calculation */
+    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition on hover */
+}
+
+/* Button hover effect */
+form button:hover {
+    background-color: #333; /* Darken the background color on hover */
+    border-color: #ccc; /* Change border color on hover */
+}
+
+
+
+
 /* Back-to-top Icon */
 #backToTop {
     position: fixed;

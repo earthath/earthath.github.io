@@ -172,6 +172,30 @@
                 <ion-icon name="logo-linkedin"></ion-icon>
             </a>
         </div>
+        <h3>Send me direct email</h3>
+        <form onsubmit="sendEmail(event)">
+            <div style="position: relative;">
+                <input type="text" id="name" name="name" placeholder=" " required>
+                <label for="name">Name</label>
+            </div>
+
+            <div style="position: relative;">
+                <input type="email" id="email" name="email" placeholder=" " required>
+                <label for="email">Email</label>
+            </div>
+
+            <div style="position: relative;">
+                <textarea id="message" name="message" placeholder=" " required></textarea>
+                <label for="message">Message</label>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        </form>
+
+        </form>
+
         <!-- <form>
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
@@ -225,7 +249,7 @@
             맡은 일은 끝까지 해낸다는 장점을 가지고 있어요💪🏻
           </p>
         </div>
-      </div>
+    </div>
       
 
     <!-- <button onclick="moveToTop()">Top</button> -->
