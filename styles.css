@@ -512,8 +512,30 @@ section {
     }
 }
 
-
 #resume-buttons {
+    margin-top: 20px;
+}
+
+#resume-buttons button {
+    font-family: "GmarketSansMedium";
+    background-color: black; /* Black background */
+    color: white; /* White text */
+    border: 1px solid white; /* 1px white border */
+    border-radius: 20px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for the button */
+    font-size: 12px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    /* width: 100%; Full width */
+    box-sizing: border-box; /* Include padding in width calculation */
+    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition on hover */
+}
+
+/* Button hover effect */
+#resume-buttons button:hover {
+    background-color: #333; /* Darken the background color on hover */
+    border-color: #ccc; /* Change border color on hover */
+}
+/* #resume-buttons {
     margin-top: 20px;
 }
 
@@ -530,7 +552,7 @@ section {
 
 #resume-buttons button:hover {
     background: #555;
-}
+} */
 
 #about {
     background: #ffffff;
@@ -558,49 +580,32 @@ section {
     text-align: center; /* Center align the heading */
 }
 
-/* Content container */
+/* ................................ */
 .cont-about {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
     margin: 0 auto;
-    flex-wrap: wrap; /* Allow content to wrap on smaller screens */
 }
-
-/* Slide container */
 .slide-container {
-    flex: 1; /* Allow equal space */
-    display: flex;
-    justify-content: center;
-    max-width: 438px;
-    margin: 0 20px; /* Add some margin */
+    width: 438px;
+    margin: 0 auto;
 }
-
-/* Slide album */
 .slide-album {
     position: relative;
-    width: 100%;
-    height: auto;
+    width: 438px;
+    height: 438px;
     overflow: hidden;
     border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
-
-/* Slide images */
 .slide-images {
+    position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 438px;
 }
-
 .slide-images img {
-    width: 100%;
-    height: auto;
-    object-fit: cover; /* Ensure images cover the area */
-    border-radius: 20px;
+    width: 438px;
+    height: 438px;
 }
+/* ................................ */
 
 /* Navigation buttons */
 .btn-next,

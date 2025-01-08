@@ -210,7 +210,7 @@ function sendEmail(event) {
                  "Message: " + message;
 
     // Construct mailto URL
-    const mailtoLink = "mailto:your-email@example.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    const mailtoLink = "mailto:athip.som@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
     
     // Open the mail client with pre-filled details
     window.location.href = mailtoLink;
