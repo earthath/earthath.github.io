@@ -44,35 +44,17 @@
 }
 
 
+/* General Styling */
 body {
     font-family: SportingGrotesque-Regular, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* scroll-behavior: smooth; */
+    background-color: black;
+    color: white;
+    overflow-x: hidden;
 }
-
-/* header {
-    background: #333;
-    color: #fff;
-    padding: 10px 0;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-} */
 
 /* Navigation Bar Styles */
 header {
@@ -86,41 +68,31 @@ header {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0);
 }
 
-
-/* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Main Menu Styling */
-/* header {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-} */
 
+/* Navigation Menu */
 nav.main-menu {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(0, 0, 0, 0.5); /* Transparent white background */
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.3);
     margin: 0 auto;
     width: fit-content;
     padding: 5px 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    position: absolute;
-    backdrop-filter: blur(10px); /* Apply blur effect to the background */
-    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
 }
-
 
 nav.main-menu ul.menu-links {
     display: flex;
@@ -140,51 +112,23 @@ nav.main-menu ul.menu-links li a {
     gap: 10px;
     padding: 5px;
     border-radius: 8px;
-    /* border: 2px solid white; White border added */
     transition: all 0.3s ease;
     font-family: Inter-Regular;
 }
 
 nav.main-menu ul.menu-links li a:hover {
     background-color: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.7); /* Slightly change border color on hover */
+    border-color: rgba(255, 255, 255, 0.7);
     border-radius: 15px;
     padding: 5px 10px;
-
-    /* transform: scale(1.1); */
 }
 
-
-/* Language Switcher */
-/* .language-switcher {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    display: flex;
-    gap: 10px;
-    z-index: 11;
-}
-
-.lang-btn {
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    color: white;
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
-}
-
-.lang-btn.active,
-.lang-btn:hover {
-    opacity: 1;
-} */
 
 /* Mobile View */
 @media screen and (max-width: 768px) {
     nav.main-menu {
         position: fixed;
-        bottom: 20px;
+        bottom: 50px;
         left: 50%;
         transform: translateX(-50%);
         padding: 2px;
@@ -200,36 +144,6 @@ nav.main-menu ul.menu-links li a:hover {
         top: auto;
     } */
 }
-
-/* Navigation Menu */
-/* nav ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 100%; 
-}
-
-nav ul li {
-    margin: 0 10px; 
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-} */
-
-/* nav ul li a:hover {
-    border-radius: 8px;
-    background-color: #555; 
-    color: white;
-} */
 
 /* Space after the fixed header */
 #home {
@@ -256,39 +170,19 @@ nav ul li a {
     }
 }
 
-/* Space after the fixed header */
-#home {
-    padding-top: 80px; /* Ensure content isn't hidden behind the nav */
-}
 
 
-
-section {
-    padding: 50px;
-    text-align: center;
-}
-
-/* Container for home section */
+/* Landing Section with Scroll Effect */
 #home {
     position: relative;
     padding: 100px 0;
     text-align: center;
+    align-items: center;
     color: white;
     background: #000; /* Default background */
     overflow: hidden; /* Prevent circles from spilling over */
     z-index: 0;
-    height: 100vh; /* Full viewport height */
-}
-
-#intro {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    align-items: center;
-    flex-direction: row; /* Align items in a row */
-    text-align: left;
+    height: 300vh; /* Extended height for long scroll effect */
 }
 
 #scrolldown{
@@ -297,55 +191,6 @@ section {
     justify-content: center;
     align-items: center;
     /* --lottie-player-seeker-thumb-color: #ffcc00; */
-}
-
-#typing-container {
-    margin-left: 20px;
-}
-.txt-title {
-    font-size: 3em;
-    font-family: 'GmarketSansBold'; /* Apply the GmarketSansBold font */
-    color: #000000; /* Change text color to white for better contrast */
-    white-space: normal; /* Ensure the text breaks into new lines */
-    word-wrap: normal; /* Ensure words are properly wrapped */
-    margin: 0; /* No extra margin between the lines */
-}
-
-/* Responsive adjustments */
-
-@media (max-width: 768px) {
-    #intro {
-        flex-direction: column; /* Stack items in a column for mobile view */
-        text-align: center;
-        gap: 10px;
-    }
-
-    .txt-title {
-        font-size: 1.5em; /* Adjust font size for smaller screens */
-    }
-
-    img {
-        margin-bottom: 10px; /* Adds space below the image */
-    }
-}
-
-#profile-pic {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-    object-fit: cover;
-}
-
-@media (max-width: 600px) {
-    #profile-pic {
-        width: 50vw;
-        height: 50vw;
-    }
-}
-
-#profile-pic:hover {
-    transform: scale(1.1);
 }
 
 #parallax {
@@ -392,17 +237,16 @@ section {
     }
 }
 
-/* Create 4 large colorful gradient circles */
+/* 4-Circle Background */
 .circle {
     position: absolute;
     border-radius: 50%;
     filter: blur(100px); /* Increased blur for blending */
-    z-index: -1; /* Ensure circles stay behind content */
-    pointer-events: none; /* Prevent interference with mouse events */
+    z-index: -1;
+    pointer-events: none;
     animation: move-randomly 20s ease-in-out infinite;
 }
 
-/* Circle Sizes (larger circles) */
 .circle1 {
     width: 1200px;
     height: 1200px;
@@ -438,6 +282,132 @@ section {
     right: 0;
     animation: move-randomly4 20s ease-in-out infinite;
 }
+
+/* Landing Text Animations */
+.fade-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    
+}
+
+.fade-text-1 h1 {
+    font-size: 80px;
+    font-family: "GmarketSansBold";
+
+}
+
+.fade-text-1 h2 {
+    font-family: "GmarketSansMedium";
+}
+.fade-text-2 h1 {
+    font-size: 50px;
+    font-family: "GmarketSansMedium";
+
+}
+
+.fade-text-2 h2 {
+    font-family: "GmarketSansMedium";
+}
+
+/* Image and Button */
+.fade-content {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange items vertically */
+    /* align-items: center; Center align the items */
+    opacity: 0;
+    transition: opacity 1s ease;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.fade-content img {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 50px; /* Space between image and button */
+}
+
+.fade-content .more-info-btn {
+    padding: 10px 20px;
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 20px; /* Rounded corners */
+    box-sizing: border-box; /* Include padding in width calculation */
+    font-family: "GmarketSansMedium";
+    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition on hover */
+}
+
+.fade-content .more-info-btn:hover {
+    background-color: white;
+    color: black;
+}
+
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .fade-text-1 h1, .fade-text-2 h1 {
+        font-size: 60px; /* Reduce font size on smaller screens */
+    }
+
+    .fade-text-1 h2, .fade-text-2 h2 {
+        font-size: 18px; /* Adjust font size for smaller text */
+    }
+
+    .fade-content {
+        top: 70%; /* Adjust the position of the image and button for smaller screens */
+        padding: 0 20px; /* Add padding for better spacing */
+    }
+
+    .fade-content img {
+        max-width: 120px; /* Reduce image size for mobile */
+        margin-bottom: 30px; /* Adjust spacing between image and button */
+    }
+
+    .fade-content .more-info-btn {
+        font-size: 14px; /* Make the button text smaller */
+        padding: 8px 16px; /* Adjust padding to fit mobile screen */
+    }
+}
+
+/* Extra small screens (Mobile portrait) */
+@media screen and (max-width: 480px) {
+    .fade-text-1 h1, .fade-text-2 h1 {
+        font-size: 50px; /* Further reduce font size */
+    }
+
+    .fade-text-1 h2, .fade-text-2 h2 {
+        font-size: 16px; /* Adjust for smaller screens */
+    }
+
+    .fade-content {
+        top: 60%; /* Adjust vertical position more */
+        padding: 0 15px; /* Reduce padding */
+    }
+
+    .fade-content img {
+        max-width: 100px; /* Further reduce image size */
+        margin-bottom: 20px; /* Less space between image and button */
+    }
+
+    .fade-content .more-info-btn {
+        font-size: 12px; /* Even smaller button text */
+        padding: 6px 12px; /* Smaller padding */
+    }
+}
+
 
 /* Independent random movement for each circle */
 @keyframes move-randomly1 {
@@ -553,6 +523,9 @@ section {
 #resume-buttons button:hover {
     background: #555;
 } */
+#about {
+    visibility: hidden;
+}
 
 #about {
     background: #ffffff;
@@ -909,8 +882,10 @@ section {
     }
 }
 
+
 #work {
     background: #f4f4f4;
+    visibility: hidden;
 }
 
 .projects {
@@ -1108,6 +1083,7 @@ form {
     width: 100%;
     position: relative;
     font-family: "GmarketSansLight";
+    visibility: hidden;
 
 }
 

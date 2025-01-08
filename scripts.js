@@ -24,29 +24,29 @@ backToTop.addEventListener('click', () => {
 });
 
 
-const $txt = document.querySelector(".txt-title");
-const $profileImage = document.querySelector("#profile-image");
-const content = "안녕하세요 😊\nAI개발자 아티프입니다!";
-let contentIndex = 0;
+// const $txt = document.querySelector(".txt-title");
+// const $profileImage = document.querySelector("#profile-image");
+// const content = "안녕하세요 😊\nAI개발자 아티프입니다!";
+// let contentIndex = 0;
 
-let typing = function () {
-    if (contentIndex < content.length) {
-        $txt.innerHTML += content[contentIndex];
-        if (content[contentIndex] === "\n") {
-            $txt.innerHTML += "<br />";
-        }
-        contentIndex++;
-        setTimeout(typing, 200); // Delay between each character
-    } else {
-        // After typing is done, move the profile image into place
-        setTimeout(() => {
-            $profileImage.style.bottom = "20px"; // Move the profile image upwards into view
-        }, 500); // Slight delay to allow typing to finish before moving the image
-    }
-};
+// let typing = function () {
+//     if (contentIndex < content.length) {
+//         $txt.innerHTML += content[contentIndex];
+//         if (content[contentIndex] === "\n") {
+//             $txt.innerHTML += "<br />";
+//         }
+//         contentIndex++;
+//         setTimeout(typing, 200); // Delay between each character
+//     } else {
+//         // After typing is done, move the profile image into place
+//         setTimeout(() => {
+//             $profileImage.style.bottom = "20px"; // Move the profile image upwards into view
+//         }, 500); // Slight delay to allow typing to finish before moving the image
+//     }
+// };
 
-// Run the typing effect once when the page loads
-typing();
+// // Run the typing effect once when the page loads
+// typing();
 
 
 // Parallax Effect
@@ -70,7 +70,7 @@ document.querySelectorAll('nav a').forEach(anchor => {
 
 // Resume Buttons
 document.getElementById('resume-en').addEventListener('click', () => {
-    const userChoice = confirm('Unfortunately, you don\'t have access to the file. Contact me for more information.');
+    const userChoice = confirm('Unfortunately, you don\'t have access to the file. Contact for more information.');
     if (userChoice) {
         window.location.href = '#contact';
     }
@@ -82,6 +82,48 @@ document.getElementById('resume-kr').addEventListener('click', () => {
         window.location.href = '#contact';
     }
 });
+
+
+
+// document.getElementById('resume-en').addEventListener('click', () => {
+//     const userChoice = confirm("Unfortunately, you don't have access to the file. Contact me for more information. Or click 'OK' to enter the password.");
+//     if (userChoice) {
+//         const userPassword = prompt('Enter the password to access the file:');
+//         if (userPassword === '123456') {
+//             // alert('Access granted! The file will now download.');
+//             // Create a link element and trigger the download
+//             const link = document.createElement('a');
+//             link.href = '1.jpg'; // Update with the actual path to your file
+//             link.download = '1.jpg'; // Suggested filename for the download
+//             document.body.appendChild(link);
+//             link.click();
+//             document.body.removeChild(link);
+//         } else {
+//             alert('Incorrect password. Please try again or contact me for more information.');
+//         }
+//     }
+// });
+
+// document.getElementById('resume-kr').addEventListener('click', () => {
+//     const userChoice = confirm('죄송합니다만, 해당 파일에 접근할 수 없습니다. 자세한 정보는 문의해 주세요. 또는 "확인"을 클릭하여 비밀번호를 입력하세요.');
+//     if (userChoice) {
+//         const userPassword = prompt('비밀번호를 입력하여 파일에 접근하세요:');
+//         if (userPassword === '123456') {
+//             // alert('접근 허가되었습니다! 파일이 다운로드됩니다.');
+//             // Create a link element and trigger the download
+//             const link = document.createElement('a');
+//             link.href = '1.jpg'; // Update with the actual path to your file
+//             link.download = '1.jpg'; // Suggested filename for the download
+//             document.body.appendChild(link);
+//             link.click();
+//             document.body.removeChild(link);
+//         } else {
+//             alert('비밀번호가 잘못되었습니다. 다시 시도하거나 문의해 주세요.');
+//         }
+//     }
+// });
+
+
 
 // Scrolling buttons functionality
 document.getElementById('scroll-left').addEventListener('click', () => {
@@ -214,4 +256,144 @@ function sendEmail(event) {
     
     // Open the mail client with pre-filled details
     window.location.href = mailtoLink;
+
+    
 }
+
+window.addEventListener('scroll', function () {
+    const fadeText1 = document.querySelector('.fade-text-1');
+    const fadeText2 = document.querySelector('.fade-text-2');
+    const fadeContent = document.querySelector('.fade-content');
+    const scrollY = window.scrollY;
+    
+    // Text1 Animation (Zoom, Grow, Fade Out)
+    if (scrollY < 500) {
+        fadeText1.style.opacity = 1 - scrollY / 500; // Fade out
+        fadeText1.style.zoom = 1 + scrollY / 1000; // Zoom (grow)
+    } else if (scrollY >= 500 && scrollY < 1000) {
+        fadeText1.style.opacity = 0; // Continue fading out
+        fadeText1.style.zoom = 2 - (scrollY - 500) / 1000; // Shrink back to original size smoothly
+    } else {
+        fadeText1.style.opacity = 0; // Fully faded out
+        fadeText1.style.zoom = 1; // Reset zoom to original size
+    }
+
+    // Text2 Animation (Zoom, Grow, Fade In)
+    if (scrollY >= 500 && scrollY < 1000) {
+        fadeText2.style.opacity = (scrollY - 500) / 500; // Fade in
+        fadeText2.style.zoom = 1 + (scrollY - 500) / 1000; // Zoom (grow)
+    } else if (scrollY >= 1000 && scrollY < 1500) {
+        fadeText2.style.opacity = 1; // Fully visible
+        fadeText2.style.zoom = 2 - (scrollY - 1000) / 1000; // Shrink back to original size smoothly
+    } else {
+        fadeText2.style.opacity = 0; // Fully faded out
+        fadeText2.style.zoom = 1; // Reset zoom to original size
+    }
+
+    // Image and Button Animation
+    if (scrollY >= 1000 && scrollY < 1500) {
+        fadeContent.style.opacity = (scrollY - 1000) / 500; // Fade in
+    } else if (scrollY >= 1500) {
+        fadeContent.style.opacity = 1;
+    } else {
+        fadeContent.style.opacity = 0;
+
+    }
+
+    // Hide elements in the About section and below
+    const aboutSectionOffset = document.querySelector('#about').offsetTop;
+    if (scrollY >= aboutSectionOffset - window.innerHeight / 2) {
+        fadeText1.style.zIndex = -1;
+        fadeText2.style.zIndex = -1;
+        fadeContent.style.zIndex = -1;
+    } else {
+        fadeText1.style.zIndex = 1;
+        fadeText2.style.zIndex = 1;
+        fadeContent.style.zIndex = 1;
+    }
+}); 
+// no zoom
+// window.addEventListener('scroll', function () {
+//     const fadeText1 = document.querySelector('.fade-text-1');
+//     const fadeText2 = document.querySelector('.fade-text-2');
+//     const fadeContent = document.querySelector('.fade-content');
+//     const scrollY = window.scrollY;
+    
+//     // Text1 Animation (Fade Out and Zoom-In Effect via font-size)
+//     if (scrollY < 500) {
+//         fadeText1.style.opacity = 1 - scrollY / 500; // Fade out
+//         fadeText1.style.fontSize = `${100 + scrollY / 10}%`; // Zoom (grow) via font-size
+//     } else if (scrollY >= 500 && scrollY < 1000) {
+//         fadeText1.style.opacity = 0; // Continue fading out
+//         fadeText1.style.fontSize = `${200 - (scrollY - 500) / 10}%`; // Shrink back to original size smoothly
+//     } else {
+//         fadeText1.style.opacity = 0; // Fully faded out
+//         fadeText1.style.fontSize = '100%'; // Reset font-size to original size
+//     }
+
+//     // Text2 Animation (Fade In and Zoom-In Effect via font-size)
+//     if (scrollY >= 500 && scrollY < 1000) {
+//         fadeText2.style.opacity = (scrollY - 500) / 500; // Fade in
+//         fadeText2.style.fontSize = `${100 + (scrollY - 500) / 10}%`; // Zoom (grow) via font-size
+//     } else if (scrollY >= 1000 && scrollY < 1500) {
+//         fadeText2.style.opacity = 1; // Fully visible
+//         fadeText2.style.fontSize = `${200 - (scrollY - 1000) / 10}%`; // Shrink back to original size smoothly
+//     } else {
+//         fadeText2.style.opacity = 0; // Fully faded out
+//         fadeText2.style.fontSize = '100%'; // Reset font-size to original size
+//     }
+
+//     // Image and Button Animation
+//     if (scrollY >= 1000 && scrollY < 1500) {
+//         fadeContent.style.opacity = (scrollY - 1000) / 500; // Fade in
+//     } else if (scrollY >= 1500) {
+//         fadeContent.style.opacity = 1;
+//     } else {
+//         fadeContent.style.opacity = 0;
+//     }
+// });
+
+
+function changeLanguage(lang) {
+    fetch(`${lang}.json`)
+        .then(response => response.json())
+        .then(data => {
+            // Update the text content of the webpage
+            document.querySelector('#home p').textContent = data.home.intro;
+            document.querySelector('#profile-pic').alt = data.home.profileAlt;
+
+            document.querySelector('#about h2').textContent = data.about.heading;
+            document.querySelector('#about p').textContent = data.about.description;
+            document.querySelector('#resume-kr').textContent = data.about.resumeKr;
+            document.querySelector('#resume-en').textContent = data.about.resumeEn;
+            
+            document.querySelector('.txt-about dt:nth-of-type(1)').textContent = data.about.details.name;
+            document.querySelector('.txt-about dd:nth-of-type(1)').textContent = data.about.values.name;
+            document.querySelector('.txt-about dt:nth-of-type(2)').textContent = data.about.details.birthdate;
+            document.querySelector('.txt-about dd:nth-of-type(2)').textContent = data.about.values.birthdate;
+            document.querySelector('.txt-about dt:nth-of-type(3)').textContent = data.about.details.residence;
+            document.querySelector('.txt-about dd:nth-of-type(3)').textContent = data.about.values.residence;
+            document.querySelector('.txt-about dt:nth-of-type(4)').textContent = data.about.details.school;
+            document.querySelector('.txt-about dd:nth-of-type(4)').textContent = data.about.values.school;
+            document.querySelector('.txt-about dt:nth-of-type(5)').textContent = data.about.details.major;
+            document.querySelector('.txt-about dd:nth-of-type(5)').textContent = data.about.values.major;
+
+            document.querySelector('#work h2').textContent = data.work.heading;
+            document.querySelector('.project:nth-of-type(1) h3').textContent = data.work.projectTitle1;
+            document.querySelector('.project:nth-of-type(1) p').textContent = data.work.projectDesc1;
+            document.querySelector('.project:nth-of-type(2) h3').textContent = data.work.projectTitle2;
+            document.querySelector('.project:nth-of-type(2) p').textContent = data.work.projectDesc2;
+
+            document.querySelector('#contact h2').textContent = data.contact.heading;
+            document.querySelector('.contact-link[href^="mailto:"] ion-icon').setAttribute('name', data.contact.emailAlt);
+            document.querySelector('.contact-link[href^="https://www.linkedin.com"] ion-icon').setAttribute('name', data.contact.linkedinAlt);
+
+            document.querySelector('footer p').innerHTML = data.footer.copyright;
+        })
+        .catch(error => console.error('Error loading language file:', error));
+}
+
+// Initialize the default language
+document.addEventListener('DOMContentLoaded', () => {
+    changeLanguage('en'); // Set the default language to English
+});
