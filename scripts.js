@@ -3,6 +3,86 @@
 //     document.body.scrollIntoView({ behavior: "smooth" });
 // };
 
+// List of text strings for the typing effect
+const texts = ['Hello', '안녕하세요', 'สวัสดีครับ'];
+let currentTextIndex = 0;
+let currentCharIndex = 0;
+let isDeleting = false;
+let typingSpeed = 100; // Typing speed
+let deletingSpeed = 50; // Deleting speed
+let pauseTime = 1000; // Pause time between text changes
+let typingDonePause = 2000; // Delay before starting the deletion after typing is done
+
+// Function to type and delete text
+function typeEffect() {
+    const typingElement = document.getElementById('typing-text');
+    const cursor = document.getElementById('cursor');
+    
+    let currentText = texts[currentTextIndex];
+
+    // Change font depending on the current text
+    if (currentTextIndex === 0) {
+        typingElement.className = 'text1'; // Use Montserrat for "Hello"
+    } else if (currentTextIndex === 1) {
+        typingElement.className = 'text2'; // Use Kanit for Korean
+    } else if (currentTextIndex === 2) {
+        typingElement.className = 'text3'; // Use SukhumvitSet for Thai
+    }
+
+    if (currentTextIndex < texts.length) {
+        // Type or delete text based on the state
+        if (isDeleting) {
+            typingElement.innerText = currentText.slice(0, currentCharIndex);
+            currentCharIndex--;
+
+            if (currentCharIndex === 0) {
+                isDeleting = false;
+                currentTextIndex++;
+                setTimeout(typeEffect, pauseTime); // Wait before starting next typing
+            } else {
+                setTimeout(typeEffect, deletingSpeed);
+            }
+        } else {
+            typingElement.innerText = currentText.slice(0, currentCharIndex);
+            currentCharIndex++;
+
+            if (currentCharIndex === currentText.length) {
+                // Wait for a bit after the text is fully typed
+                setTimeout(() => {
+                    isDeleting = true;
+                    typeEffect(); // Start deleting after the pause
+                }, typingDonePause);
+            } else {
+                setTimeout(typeEffect, typingSpeed);
+            }
+        }
+    } else {
+        // Restart after reaching the end of the texts array
+        currentTextIndex = 0;
+        currentCharIndex = 0;
+        isDeleting = false;
+        setTimeout(typeEffect, pauseTime); // Restart after all texts have been cycled through
+    }
+}
+
+// Detect when the user starts scrolling and hide the typing effect
+let hasScrolled = false; // Flag to track scrolling
+
+window.addEventListener('scroll', function () {
+    if (!hasScrolled) {
+        const typingContainer = document.getElementById('typing-container');
+        typingContainer.classList.add('hidden'); // Hide the typing effect once scrolling begins
+        hasScrolled = true; // Set flag to ensure it only happens once
+    }
+});
+
+// Start the typing effect when the page loads
+window.onload = function () {
+    typeEffect();
+};
+
+
+
 // Back-to-top button functionality
 const backToTop = document.getElementById('backToTop');
 
@@ -125,17 +205,23 @@ document.getElementById('resume-kr').addEventListener('click', () => {
 
 
 
-// Scrolling buttons functionality
+// Get project container and a project element
+const projectContainer = document.querySelector('.project-container');
+const project = document.querySelector('.project');
+
+// Dynamically calculate the scroll amount
+const projectWidth = project.offsetWidth + parseInt(getComputedStyle(project).marginLeft) + parseInt(getComputedStyle(project).marginRight);
+
 document.getElementById('scroll-left').addEventListener('click', () => {
-    document.querySelector('.project-container').scrollBy({
-        left: -300,
+    projectContainer.scrollBy({
+        left: -projectWidth,
         behavior: 'smooth'
     });
 });
 
 document.getElementById('scroll-right').addEventListener('click', () => {
-    document.querySelector('.project-container').scrollBy({
-        left: 300,
+    projectContainer.scrollBy({
+        left: projectWidth,
         behavior: 'smooth'
     });
 });
@@ -289,7 +375,7 @@ window.addEventListener('scroll', function () {
         fadeText1.style.zoom = 1 + scrollY / 1000; // Zoom (grow)
     } else if (scrollY >= 500 && scrollY < 1000) {
         fadeText1.style.opacity = 0; // Continue fading out
-        fadeText1.style.zoom = 2 - (scrollY - 500) / 1000; // Shrink back to original size smoothly
+        fadeText1.style.zoom = 1.3 - (scrollY - 500) / 1000; // Shrink back to original size smoothly
     } else {
         fadeText1.style.opacity = 0; // Fully faded out
         fadeText1.style.zoom = 1; // Reset zoom to original size
@@ -298,10 +384,10 @@ window.addEventListener('scroll', function () {
     // Text2 Animation (Zoom, Grow, Fade In)
     if (scrollY >= 500 && scrollY < 1000) {
         fadeText2.style.opacity = (scrollY - 500) / 500; // Fade in
-        fadeText2.style.zoom = 1 + (scrollY - 500) / 1000; // Zoom (grow)
-    } else if (scrollY >= 1000 && scrollY < 1500) {
+        fadeText2.style.zoom = 1.3   + (scrollY - 500) / 1000; // Zoom (grow)
+    } else if (scrollY >= 1000 && scrollY < 1200) {
         fadeText2.style.opacity = 1; // Fully visible
-        fadeText2.style.zoom = 2 - (scrollY - 1000) / 1000; // Shrink back to original size smoothly
+        fadeText2.style.zoom = 1.3 - (scrollY - 1000) / 1000; // Shrink back to original size smoothly
     } else {
         fadeText2.style.opacity = 0; // Fully faded out
         fadeText2.style.zoom = 1; // Reset zoom to original size

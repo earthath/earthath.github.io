@@ -43,6 +43,47 @@
     src: url('src/fonts/Inter-Regular.otf') format('opentype');
 }
 
+/* Importing Kanit font family */
+@font-face {
+    font-family: 'KanitBlack';
+    src: url('src/fonts/s2/Kanit-Black.ttf') format('truetype');
+    /* font-weight: bold; */
+}
+@font-face {
+    font-family: 'KanitBold';
+    src: url('src/fonts/s2/Kanit-Bold.ttf') format('truetype');
+    /* font-weight: bold; */
+}
+@font-face {
+    font-family: 'Kanit';
+    src: url('src/fonts/s2/Kanit-Regular.ttf') format('truetype');
+    /* font-weight: normal; */
+}
+
+/* Importing Montserrat font family */
+@font-face {
+    font-family: 'Montserrat';
+    src: url('src/fonts/s2/Montserrat-Regular.ttf') format('truetype');
+    /* font-weight: normal; */
+}
+
+/* Importing SukhumvitSet font family */
+@font-face {
+    font-family: 'SukhumvitSetBold';
+    src: url('src/fonts/s2/SukhumvitSet-Bold.ttf') format('truetype');
+    /* font-weight: bold; */
+}
+@font-face {
+    font-family: 'SukhumvitSetMedium';
+    src: url('src/fonts/s2/SukhumvitSet-Medium.ttf') format('truetype');
+    /* font-weight: 500; */
+}
+@font-face {
+    font-family: 'SukhumvitSetThin';
+    src: url('src/fonts/s2/SukhumvitSet-Thin.ttf') format('truetype');
+    /* font-weight: 100; */
+}
+
 
 /* General Styling */
 body {
@@ -194,6 +235,58 @@ nav.main-menu ul.menu-links li a.active ion-icon {
     }
 }
 
+
+/* ................................... */
+/* Typing effect container */
+.typing-container {
+    display: inline-flex; /* Align text and cursor inline */
+    justify-content: center; /* Center text horizontally */
+    align-items: center; /* Center text vertically */
+    font-size: 3rem;
+    white-space: nowrap; /* Prevent text from wrapping */
+    position: absolute; /* Position it absolutely in the center */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Offset the center positioning */
+    z-index: 999; /* Ensure it's above other elements */
+}
+
+/* Cursor styling */
+#cursor {
+    display: inline;
+    width: 1ch;
+    background-color: black;
+    animation: blink 0.7s step-end infinite;
+    margin-left: 5px;
+}
+
+/* Blink animation for cursor */
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Hide typing effect once scrolling starts */
+.hidden {
+    display: none;
+}
+
+
+/* Styling for the three texts */
+#text1 {
+    font-family: 'SportingGrotesque-Bold'; /* Default font */
+}
+
+.text2 {
+    font-family: 'Eulyoo1945-SemiBold';
+}
+
+.text3 {
+    font-family: 'SukhumvitSetBold';
+}
+
+/* ......................................  */
 
 
 /* Landing Section with Scroll Effect */
@@ -518,6 +611,7 @@ section {
 
 #resume-buttons {
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #resume-buttons button {
@@ -980,7 +1074,7 @@ section {
   flex: 0 0 80px;
   height: 80px;
   margin-right: 20px;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   overflow: hidden;
   position: relative;
 }
@@ -1042,7 +1136,7 @@ section {
     height: 100px; /* Increase height to match width */
     margin-right: 0; /* Remove right margin */
     margin-bottom: 10px; /* Add space below the logo */
-    border-radius: 50%; /* Ensure the logo is circular */
+    /* border-radius: 50%; Ensure the logo is circular */
     overflow: hidden;
   }
 
@@ -1096,6 +1190,7 @@ section {
     position: relative;
     overflow: hidden;
     text-align: left;
+    /* width: stretch; */
 }
 
 /* whole project slide */
@@ -1105,6 +1200,7 @@ section {
     overflow-x: auto;
 
     height: 500px;
+    width: 100%;
     /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); */
     /* border-radius: 20px; */
 
@@ -1122,7 +1218,7 @@ section {
     transition: transform 0.3s ease;
 
     height: 90%;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
     border-radius: 20px;
 }
 
@@ -1173,14 +1269,14 @@ section {
     color: #fff; /* White icon color */
     border: none; /* Remove border */
     cursor: pointer;
-    padding: 15px; /* Adjust padding for a larger clickable area */
+    /* padding: 15px; Adjust padding for a larger clickable area */
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     z-index: 1;
     border-radius: 50%; /* Make the button circular */
-    width: 50px; /* Set fixed width */
-    height: 50px; /* Set fixed height */
+    width: 40px; /* Set fixed width */
+    height: 40px; /* Set fixed height */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1188,17 +1284,27 @@ section {
 
 /* Scroll buttons on the left and right */
 #scroll-left {
-    left: 10px; /* Position left button */
+    left: 0px; /* Position left button */
 }
 
 #scroll-right {
-    right: 10px; /* Position right button */
+    right: 0px; /* Position right button */
 }
 
 /* Optional: Hover effect */
 .scroll-btn:hover {
     background-color: #555; /* Darken button on hover */
     transform: translateY(-50%) scale(1.1); /* Zoom effect */
+}
+
+@media screen and (max-width: 768px) {
+
+    
+    /* each box */
+    .project {
+        /* min-width: 300px; */
+        width: 90%;
+    }
 }
 /* Pop-up Styles */
 .popup {
@@ -1212,6 +1318,7 @@ section {
     overflow: auto;
     background: rgba(0,0,0,0.5);
 }
+
 
 
 
