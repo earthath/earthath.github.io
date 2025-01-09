@@ -283,14 +283,14 @@ let prev = function () {
 };
 
 let next = function () {
-  if (imgIndex < 5) {
+  if (imgIndex < 3) {
     $btnPrev.removeAttribute("disabled");
     position -= IMG_WIDTH;
     $slideImgs.style.transform = `translateX(${position}px)`;
     $slideImgs.style.transition = "transform .5s ease-out";
     imgIndex = imgIndex + 1;
   }
-  if (imgIndex == 4) {
+  if (imgIndex == 2) {
     $btnNext.setAttribute("disabled", "true");
   }
 };
@@ -415,6 +415,33 @@ window.addEventListener('scroll', function () {
     //     fadeContent.style.zIndex = 1;
     // }
 }); 
+
+document.getElementById('phone-link').addEventListener('click', function (event) {
+    event.preventDefault(); // Prevent default link behavior
+
+    const phoneNumber = '+1234567890'; // Replace with your phone number
+
+    // Check if the device is mobile
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+        // Redirect to call
+        window.location.href = `tel:${phoneNumber}`;
+    } else {
+        // Copy phone number to clipboard
+        navigator.clipboard.writeText(phoneNumber).then(() => {
+            // Show "copied" message
+            const copyMessage = document.getElementById('copy-message');
+            copyMessage.classList.add('show');
+
+            // Hide the message after 2 seconds
+            setTimeout(() => {
+                copyMessage.classList.remove('show');
+            }, 2000);
+        }).catch((err) => {
+            console.error('Failed to copy phone number:', err);
+        });
+    }
+});
+
 // no zoom
 // window.addEventListener('scroll', function () {
 //     const fadeText1 = document.querySelector('.fade-text-1');

@@ -876,7 +876,7 @@ section {
   /* box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5); */
   padding: 15px 20px; /* Add padding but let the box adjust to content size */
   overflow: hidden; /* Ensure content does not overflow the modal */
-  backdrop-filter: blur(10px); /* Apply blur effect to the content behind the modal */
+  backdrop-filter: blur(20px); /* Apply blur effect to the content behind the modal */
   /* margin: 0 auto; Center the modal horizontally */
 }
 
@@ -900,8 +900,8 @@ section {
 /* Title Styling */
 .modal h3 {
   margin: 20px 0 7px 0;
-  font-size: 22px; /* Reduce title font size */
-  color: #068554;
+  font-size: 32px; /* Reduce title font size */
+  color: #fff;
   font-family: "GmarketSansBold";
 }
 /* Text Styling under heading*/
@@ -910,6 +910,33 @@ section {
   font-family: "NanumPen";
   font-weight: 300;
   color: #fff;
+}
+
+.modal p {
+    font-size: 18px; 
+    font-family: "GmarketSansMedium";
+    color: #fff;
+    text-align: left;
+    align-content: center;
+    margin: 0 auto;
+    width: 90%;
+    line-height: 30px;
+}
+
+.modal ul {
+    font-family: "GmarketSansLight";
+    color: #fff;
+    text-align: left;
+    align-content: center;
+    margin: 0 auto;
+    width: 90%;
+    line-height: 30px;
+    list-style-position: inside; /* Align the bullet inside the content width */
+    padding-left: 0; /* Remove extra padding */
+}
+
+.modal ul li {
+    padding-left: 10px; /* Optional: Add space between bullet and text */
 }
 
 /* Image Styling */
@@ -922,15 +949,15 @@ section {
 }
 
 /* Text Styling */
-.modal p {
+/* .modal p {
   margin: 0 auto;
-  width: 90%; /* Ensure text fits properly */
-  font-size: 15px; /* Slightly reduce paragraph font size */
-  line-height: 22px; /* Adjust line-height for better readability */
-  overflow-y: visible; /* Allow scrolling if needed */
+  width: 90%; Ensure text fits properly
+  font-size: 15px; Slightly reduce paragraph font size
+  line-height: 22px; Adjust line-height for better readability
+  overflow-y: visible; Allow scrolling if needed
   font-family: "GmarketSansLight";
   color: #fff;
-}
+} */
 
 /* Responsive Design for Mobile */
 @media (max-width: 768px) {
@@ -1388,6 +1415,22 @@ section {
     color: #555;
 }
 
+.copy-message {
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    z-index: 1000;
+}
+
+.copy-message.show {
+    display: block;
+}
 
 
 #contact {
