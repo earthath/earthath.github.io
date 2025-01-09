@@ -52,7 +52,7 @@ body {
     box-sizing: border-box;
     /* scroll-behavior: smooth; */
     background-color: black;
-    color: white;
+    /* color: white; */
     overflow-x: hidden;
 }
 
@@ -114,14 +114,38 @@ nav.main-menu ul.menu-links li a {
     border-radius: 8px;
     transition: all 0.3s ease;
     font-family: Inter-Regular;
+    height: 40px; /* Set a fixed height */
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflowing text initially */
 }
 
-nav.main-menu ul.menu-links li a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.7);
-    border-radius: 15px;
-    padding: 5px 10px;
+/* Hide text initially */
+nav.main-menu ul.menu-links li a span {
+    display: none;
 }
+
+/* Show text on hover and adjust width */
+nav.main-menu ul.menu-links li a:hover,
+nav.main-menu ul.menu-links li a.active {
+    width: auto; /* Expand width to fit content */
+    overflow: visible; /* Allow text to be visible */
+    background-color: rgba(255, 255, 255, 0.2); /* Background color on hover */
+    border-color: rgba(255, 255, 255, 0.7); /* Border color on hover */
+    border-radius: 20px; /* Border radius on hover */
+    padding: 5px 10px; /* Padding on hover */
+}
+
+nav.main-menu ul.menu-links li a:hover span,
+nav.main-menu ul.menu-links li a.active span {
+    display: inline;
+    font-size: 16px; /* Adjust text size on hover */
+}
+
+nav.main-menu ul.menu-links li a:hover ion-icon,
+nav.main-menu ul.menu-links li a.active ion-icon {
+    font-size: 20px; /* Adjust icon size on hover */
+}
+
 
 
 /* Mobile View */
@@ -183,6 +207,16 @@ nav.main-menu ul.menu-links li a:hover {
     overflow: hidden; /* Prevent circles from spilling over */
     z-index: 0;
     height: 300vh; /* Extended height for long scroll effect */
+}
+
+#home p{
+    font-family: "GmarketSansLight"; /* 진행해주세요 */
+
+}
+
+section {
+    padding: 50px;
+    text-align: center;
 }
 
 #scrolldown{
@@ -523,9 +557,9 @@ nav.main-menu ul.menu-links li a:hover {
 #resume-buttons button:hover {
     background: #555;
 } */
-#about {
+/* #about {
     visibility: hidden;
-}
+} */
 
 #about {
     background: #ffffff;
@@ -882,10 +916,124 @@ nav.main-menu ul.menu-links li a:hover {
     }
 }
 
+/* #career {
+    background: #f4f4f4;
+    color: #000;
+    visibility: hidden;
+    padding: 20px;
+} */
+
+/* #career {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+} */
+#career {
+  padding: 20px;
+  background: #f4f4f4;
+  color: #000;
+  /* font-family: Arial, sans-serif; */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center all content horizontally in the section */
+}
+
+#career h2 {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+}
+
+#career h2 ion-icon {
+  margin-right: 8px;
+}
+
+.experiences {
+  margin-top: 20px;
+  width: 80%; /* Center content and limit its width */
+}
+
+.experience {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.intern-badge {
+  display: inline-block;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 20px;
+  padding: 2px 10px;
+  margin-left: 10px; /* Add space between text and badge */
+  vertical-align: middle; /* Align badge with the text */
+  text-align: center;
+  font-family: "GmarketSansLight";
+}
+
+
+.logo {
+  flex: 0 0 80px;
+  height: 80px;
+  margin-right: 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vertical-line {
+  width: 1px;
+  background-color: #333;
+  height: 100%;
+  position: absolute;
+  left: 100px; /* Adjust to match the logo's width and spacing */
+}
+
+.details {
+  flex: 1;
+  text-align: left; /* Align text to the left */
+  padding-left: 20px; /* Add spacing to the right of the vertical line */
+}
+
+.details h3 {
+  font-size: 20px;
+  margin: 0;
+  color: #333;
+  font-family: "GmarketSansBold";
+}
+
+.details p {
+  margin: 4px 0;
+  color: #666;
+  font-family: "GmarketSansMedium";
+}
+
+.details ul {
+  margin-top: 10px;
+  padding-left: 20px;
+  color: #333;
+  font-family: "GmarketSansMedium";
+}
+
+.details ul li {
+  margin-bottom: 5px;
+}
+
+
 
 #work {
-    background: #f4f4f4;
-    visibility: hidden;
+    background: #ffc107;
+    /* visibility: hidden; */
 }
 
 .projects {
@@ -893,25 +1041,47 @@ nav.main-menu ul.menu-links li a:hover {
     align-items: center;
     position: relative;
     overflow: hidden;
+    text-align: left;
 }
 
+/* whole project slide */
 .project-container {
     display: flex;
     scroll-behavior: smooth;
     overflow-x: auto;
+
+    height: 500px;
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); */
+    /* border-radius: 20px; */
+
 }
 
+/* each box */
 .project {
     /* min-width: 300px; */
     width: 300px;
-    margin: 0 15px;
-    border: 1px solid #ddd;
+    margin: 15px 15px;
+    /* border: 1px solid #ddd; */
     background: #fff;
     flex: 0 0 auto;
     cursor: pointer;
     transition: transform 0.3s ease;
+
+    height: 90%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
 }
 
+.project h3 {
+    font-family: "GmarketSansMedium";
+    /* bottom: 2px; */
+    padding: 0px 10px;
+}
+
+.project p {
+    padding: 10px 10px;
+    font-family: "GmarketSansLight";
+}
 /* Style the images */
 .project img {
     width: 100%; /* Make the image fill the container width */
@@ -989,8 +1159,14 @@ nav.main-menu ul.menu-links li a:hover {
     background: rgba(0,0,0,0.5);
 }
 
+
+
+  /* border-radius: 15px; */
+  /* padding: 15px 20px; Add padding but let the box adjust to content size */
+  /* overflow: hidden; Ensure content does not overflow the modal */
+
 .popup-content {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(0, 0, 0, 0.5);;
     margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
@@ -998,6 +1174,12 @@ nav.main-menu ul.menu-links li a:hover {
     max-width: 600px;
     border-radius: 10px;
     text-align: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: #fff;
+
 }
 
 .close {
@@ -1083,7 +1265,7 @@ form {
     width: 100%;
     position: relative;
     font-family: "GmarketSansLight";
-    visibility: hidden;
+    /* visibility: hidden; */
 
 }
 

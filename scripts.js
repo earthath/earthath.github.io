@@ -140,6 +140,23 @@ document.getElementById('scroll-right').addEventListener('click', () => {
     });
 });
 
+{/* <script> */}
+document.addEventListener("DOMContentLoaded", function() {
+    const links = document.querySelectorAll("nav.main-menu ul.menu-links li a");
+
+    links.forEach(link => {
+        link.addEventListener("click", function() {
+            // Remove 'active' class from all links
+            links.forEach(link => link.classList.remove("active"));
+            
+            // Add 'active' class to the clicked link
+            this.classList.add("active");
+        });
+    });
+});
+// </script>
+
+
 // Pop-up functionality
 document.querySelectorAll('.project').forEach(project => {
     project.addEventListener('click', () => {
