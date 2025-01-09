@@ -926,21 +926,21 @@ section {
 /* #career {
   padding: 20px;
   font-family: Arial, sans-serif;
-} */
-#career {
+} */#career {
   padding: 20px;
   background: #f4f4f4;
   color: #000;
-  /* font-family: Arial, sans-serif; */
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center all content horizontally in the section */
+  align-items: center;
 }
 
 #career h2 {
   font-size: 24px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 #career h2 ion-icon {
@@ -959,6 +959,7 @@ section {
   border-bottom: 1px solid #ddd;
   padding-bottom: 20px;
   position: relative;
+  flex-direction: row; /* Default: logo and text side-by-side */
 }
 
 .intern-badge {
@@ -969,12 +970,11 @@ section {
   font-weight: bold;
   border-radius: 20px;
   padding: 2px 10px;
-  margin-left: 10px; /* Add space between text and badge */
-  vertical-align: middle; /* Align badge with the text */
+  margin-left: 10px; /* Space between text and badge */
+  vertical-align: middle;
   text-align: center;
   font-family: "GmarketSansLight";
 }
-
 
 .logo {
   flex: 0 0 80px;
@@ -1002,7 +1002,7 @@ section {
 .details {
   flex: 1;
   text-align: left; /* Align text to the left */
-  padding-left: 20px; /* Add spacing to the right of the vertical line */
+  padding-left: 20px;
 }
 
 .details h3 {
@@ -1028,6 +1028,60 @@ section {
 .details ul li {
   margin-bottom: 5px;
 }
+
+/* Responsive Styling for Mobile */
+@media (max-width: 768px) {
+  .experience {
+    flex-direction: column; /* Stack logo and details vertically */
+    text-align: center; /* Center align the text */
+    align-items: center; /* Center align items */
+  }
+
+  .logo {
+    flex: 0 0 100px; /* Increase logo size */
+    height: 100px; /* Increase height to match width */
+    margin-right: 0; /* Remove right margin */
+    margin-bottom: 10px; /* Add space below the logo */
+    border-radius: 50%; /* Ensure the logo is circular */
+    overflow: hidden;
+  }
+
+  .logo img {
+    width: 100%; /* Ensure the image fills the logo container */
+    height: 100%; /* Maintain the aspect ratio */
+    object-fit: cover; /* Keep the image centered and cover the circle */
+  }
+
+  .vertical-line {
+    display: none; /* Hide the vertical line */
+  }
+
+  .details {
+    padding-left: 0; /* Remove left padding */
+    text-align: center; /* Center-align the text */
+  }
+
+  .details h3 {
+    font-size: 18px;
+  }
+
+  .details p {
+    font-size: 14px;
+  }
+
+  .details ul {
+    padding-left: 0; /* Remove extra padding */
+    text-align: left;
+  }
+
+  .intern-badge {
+    font-size: 10px; /* Reduce badge font size */
+    padding: 2px 8px; /* Adjust padding for smaller screens */
+    margin-left: 5px; /* Reduce margin for smaller spacing */
+  }
+}
+
+
 
 
 
