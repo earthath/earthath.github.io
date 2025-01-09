@@ -770,7 +770,7 @@ section {
     flex: 1; /* Allow equal space */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: flex-start;
     max-width: 438px;
     margin: 0 20px; /* Add some margin */
