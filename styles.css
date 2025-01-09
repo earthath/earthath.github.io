@@ -1575,7 +1575,7 @@ form button:hover {
 }
 
 footer {
-    font-family: Montserrat;
+    font-family: sans-serif;
     background: #333;
     color: #fff;
     text-align: center;
@@ -1583,5 +1583,4 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
-    font-size: small;
 }
