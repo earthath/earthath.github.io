@@ -403,17 +403,17 @@ window.addEventListener('scroll', function () {
 
     }
 
-    // Hide elements in the About section and below
-    const aboutSectionOffset = document.querySelector('#about').offsetTop;
-    if (scrollY >= aboutSectionOffset - window.innerHeight / 2) {
-        fadeText1.style.zIndex = -1;
-        fadeText2.style.zIndex = -1;
-        fadeContent.style.zIndex = -1;
-    } else {
-        fadeText1.style.zIndex = 1;
-        fadeText2.style.zIndex = 1;
-        fadeContent.style.zIndex = 1;
-    }
+    // // Hide elements in the About section and below
+    // const aboutSectionOffset = document.querySelector('#about').offsetTop;
+    // if (scrollY >= aboutSectionOffset - window.innerHeight / 2) {
+    //     fadeText1.style.zIndex = -1;
+    //     fadeText2.style.zIndex = -1;
+    //     fadeContent.style.zIndex = -1;
+    // } else {
+    //     fadeText1.style.zIndex = 1;
+    //     fadeText2.style.zIndex = 1;
+    //     fadeContent.style.zIndex = 1;
+    // }
 }); 
 // no zoom
 // window.addEventListener('scroll', function () {

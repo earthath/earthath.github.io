@@ -451,10 +451,9 @@ section {
     text-align: center;
     display: flex; /* Use flexbox for layout */
     flex-direction: column; /* Arrange items vertically */
-    /* align-items: center; Center align the items */
-    opacity: 0;
+    opacity: 1; /* Make sure opacity is 1 when it's visible */
     transition: opacity 1s ease;
-    z-index: 1;
+    z-index: 100; /* Ensure it's above other content */
     overflow: hidden;
 }
 
@@ -475,13 +474,13 @@ section {
     box-sizing: border-box; /* Include padding in width calculation */
     font-family: "GmarketSansMedium";
     transition: background-color 0.3s, border-color 0.3s; /* Smooth transition on hover */
+    z-index: 200; /* Ensure the button is on top */
 }
 
 .fade-content .more-info-btn:hover {
     background-color: white;
     color: black;
 }
-
 
 /* Mobile Responsiveness */
 @media screen and (max-width: 768px) {
@@ -686,10 +685,12 @@ section {
     display: flex;
     margin: 0 auto;
 }
+
 .slide-container {
     width: 438px;
     margin: 0 auto;
 }
+
 .slide-album {
     position: relative;
     width: 438px;
@@ -697,15 +698,20 @@ section {
     overflow: hidden;
     border-radius: 20px;
 }
+
 .slide-images {
     position: relative;
     display: flex;
     height: 438px;
 }
+
 .slide-images img {
-    width: 438px;
-    height: 438px;
+    flex-shrink: 0; /* Prevent images from shrinking */
+    width: 100%; /* Make sure images fill the width of the container */
+    height: 100%; /* Make sure images fill the height of the container */
+    object-fit: cover; /* Ensure the image covers the container without distortion */
 }
+
 /* ................................ */
 
 /* Navigation buttons */
