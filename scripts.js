@@ -451,7 +451,7 @@ window.addEventListener('scroll', function () {
 document.getElementById('phone-link').addEventListener('click', function (event) {
     event.preventDefault(); // Prevent default link behavior
 
-    const phoneNumber = '+661022736595'; // Replace with your phone number
+    const phoneNumber = '+821022736595'; // Replace with your phone number
 
     // Check if the device is mobile
     if (/Mobi|Android/i.test(navigator.userAgent)) {
