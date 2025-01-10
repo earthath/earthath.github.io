@@ -1109,6 +1109,224 @@ section {
     }
 }
 
+
+#education {
+    position: relative;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px 0;
+    align-items: column;
+    font-family: "Montserrat";
+    color: #fff;
+}
+
+#education::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 100px; /* Position the line at the center or adjust as needed */
+    width: 4px;
+    height: 100%;
+    background-color: rgb(156, 67, 67); /* Contrast with black background */
+    z-index: 1;
+    transform: translateX(-50%); /* Adjust to ensure it's centered */
+}
+
+.timeline-item {
+    position: relative;
+    margin: 40px 0;
+    display: flex;
+    align-items: center; /* Vertically center content */
+    z-index: 2;
+}
+
+.timeline-item .year {
+    flex: 0 0 80px;
+    text-align: right;
+    font-size: 16px;
+    font-weight: bold;
+    color: white; /* Text color for dark background */
+}
+
+/* Dot style */
+.timeline-item .dot {
+    width: 16px;
+    height: 16px;
+    background-color: rgb(129, 41, 41); /* Red circle */
+    border-radius: 50%;
+    position: absolute; /* Position absolutely to the line */
+    left: 100px; /* Center it horizontally */
+    top: 10; /* Adjust if needed to align vertically with the line */
+    transform: translateX(-50%); /* Adjust to center horizontally */
+    z-index: 2;
+}
+
+
+.timeline-item .circle {
+    flex: 0 0 16px;
+    width: 16px;
+    height: 16px;
+    background-color: rgb(129, 41, 41); /* Red circle */
+    border-radius: 50%;
+    margin: 0 20px;
+    z-index: 10;
+    position: relative; /* Ensure z-index works */
+}
+
+.timeline-item .content {
+    display: flex; /* Flexbox layout for horizontal arrangement */
+    align-items: flex-start; /* Align content to the top */
+    gap: 15px; /* Space between logo and text */
+}
+
+
+
+.content .logo img {
+    /* max-width: 100%; Ensure the logo fits within its container */
+    /* max-height: 60px; Constrain the height */
+    width: 100px fit-content;
+
+    height: 100px fit-content;
+    border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+.content .text {
+    display: flex;
+    flex-direction: column; /* Arrange text vertically */
+    justify-content: center; /* Center-align text vertically with logo */
+    text-align: left;
+}
+
+.content .university {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.content .major {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    margin: 5px 0;
+}
+
+.content .detail {
+    font-size: 14px;
+    color: #bbb;
+}
+
+@media (max-width: 768px) {
+    #education {
+        padding: 20px 10px;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        align-items: center; /* Center items vertically */
+    }
+
+    .timeline-item .year {
+        font-size: 14px;
+        margin-bottom: 5px; /* Reduce gap between year and image */
+    }
+
+    .content {
+        flex-direction: column; /* Stack logo and text vertically */
+        gap: 5px; /* Reduce gap between items */
+        text-align: center; /* Center text */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .content .logo {
+        display: flex;
+        justify-content: center; /* Center image horizontally */
+        width: 100%; /* Ensure the container takes full width */
+    }
+
+    .content .logo img {
+        width: 100px; /* Increase image size */
+        height: 100px; /* Increase image size */
+    }
+
+    .content .university {
+        font-size: 16px;
+    }
+
+    .content .major {
+        font-size: 14px;
+    }
+
+    .content .detail {
+        font-size: 12px;
+    }
+    
+    /* Hide line and dot on mobile */
+    #education::before {
+        display: none; /* Remove the line */
+    }
+
+    .timeline-item .dot {
+        display: none; /* Remove the dot */
+    }
+}
+
+/* Additional Media Query for even smaller screens (mobile portrait) */
+@media (max-width: 480px) {
+
+    #education {
+        padding: 20px 10px;
+        align-items: center; /* Center items vertically */
+        justify-content: center;
+    }
+    
+    .timeline-item {
+        flex-direction: column;
+        align-items: center; /* Center items vertically */
+        justify-content: center;
+    }
+
+    .timeline-item .year {
+        font-size: 12px;
+        margin-bottom: 5px; /* Reduce gap between year and image */
+        align-items: center; /* Center items vertically */
+    }
+
+    .content {
+        flex-direction: column; /* Stack logo and text vertically */
+        text-align: center;
+        align-items: center;
+    }
+
+    .content .logo {
+        display: flex;
+        justify-content: center; /* Center image horizontally */
+        width: 100%; /* Ensure the container takes full width */
+    }
+
+    .content .logo img {
+        width: 80px; /* Increase image size */
+        height: 80px; /* Increase image size */
+    }
+
+    .content .university {
+        font-size: 14px;
+        text-align: center; /* Center text */
+    }
+
+    .content .major {
+        font-size: 12px;
+        text-align: center; /* Center text */
+    }
+
+    .content .detail {
+        font-size: 10px;
+        text-align: center; /* Center text */
+    }
+}
+
+
 /* #career {
     background: #f4f4f4;
     color: #000;
@@ -1279,7 +1497,9 @@ section {
 
 
 #work {
-    background: #ffc107;
+    background: #000;
+    color: #fff;
+    /* background: #ffc107; */
     /* visibility: hidden; */
 }
 
@@ -1317,8 +1537,9 @@ section {
     transition: transform 0.3s ease;
 
     height: 90%;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 20px rgba(58, 58, 58, 0.5);
     border-radius: 20px;
+    color: #000;
 }
 
 .project h3 {
