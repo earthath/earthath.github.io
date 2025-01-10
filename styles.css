@@ -486,14 +486,7 @@ section {
 
 /* Mobile Responsiveness */
 @media screen and (max-width: 768px) {
-    .circle {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(100px); /* Increased blur for blending */
-        z-index: -1;
-        pointer-events: none;
-        animation: move-randomly 20s ease-in-out infinite;
-    }
+
     .fade-text-1 h1, .fade-text-2 h1 {
         font-size: 60px; /* Reduce font size on smaller screens */
     }
@@ -991,6 +984,7 @@ section {
     /* Section padding */
     .section-about {
         padding: 40px 15px 80px 15px; /* Adjust for smaller screens */
+        z-index: 1;
     }
 
     /* Heading */
