@@ -310,6 +310,8 @@ nav.main-menu ul.menu-links li a.active ion-icon {
 section {
     padding: 50px;
     text-align: center;
+    z-index: 1;
+
 }
 
 #scrolldown{
@@ -372,7 +374,6 @@ section {
     z-index: -1;
     pointer-events: none;
     animation: move-randomly 20s ease-in-out infinite;
-    overflow: hidden;
 }
 
 .circle1 {
@@ -642,8 +643,12 @@ section {
 } */
 
 #about {
-    background: #ffffff;
+    /* background: #ffffff; */
     /* z-index: 500; */
+
+    background: #ffffff; /* Ensure it covers the background */
+    position: relative; /* Maintain stacking context */
+    z-index: 1; /* Ensure it's above the circles */
 }
 
 /* about섹션 */
