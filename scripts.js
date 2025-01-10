@@ -265,16 +265,26 @@ window.onclick = function(event) {
 // 이미지 슬라이드
 let imgIndex = 0;
 let position = 0;
-const IMG_WIDTH = 438;
 const $btnPrev = document.querySelector(".btn-prev");
 const $btnNext = document.querySelector(".btn-next");
 const $slideImgs = document.querySelector(".slide-images");
+const $slideAlbum = document.querySelector(".slide-album"); // The container for images
+
+let IMG_WIDTH = $slideAlbum.offsetWidth; // Get the initial width of the container
+
+// Update IMG_WIDTH on window resize
+window.addEventListener("resize", function () {
+  IMG_WIDTH = $slideAlbum.offsetWidth; // Recalculate image width on resize
+  position = -imgIndex * IMG_WIDTH; // Adjust position to maintain current image
+  $slideImgs.style.transform = `translateX(${position}px)`; // Apply new position
+});
 
 let prev = function () {
   if (imgIndex > 0) {
     $btnNext.removeAttribute("disabled");
     position += IMG_WIDTH;
     $slideImgs.style.transform = `translateX(${position}px)`;
+    $slideImgs.style.transition = "transform .5s ease-out";
     imgIndex = imgIndex - 1;
   }
   if (imgIndex == 0) {
@@ -302,6 +312,7 @@ let init = function () {
 };
 
 init();
+
 
 // 모달
 const $modalBg = document.getElementsByClassName("modal-background");
@@ -419,7 +430,7 @@ window.addEventListener('scroll', function () {
 document.getElementById('phone-link').addEventListener('click', function (event) {
     event.preventDefault(); // Prevent default link behavior
 
-    const phoneNumber = '+1234567890'; // Replace with your phone number
+    const phoneNumber = '+661022736595'; // Replace with your phone number
 
     // Check if the device is mobile
     if (/Mobi|Android/i.test(navigator.userAgent)) {
