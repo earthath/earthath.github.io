@@ -485,11 +485,11 @@ section {
 /* Mobile Responsiveness */
 @media screen and (max-width: 768px) {
     .fade-text-1 h1, .fade-text-2 h1 {
-        font-size: 60px; /* Reduce font size on smaller screens */
+        font-size: 40px; /* Reduce font size on smaller screens */
     }
 
     .fade-text-1 h2, .fade-text-2 h2 {
-        font-size: 18px; /* Adjust font size for smaller text */
+        font-size: 14px; /* Adjust font size for smaller text */
     }
 
     .fade-content {
@@ -511,11 +511,11 @@ section {
 /* Extra small screens (Mobile portrait) */
 @media screen and (max-width: 480px) {
     .fade-text-1 h1, .fade-text-2 h1 {
-        font-size: 50px; /* Further reduce font size */
+        font-size: 24px; /* Further reduce font size */
     }
 
     .fade-text-1 h2, .fade-text-2 h2 {
-        font-size: 16px; /* Adjust for smaller screens */
+        font-size: 10px; /* Adjust for smaller screens */
     }
 
     .fade-content {
@@ -712,6 +712,72 @@ section {
     object-fit: cover; /* Ensure the image covers the container without distortion */
 }
 
+.cont-about {
+    display: flex;
+    flex-direction: column; /* Stack items vertically for mobile */
+    margin: 0 auto;
+    align-items: center; /* Center-align content */
+}
+
+.slide-container {
+    width: 100%; /* Full width on mobile */
+    max-width: 360px; /* Limit the maximum width for better aesthetics */
+    margin: 0 auto;
+}
+
+.slide-album {
+    position: relative;
+    width: 100%; /* Adapt to container width */
+    height: 100%; /* Automatically adjust height */
+    max-width: 360px; /* Keep consistent with the container */
+    aspect-ratio: 1; /* Ensure square dimensions */
+    overflow: hidden;
+    border-radius: 16px; /* Slightly smaller radius for mobile */
+}
+
+.slide-images {
+    position: relative;
+    display: flex;
+    height: 100%; /* Adapt to the height of the slide-album */
+}
+
+.slide-images img {
+    flex-shrink: 0; /* Prevent images from shrinking */
+    width: 100%; /* Make images adapt to container width */
+    height: 100%; /* Maintain full height of the container */
+    object-fit: cover; /* Cover the container without distortion */
+}
+
+/* Media Query for smaller screens */
+@media screen and (max-width: 768px) {
+    .cont-about {
+        flex-direction: column; /* Stack content vertically */
+        margin: 20px auto; /* Add some spacing */
+    }
+
+    .slide-container {
+        max-width: 320px; /* Further reduce size for smaller devices */
+    }
+
+    .slide-album {
+        max-width: 320px;
+        border-radius: 12px; /* Slightly smaller border radius for mobile */
+    }
+}
+
+/* Media Query for very small screens */
+@media screen and (max-width: 480px) {
+    .slide-container {
+        max-width: 280px; /* Adapt to very small screens */
+    }
+
+    .slide-album {
+        max-width: 280px;
+        border-radius: 10px;
+    }
+}
+
+
 /* ................................ */
 
 /* Navigation buttons */
@@ -770,7 +836,7 @@ section {
     flex: 1; /* Allow equal space */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: flex-start;
     max-width: 438px;
     margin: 0 20px; /* Add some margin */
@@ -876,7 +942,7 @@ section {
   /* box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5); */
   padding: 15px 20px; /* Add padding but let the box adjust to content size */
   overflow: hidden; /* Ensure content does not overflow the modal */
-  backdrop-filter: blur(10px); /* Apply blur effect to the content behind the modal */
+  backdrop-filter: blur(20px); /* Apply blur effect to the content behind the modal */
   /* margin: 0 auto; Center the modal horizontally */
 }
 
@@ -900,8 +966,8 @@ section {
 /* Title Styling */
 .modal h3 {
   margin: 20px 0 7px 0;
-  font-size: 22px; /* Reduce title font size */
-  color: #068554;
+  font-size: 32px; /* Reduce title font size */
+  color: #fff;
   font-family: "GmarketSansBold";
 }
 /* Text Styling under heading*/
@@ -910,6 +976,33 @@ section {
   font-family: "NanumPen";
   font-weight: 300;
   color: #fff;
+}
+
+.modal p {
+    font-size: 18px; 
+    font-family: "GmarketSansMedium";
+    color: #fff;
+    text-align: left;
+    align-content: center;
+    margin: 0 auto;
+    width: 90%;
+    line-height: 30px;
+}
+
+.modal ul {
+    font-family: "GmarketSansLight";
+    color: #fff;
+    text-align: left;
+    align-content: center;
+    margin: 0 auto;
+    width: 90%;
+    line-height: 30px;
+    list-style-position: inside; /* Align the bullet inside the content width */
+    padding-left: 0; /* Remove extra padding */
+}
+
+.modal ul li {
+    padding-left: 10px; /* Optional: Add space between bullet and text */
 }
 
 /* Image Styling */
@@ -922,15 +1015,15 @@ section {
 }
 
 /* Text Styling */
-.modal p {
+/* .modal p {
   margin: 0 auto;
-  width: 90%; /* Ensure text fits properly */
-  font-size: 15px; /* Slightly reduce paragraph font size */
-  line-height: 22px; /* Adjust line-height for better readability */
-  overflow-y: visible; /* Allow scrolling if needed */
+  width: 90%; Ensure text fits properly
+  font-size: 15px; Slightly reduce paragraph font size
+  line-height: 22px; Adjust line-height for better readability
+  overflow-y: visible; Allow scrolling if needed
   font-family: "GmarketSansLight";
   color: #fff;
-}
+} */
 
 /* Responsive Design for Mobile */
 @media (max-width: 768px) {
@@ -1388,6 +1481,22 @@ section {
     color: #555;
 }
 
+.copy-message {
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    z-index: 1000;
+}
+
+.copy-message.show {
+    display: block;
+}
 
 
 #contact {
