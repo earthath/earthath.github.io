@@ -310,8 +310,6 @@ nav.main-menu ul.menu-links li a.active ion-icon {
 section {
     padding: 50px;
     text-align: center;
-    z-index: 1;
-
 }
 
 #scrolldown{
@@ -349,7 +347,7 @@ section {
     left: 80%;
 }
 /* Responsive adjustments for mobile screens */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     #parallax dotlottie-player { 
         width: 50px;  /* Smaller size for mobile */
         height: 50px; 
@@ -453,9 +451,10 @@ section {
     text-align: center;
     display: flex; /* Use flexbox for layout */
     flex-direction: column; /* Arrange items vertically */
-    opacity: 1; /* Make sure opacity is 1 when it's visible */
+    /* align-items: center; Center align the items */
+    opacity: 0;
     transition: opacity 1s ease;
-    z-index: 100; /* Ensure it's above other content */
+    z-index: 1;
     overflow: hidden;
 }
 
@@ -476,7 +475,6 @@ section {
     box-sizing: border-box; /* Include padding in width calculation */
     font-family: "GmarketSansMedium";
     transition: background-color 0.3s, border-color 0.3s; /* Smooth transition on hover */
-    z-index: 200; /* Ensure the button is on top */
 }
 
 .fade-content .more-info-btn:hover {
@@ -484,9 +482,9 @@ section {
     color: black;
 }
 
+
 /* Mobile Responsiveness */
 @media screen and (max-width: 768px) {
-
     .fade-text-1 h1, .fade-text-2 h1 {
         font-size: 60px; /* Reduce font size on smaller screens */
     }
@@ -512,7 +510,30 @@ section {
 }
 
 /* Extra small screens (Mobile portrait) */
+@media screen and (max-width: 480px) {
+    .fade-text-1 h1, .fade-text-2 h1 {
+        font-size: 50px; /* Further reduce font size */
+    }
 
+    .fade-text-1 h2, .fade-text-2 h2 {
+        font-size: 16px; /* Adjust for smaller screens */
+    }
+
+    .fade-content {
+        top: 60%; /* Adjust vertical position more */
+        padding: 0 15px; /* Reduce padding */
+    }
+
+    .fade-content img {
+        max-width: 100px; /* Further reduce image size */
+        margin-bottom: 20px; /* Less space between image and button */
+    }
+
+    .fade-content .more-info-btn {
+        font-size: 12px; /* Even smaller button text */
+        padding: 6px 12px; /* Smaller padding */
+    }
+}
 
 
 /* Independent random movement for each circle */
@@ -605,7 +626,6 @@ section {
     /* width: 100%; Full width */
     box-sizing: border-box; /* Include padding in width calculation */
     transition: background-color 0.3s, border-color 0.3s; /* Smooth transition on hover */
-    z-index: 1;
 }
 
 /* Button hover effect */
@@ -636,12 +656,7 @@ section {
 } */
 
 #about {
-    /* background: #ffffff; */
-    /* z-index: 500; */
-
-    background: #ffffff; /* Ensure it covers the background */
-    position: relative; /* Maintain stacking context */
-    z-index: 1; /* Ensure it's above the circles */
+    background: #ffffff;
 }
 
 /* about섹션 */
@@ -671,12 +686,10 @@ section {
     display: flex;
     margin: 0 auto;
 }
-
 .slide-container {
     width: 438px;
     margin: 0 auto;
 }
-
 .slide-album {
     position: relative;
     width: 438px;
@@ -684,20 +697,15 @@ section {
     overflow: hidden;
     border-radius: 20px;
 }
-
 .slide-images {
     position: relative;
     display: flex;
     height: 438px;
 }
-
 .slide-images img {
-    flex-shrink: 0; /* Prevent images from shrinking */
-    width: 100%; /* Make sure images fill the width of the container */
-    height: 100%; /* Make sure images fill the height of the container */
-    object-fit: cover; /* Ensure the image covers the container without distortion */
+    width: 438px;
+    height: 438px;
 }
-
 /* ................................ */
 
 /* Navigation buttons */
@@ -756,7 +764,7 @@ section {
     flex: 1; /* Allow equal space */
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: flex-start;
     max-width: 438px;
     margin: 0 20px; /* Add some margin */
@@ -862,7 +870,7 @@ section {
   /* box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5); */
   padding: 15px 20px; /* Add padding but let the box adjust to content size */
   overflow: hidden; /* Ensure content does not overflow the modal */
-  backdrop-filter: blur(20px); /* Apply blur effect to the content behind the modal */
+  backdrop-filter: blur(10px); /* Apply blur effect to the content behind the modal */
   /* margin: 0 auto; Center the modal horizontally */
 }
 
@@ -886,8 +894,8 @@ section {
 /* Title Styling */
 .modal h3 {
   margin: 20px 0 7px 0;
-  font-size: 32px; /* Reduce title font size */
-  color: #fff;
+  font-size: 22px; /* Reduce title font size */
+  color: #068554;
   font-family: "GmarketSansBold";
 }
 /* Text Styling under heading*/
@@ -896,33 +904,6 @@ section {
   font-family: "NanumPen";
   font-weight: 300;
   color: #fff;
-}
-
-.modal p {
-    font-size: 18px; 
-    font-family: "GmarketSansMedium";
-    color: #fff;
-    text-align: left;
-    align-content: center;
-    margin: 0 auto;
-    width: 90%;
-    line-height: 30px;
-}
-
-.modal ul {
-    font-family: "GmarketSansLight";
-    color: #fff;
-    text-align: left;
-    align-content: center;
-    margin: 0 auto;
-    width: 90%;
-    line-height: 30px;
-    list-style-position: inside; /* Align the bullet inside the content width */
-    padding-left: 0; /* Remove extra padding */
-}
-
-.modal ul li {
-    padding-left: 10px; /* Optional: Add space between bullet and text */
 }
 
 /* Image Styling */
@@ -935,15 +916,15 @@ section {
 }
 
 /* Text Styling */
-/* .modal p {
+.modal p {
   margin: 0 auto;
-  width: 90%; Ensure text fits properly
-  font-size: 15px; Slightly reduce paragraph font size
-  line-height: 22px; Adjust line-height for better readability
-  overflow-y: visible; Allow scrolling if needed
+  width: 90%; /* Ensure text fits properly */
+  font-size: 15px; /* Slightly reduce paragraph font size */
+  line-height: 22px; /* Adjust line-height for better readability */
+  overflow-y: visible; /* Allow scrolling if needed */
   font-family: "GmarketSansLight";
   color: #fff;
-} */
+}
 
 /* Responsive Design for Mobile */
 @media (max-width: 768px) {
@@ -984,7 +965,6 @@ section {
     /* Section padding */
     .section-about {
         padding: 40px 15px 80px 15px; /* Adjust for smaller screens */
-        z-index: 1;
     }
 
     /* Heading */
@@ -1402,22 +1382,6 @@ section {
     color: #555;
 }
 
-.copy-message {
-    display: none;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-size: 14px;
-    z-index: 1000;
-}
-
-.copy-message.show {
-    display: block;
-}
 
 
 #contact {
