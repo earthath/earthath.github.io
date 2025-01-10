@@ -410,130 +410,6 @@ section {
     animation: move-randomly4 20s ease-in-out infinite;
 }
 
-/* Landing Text Animations */
-.fade-text {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    
-}
-
-.fade-text-1 h1 {
-    font-size: 80px;
-    font-family: "GmarketSansBold";
-
-}
-
-.fade-text-1 h2 {
-    font-family: "GmarketSansMedium";
-}
-.fade-text-2 h1 {
-    font-size: 50px;
-    font-family: "GmarketSansMedium";
-
-}
-
-.fade-text-2 h2 {
-    font-family: "GmarketSansMedium";
-}
-
-/* Image and Button */
-.fade-content {
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    display: flex; /* Use flexbox for layout */
-    flex-direction: column; /* Arrange items vertically */
-    opacity: 1; /* Make sure opacity is 1 when it's visible */
-    transition: opacity 1s ease;
-    z-index: 100; /* Ensure it's above other content */
-    overflow: hidden;
-}
-
-.fade-content img {
-    max-width: 150px;
-    height: auto;
-    margin-bottom: 50px; /* Space between image and button */
-}
-
-.fade-content .more-info-btn {
-    padding: 10px 20px;
-    border: 1px solid white;
-    background-color: black;
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 20px; /* Rounded corners */
-    box-sizing: border-box; /* Include padding in width calculation */
-    font-family: "GmarketSansMedium";
-    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition on hover */
-    z-index: 200; /* Ensure the button is on top */
-}
-
-.fade-content .more-info-btn:hover {
-    background-color: white;
-    color: black;
-}
-
-/* Mobile Responsiveness */
-@media screen and (max-width: 768px) {
-    .fade-text-1 h1, .fade-text-2 h1 {
-        font-size: 40px; /* Reduce font size on smaller screens */
-    }
-
-    .fade-text-1 h2, .fade-text-2 h2 {
-        font-size: 14px; /* Adjust font size for smaller text */
-    }
-
-    .fade-content {
-        top: 70%; /* Adjust the position of the image and button for smaller screens */
-        padding: 0 20px; /* Add padding for better spacing */
-    }
-
-    .fade-content img {
-        max-width: 120px; /* Reduce image size for mobile */
-        margin-bottom: 30px; /* Adjust spacing between image and button */
-    }
-
-    .fade-content .more-info-btn {
-        font-size: 14px; /* Make the button text smaller */
-        padding: 8px 16px; /* Adjust padding to fit mobile screen */
-    }
-}
-
-/* Extra small screens (Mobile portrait) */
-@media screen and (max-width: 480px) {
-    .fade-text-1 h1, .fade-text-2 h1 {
-        font-size: 24px; /* Further reduce font size */
-    }
-
-    .fade-text-1 h2, .fade-text-2 h2 {
-        font-size: 10px; /* Adjust for smaller screens */
-    }
-
-    .fade-content {
-        top: 60%; /* Adjust vertical position more */
-        padding: 0 15px; /* Reduce padding */
-    }
-
-    .fade-content img {
-        max-width: 100px; /* Further reduce image size */
-        margin-bottom: 20px; /* Less space between image and button */
-    }
-
-    .fade-content .more-info-btn {
-        font-size: 12px; /* Even smaller button text */
-        padding: 6px 12px; /* Smaller padding */
-    }
-}
-
 
 /* Independent random movement for each circle */
 @keyframes move-randomly1 {
@@ -608,30 +484,134 @@ section {
     }
 }
 
-#resume-buttons {
-    margin-top: 20px;
-    margin-bottom: 20px;
+/* Landing Text Animations */
+.fade-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    
 }
 
-#resume-buttons button {
+.fade-text-1 h1 {
+    font-size: 80px;
+    font-family: "GmarketSansBold";
+
+}
+
+.fade-text-1 h2 {
     font-family: "GmarketSansMedium";
-    background-color: black; /* Black background */
-    color: white; /* White text */
-    border: 1px solid white; /* 1px white border */
-    border-radius: 20px; /* Rounded corners */
-    padding: 10px 20px; /* Padding for the button */
-    font-size: 12px; /* Font size */
-    cursor: pointer; /* Pointer cursor on hover */
-    /* width: 100%; Full width */
-    box-sizing: border-box; /* Include padding in width calculation */
-    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition on hover */
+}
+.fade-text-2 h1 {
+    font-size: 50px;
+    font-family: "GmarketSansMedium";
+
 }
 
-/* Button hover effect */
-#resume-buttons button:hover {
-    background-color: #333; /* Darken the background color on hover */
-    border-color: #ccc; /* Change border color on hover */
+.fade-text-2 h2 {
+    font-family: "GmarketSansMedium";
 }
+
+/* Image and Button */
+.fade-content {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange items vertically */
+    opacity: 1; /* Make sure opacity is 1 when it's visible */
+    transition: opacity 1s ease;
+    z-index: 100; /* Ensure it's above other content */
+    overflow: hidden;
+}
+
+.fade-content img {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 50px; /* Space between image and button */
+}
+
+.fade-content .more-info-btn {
+    padding: 10px 20px;
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 20px; /* Rounded corners */
+    box-sizing: border-box; /* Include padding in width calculation */
+    font-family: "GmarketSansMedium";
+    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition on hover */
+    z-index: 200; /* Ensure the button is on top */
+}
+
+.fade-content .more-info-btn:hover {
+    background-color: white;
+    color: black;
+}
+
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .fade-text-1 h1, .fade-text-2 h1 {
+        font-size: 40px; /* Reduce font size on smaller screens */
+    }
+
+    .fade-text-1 h2, .fade-text-2 h2 {
+        font-size: 14px; /* Adjust font size for smaller text */
+    }
+
+    .fade-content {
+        top: 70%; /* Adjust the position of the image and button for smaller screens */
+        padding: 0 20px; /* Add padding for better spacing */
+    }
+
+    .fade-content img {
+        max-width: 120px; /* Reduce image size for mobile */
+        margin-bottom: 30px; /* Adjust spacing between image and button */
+    }
+
+    .fade-content .more-info-btn {
+        font-size: 14px; /* Make the button text smaller */
+        padding: 8px 16px; /* Adjust padding to fit mobile screen */
+    }
+}
+
+/* Extra small screens (Mobile portrait) */
+@media screen and (max-width: 480px) {
+    .fade-text-1 h1, .fade-text-2 h1 {
+        font-size: 24px; /* Further reduce font size */
+    }
+
+    .fade-text-1 h2, .fade-text-2 h2 {
+        font-size: 10px; /* Adjust for smaller screens */
+    }
+
+    .fade-content {
+        top: 60%; /* Adjust vertical position more */
+        padding: 0 15px; /* Reduce padding */
+    }
+
+    .fade-content img {
+        max-width: 100px; /* Further reduce image size */
+        margin-bottom: 20px; /* Less space between image and button */
+    }
+
+    .fade-content .more-info-btn {
+        font-size: 12px; /* Even smaller button text */
+        padding: 6px 12px; /* Smaller padding */
+    }
+}
+
+
+
+
 /* #resume-buttons {
     margin-top: 20px;
 }
@@ -658,6 +638,7 @@ section {
     background: #ffffff;
 }
 
+
 /* about섹션 */
 .section-about {
     display: flex;
@@ -680,6 +661,30 @@ section {
     text-align: center; /* Center align the heading */
 }
 
+#resume-buttons {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#resume-buttons button {
+    font-family: "GmarketSansMedium";
+    background-color: black; /* Black background */
+    color: white; /* White text */
+    border: 1px solid white; /* 1px white border */
+    border-radius: 20px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for the button */
+    font-size: 12px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    /* width: 100%; Full width */
+    box-sizing: border-box; /* Include padding in width calculation */
+    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition on hover */
+}
+
+/* Button hover effect */
+#resume-buttons button:hover {
+    background-color: #333; /* Darken the background color on hover */
+    border-color: #ccc; /* Change border color on hover */
+}
 /* ................................ */
 .cont-about {
     display: flex;
@@ -751,6 +756,8 @@ section {
 /* Media Query for smaller screens */
 @media screen and (max-width: 768px) {
     .cont-about {
+        align-items: center; /* Center-align content */
+
         flex-direction: column; /* Stack content vertically */
         margin: 20px auto; /* Add some spacing */
     }
@@ -768,6 +775,8 @@ section {
 /* Media Query for very small screens */
 @media screen and (max-width: 480px) {
     .slide-container {
+        align-items: center; /* Center-align content */
+
         max-width: 280px; /* Adapt to very small screens */
     }
 

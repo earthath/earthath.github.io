@@ -262,6 +262,27 @@ window.onclick = function(event) {
     }
 };
 
+
+function changeImage(src) {
+    document.getElementById('exampleImage').src = src;
+}
+
+// Change image on hover
+const button = document.querySelector('.more-info-btn');
+const image = document.getElementById('exampleImage');
+
+button.addEventListener('mouseover', () => {
+    image.src = 'src/memoji2.png'; // Change to hover image
+});
+
+button.addEventListener('mouseout', () => {
+    image.src = 'src/memoji.png'; // Revert to original image
+});
+
+// Navigate to #about on click
+function navigateToAbout() {
+    window.location.href = '#about';
+}
 // 이미지 슬라이드
 let imgIndex = 0;
 let position = 0;
