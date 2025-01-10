@@ -656,6 +656,7 @@ section {
 
 #about {
     background: #ffffff;
+    z-index: 500;
 }
 
 /* about섹션 */
