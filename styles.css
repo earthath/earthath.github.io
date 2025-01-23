@@ -304,8 +304,10 @@ nav.main-menu ul.menu-links li a.active ion-icon {
 
 #home p{
     font-family: "GmarketSansLight"; /* 진행해주세요 */
+    
 
 }
+
 
 section {
     padding: 50px;
@@ -519,8 +521,12 @@ section {
 
 }
 
+
 .fade-text-2 h2 {
     font-family: "GmarketSansMedium";
+}
+.fade-text-2 p {
+    display: none; /* Completely hides the <p> tags */
 }
 
 /* Image and Button */
