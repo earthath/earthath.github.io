@@ -1536,6 +1536,8 @@ section {
 
     height: 500px;
     width: 100%;
+    /* font-size: small; */
+    /* font-family: "GmarketSansMedium"; */
     /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); */
     /* border-radius: 20px; */
 
@@ -1677,6 +1679,13 @@ section {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     color: #fff;
 
+    font-size: small;
+    font-family: "GmarketSansMedium";
+
+}
+
+.popup-content p {
+   color: #fff;
 }
 
 .popup-content img {
