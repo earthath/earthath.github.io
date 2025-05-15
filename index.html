@@ -10,6 +10,28 @@
     <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+
+    <title>Book a Meeting</title>
+    <style>
+      /* Apply styling to any button with this custom class */
+      .cal-button {
+        font-family: "GmarketSansMedium";
+        background-color: black; /* Black background */
+        color: white; /* White text */
+        border: 1px solid white; /* 1px white border */
+        border-radius: 20px; /* Rounded corners */
+        padding: 10px 20px; /* Padding for the button */
+        font-size: 16px; /* Font size */
+        cursor: pointer; /* Pointer cursor on hover */
+        box-sizing: border-box; /* Include padding in width calculation */
+        transition: background-color 0.3s, border-color 0.3s; /* Smooth transition on hover */
+      }
+
+      .cal-button:hover {
+        background-color: #333; /* Darken the background color on hover */
+        border-color: #ccc; /* Change border color on hover */
+      }
+    </style>
 </head>
 <body>
     <header>
@@ -295,6 +317,7 @@
 
     <section id="contact">
         <h2>Contact</h2>
+        
         <div class="contact-links">
             <a href="mailto:athip.som@gmail.com" class="contact-link">
                 <ion-icon name="mail-open-outline"></ion-icon>
@@ -302,13 +325,62 @@
             <a href="https://www.linkedin.com/in/athip-somtham" target="_blank" class="contact-link">
                 <ion-icon name="logo-linkedin"></ion-icon>
             </a>
-            <a href="#" class="contact-link phone-link" id="phone-link">
+            <!-- <a href="#" class="contact-link phone-link" id="phone-link">
                 <ion-icon name="call-outline"></ion-icon>
             </a>
-            <div id="copy-message" class="copy-message">Phone number copied!</div>
+            <div id="copy-message" class="copy-message">Phone number copied!</div> -->
             
         </div>
-        <h3>이메일 보내기</h3>
+        <h2> or</h2>
+
+        <!-- <h1>Schedule a Time</h1> -->
+        <button
+        type="button"
+        class="cal-button"
+        data-cal-link="athipsom/book"
+        data-cal-namespace="book"
+        data-cal-config='{"layout":"month_view","theme":"dark"}'>
+        Schedule a Call
+      </button>
+    
+      <!-- Cal embed script -->
+      <script type="text/javascript">
+        (function (C, A, L) {
+          let p = function (a, ar) { a.q.push(ar); };
+          let d = C.document;
+          C.Cal = C.Cal || function () {
+            let cal = C.Cal;
+            let ar = arguments;
+            if (!cal.loaded) {
+              cal.ns = {};
+              cal.q = cal.q || [];
+              d.head.appendChild(d.createElement("script")).src = A;
+              cal.loaded = true;
+            }
+            if (ar[0] === L) {
+              const api = function () { p(api, arguments); };
+              const namespace = ar[1];
+              api.q = api.q || [];
+              if (typeof namespace === "string") {
+                cal.ns[namespace] = cal.ns[namespace] || api;
+                p(cal.ns[namespace], ar);
+                p(cal, ["initNamespace", namespace]);
+              } else p(cal, ar);
+              return;
+            }
+            p(cal, ar);
+          };
+        })(window, "https://app.cal.com/embed/embed.js", "init");
+    
+        Cal("init", "book", { origin: "https://cal.com" });
+        Cal.ns.book("ui", {
+          theme: "dark",
+          hideEventTypeDetails: false,
+          layout: "month_view"
+        });
+      </script>
+
+        <!-- <h3>이메일 보내기</h3>
         <form onsubmit="sendEmail(event)">
             <div style="position: relative;">
                 <input type="text" id="name" name="name" placeholder=" " required>
@@ -330,8 +402,9 @@
 
         </form>
 
-        </form>
-
+        </form> -->
+        <!-- enddd -->
+        
         <!-- <form>
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
