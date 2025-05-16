@@ -1870,7 +1870,34 @@ form button:hover {
 }
 
 
+/* Hide mobile content on desktop */
+.mobile-only {
+    color: #fff;
 
+    display: none;
+  }
+  
+  /* Hide desktop content on mobile */
+  .desktop-only {
+    color: #fff;
+
+    display: block;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .mobile-only {
+    color: #fff;
+
+      display: block;
+    }
+  
+    .desktop-only {
+    color: #fff;
+
+      display: none;
+    }
+  }
+  
 
 /* Back-to-top Icon */
 #backToTop {
