@@ -1871,13 +1871,12 @@ form button:hover {
 
 
 /* Hide mobile content on desktop */
-.mobile-only {
+/* .mobile-only {
     color: #fff;
 
     display: none;
   }
   
-  /* Hide desktop content on mobile */
   .desktop-only {
     color: #fff;
 
@@ -1892,12 +1891,11 @@ form button:hover {
     }
   
     .desktop-only {
-    color: #fff;
-
+        
       display: none;
     }
   }
-  
+   */
 
 /* Back-to-top Icon */
 #backToTop {
