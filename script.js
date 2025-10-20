@@ -33,10 +33,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.5)';
     } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.background = 'rgba(10, 10, 10, 0.95)';
         navbar.style.boxShadow = 'none';
     }
 });
@@ -277,3 +277,99 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Collapsible sections functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const collapsibleItems = document.querySelectorAll('.collapsible-item');
+    
+    collapsibleItems.forEach(item => {
+        const header = item.querySelector('.collapsible-header');
+        const content = item.querySelector('.collapsible-content');
+        const icon = item.querySelector('.collapsible-icon');
+        
+        header.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Close all other items
+            collapsibleItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            
+            // Toggle current item
+            if (isActive) {
+                item.classList.remove('active');
+            } else {
+                item.classList.add('active');
+            }
+        });
+    });
+});
+
+// Experience counter animation
+function animateCounter(element, target, duration = 2000) {
+    let start = 0;
+    const increment = target / (duration / 16);
+    
+    function updateCounter() {
+        start += increment;
+        if (start < target) {
+            element.textContent = Math.floor(start);
+            requestAnimationFrame(updateCounter);
+        } else {
+            element.textContent = target;
+        }
+    }
+    
+    updateCounter();
+}
+
+// Experience counter observer
+const experienceObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const counter = entry.target.querySelector('.counter');
+            const target = parseInt(counter.getAttribute('data-target'));
+            animateCounter(counter, target);
+            experienceObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+// Observe experience section
+const experienceSection = document.querySelector('.experience-section');
+if (experienceSection) {
+    experienceObserver.observe(experienceSection);
+}
+
+// Timeline animation observer
+const timelineObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const timelineItems = entry.target.querySelectorAll('.timeline-item');
+            timelineItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        }
+    });
+}, { threshold: 0.1 });
+
+// Observe timeline sections
+document.addEventListener('DOMContentLoaded', () => {
+    const timelineSections = document.querySelectorAll('.timeline');
+    timelineSections.forEach(section => {
+        // Set initial styles for animation
+        const timelineItems = section.querySelectorAll('.timeline-item');
+        timelineItems.forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(30px)';
+            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+        
+        timelineObserver.observe(section);
+    });
+});

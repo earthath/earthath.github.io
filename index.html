@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Developer Portfolio</title>
+    <title>Athip Somtham - AI Research Engineer</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
@@ -45,13 +46,13 @@
         <div class="hero-container">
             <div class="hero-content">
                 <h1 class="hero-title">
-                    <span class="gradient-text">AI Developer</span>
-                    <br>Building the Future
+                    <span class="gradient-text">Athip Somtham</span>
+                    <br>AI Research Engineer
                 </h1>
                 <p class="hero-description">
-                    Passionate about creating intelligent solutions that solve real-world problems 
-                    through machine learning, deep learning, and artificial intelligence. Specializing 
-                    in neural networks, computer vision, and natural language processing.
+                    AI Research Engineer specializing in deep learning-based object detection, 
+                    tracking systems for high-velocity objects, and 3D motion reconstruction. 
+                    Passionate about sports analytics and computer vision applications.
                 </p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn btn-primary">View My Work</a>
@@ -80,135 +81,404 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        I'm an AI developer with a passion for creating intelligent systems that make a difference. 
-                        With expertise in machine learning, deep learning, and data science, I specialize in 
-                        developing solutions that leverage the power of artificial intelligence to solve complex problems.
-                    </p>
-                    <p>
-                        My journey in AI began with a fascination for how machines can learn and adapt. 
-                        Today, I work on cutting-edge projects including computer vision, natural language processing, 
-                        predictive analytics, and autonomous systems. I'm passionate about making AI accessible 
-                        and beneficial to everyone.
-                    </p>
-                    <div class="stats">
-                        <div class="stat">
-                            <h3>50+</h3>
-                            <p>AI Projects</p>
+            <h2 class="section-title">about me</h2>
+            
+            <!-- Experience Counter -->
+            <div class="experience-section">
+                <div class="experience-counter">
+                    <div class="experience-number">
+                        <span class="counter" data-target="2">0</span>
+                        <span class="plus">+</span>
+                    </div>
+                    <div class="experience-text">
+                        <div class="years">Years</div>
+                        <div class="experience">Experience</div>
+                    </div>
+                </div>
+                <div class="experience-description">
+                    <p>저는 <span class="highlight">AI Research Engineer</span>, <span class="highlight">Computer Vision</span> 전문가입니다.</p>
+                </div>
+            </div>
+            
+            <!-- Profile Box -->
+            <div class="profile-box">
+                <h3 class="profile-title">Profile</h3>
+                <div class="profile-content">
+                    <div class="profile-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-user-circle"></i>
                         </div>
-                        <div class="stat">
-                            <h3>3+</h3>
-                            <p>Years Experience</p>
+                    </div>
+                    <div class="profile-details">
+                        <div class="profile-item">
+                            <i class="fas fa-user"></i>
+                            <span class="label">Name:</span>
+                            <span class="value">SOMTHAM ATHIP (솜땀 아티프)</span>
                         </div>
-                        <div class="stat">
-                            <h3>15+</h3>
-                            <p>Technologies</p>
+                        <div class="profile-item">
+                            <i class="fas fa-passport"></i>
+                            <span class="label">Visa Status:</span>
+                            <span class="value">F-2 (Resident), Expire: 2026/06/13</span>
+                        </div>
+                        <div class="profile-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span class="label">Degree:</span>
+                            <span class="value">M.S. Computer & Electronics Convergence</span>
+                        </div>
+                        <div class="profile-item">
+                            <i class="fas fa-home"></i>
+                            <span class="label">Location:</span>
+                            <span class="value">Gwangju-si, Gyeonggi, Republic of Korea</span>
+                        </div>
+                        <div class="profile-item">
+                            <i class="fas fa-code"></i>
+                            <span class="label">Specialty:</span>
+                            <span class="value">AI Research & Computer Vision</span>
                         </div>
                     </div>
                 </div>
-                <div class="about-image">
-                    <div class="image-placeholder">
-                        <i class="fas fa-user-circle"></i>
+            </div>
+            
+            <!-- Introduction Box -->
+            <div class="intro-box">
+                <h3 class="intro-title">소개 (Introduction)</h3>
+                <p class="intro-text">
+                    I'm an <span class="highlight">AI Research Engineer</span> with expertise in deep learning-based object detection and tracking systems. 
+                    With a Master's degree in <span class="highlight">Computer and Electronics Convergence Engineering</span> and experience at <span class="highlight">FOUR LAB</span>, 
+                    I specialize in developing computer vision solutions for sports analytics and high-velocity object tracking.
+                </p>
+            </div>
+            
+            <!-- Collapsible Sections -->
+            <div class="collapsible-sections">
+                <div class="collapsible-item">
+                    <div class="collapsible-header">
+                        <span class="collapsible-title">문제 해결 경험 (Problem Solving Experience)</span>
+                        <i class="fas fa-chevron-down collapsible-icon"></i>
+                    </div>
+                    <div class="collapsible-content">
+                        <p>Optimized deep learning-based object detection models for fast-moving targets at FOUR LAB, enhancing trajectory prediction robustness. Developed sports-focused pose estimation algorithms using Python/OpenCV and created 3D motion reconstruction systems by converting 2D pose data to 3D character models using Blender-Python.</p>
+                    </div>
+                </div>
+                
+                <div class="collapsible-item">
+                    <div class="collapsible-header">
+                        <span class="collapsible-title">직무 성취 경험 (Job Achievement Experience)</span>
+                        <i class="fas fa-chevron-down collapsible-icon"></i>
+                    </div>
+                    <div class="collapsible-content">
+                        <p>Published two research papers in peer-reviewed journals: "Machine Learning Model-Based Demand Prediction for Public Bike Sharing Services in Seoul" (The e-Business Studies, 2023) and "Evaluation of Modern Accelerator-Based Edge Devices for Object Detection Applications" (Mathematics, MDPI, 2022). Successfully implemented tracking systems for high-velocity objects and designed sports analytics solutions.</p>
+                    </div>
+                </div>
+                
+                <div class="collapsible-item">
+                    <div class="collapsible-header">
+                        <span class="collapsible-title">가치관 및 신조 (Values and Creed)</span>
+                        <i class="fas fa-chevron-down collapsible-icon"></i>
+                    </div>
+                    <div class="collapsible-content">
+                        <p>I believe in developing AI solutions that solve real-world problems, particularly in sports analytics and computer vision. My core values include continuous learning, research excellence, and creating technology that enhances human performance and understanding through data-driven insights.</p>
+                    </div>
+                </div>
+                
+                <div class="collapsible-item">
+                    <div class="collapsible-header">
+                        <span class="collapsible-title">이루고 싶은 것 (What I Want to Achieve)</span>
+                        <i class="fas fa-chevron-down collapsible-icon"></i>
+                    </div>
+                    <div class="collapsible-content">
+                        <p>My goal is to advance computer vision and AI research, particularly in sports analytics and high-velocity object tracking. I want to contribute to the development of more accurate and efficient deep learning models for real-time applications, and continue publishing research that advances the field of AI and machine learning.</p>
+                    </div>
+                </div>
+                
+                <div class="collapsible-item">
+                    <div class="collapsible-header">
+                        <span class="collapsible-title">성격의 장단점 (Strengths and Weaknesses of Personality)</span>
+                        <i class="fas fa-chevron-down collapsible-icon"></i>
+                    </div>
+                    <div class="collapsible-content">
+                        <p><strong>Strengths:</strong> Strong analytical thinking, attention to detail in research, expertise in computer vision and deep learning, and passion for continuous learning. Multilingual abilities (Thai, English, Korean). <strong>Areas for Growth:</strong> I'm working on improving my presentation skills for non-technical audiences and expanding my knowledge in emerging AI technologies.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tech Stack Section -->
+            <div class="tech-stack-section">
+                <h3 class="section-subtitle">기술 스택 (Tech Stack)</h3>
+                <div class="tech-categories">
+                    <div class="tech-category">
+                        <h4>Programming Languages</h4>
+                        <div class="tech-logos">
+                            <div class="tech-logo" title="Python">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <div class="tech-logo" title="C/C++">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="tech-logo" title="SQL">
+                                <i class="fas fa-database"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-category">
+                        <h4>AI/ML Frameworks</h4>
+                        <div class="tech-logos">
+                            <div class="tech-logo" title="PyTorch">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="tech-logo" title="OpenCV">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="tech-logo" title="CUDA">
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                            <div class="tech-logo" title="Blender">
+                                <i class="fas fa-cube"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-category">
+                        <h4>Cloud & Database</h4>
+                        <div class="tech-logos">
+                            <div class="tech-logo" title="AWS">
+                                <i class="fab fa-aws"></i>
+                            </div>
+                            <div class="tech-logo" title="EC2">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <div class="tech-logo" title="S3">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <div class="tech-logo" title="MariaDB">
+                                <i class="fas fa-database"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-category">
+                        <h4>Development Tools</h4>
+                        <div class="tech-logos">
+                            <div class="tech-logo" title="Flask">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <div class="tech-logo" title="API Development">
+                                <i class="fas fa-plug"></i>
+                            </div>
+                            <div class="tech-logo" title="MapInfo">
+                                <i class="fas fa-map"></i>
+                            </div>
+                            <div class="tech-logo" title="QGIS">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="tech-logo" title="Linux">
+                                <i class="fab fa-linux"></i>
+                            </div>
+                            <div class="tech-logo" title="Windows">
+                                <i class="fab fa-windows"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Moments Section -->
+            <div class="moments-section">
+                <h3 class="section-subtitle">Moments</h3>
+                <div class="pegboard">
+                    <div class="polaroid-frame frame-1">
+                        <div class="polaroid-pin"></div>
+                        <div class="polaroid-content">
+                            <div class="polaroid-image">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="polaroid-caption">AI Research</div>
+                        </div>
+                        <div class="polaroid-hover">
+                            <img src="https://via.placeholder.com/400x300/4caf50/ffffff?text=AI+Research" alt="AI Research">
+                            <div class="hover-caption">Working on cutting-edge AI research</div>
+                        </div>
+                    </div>
+                    
+                    <div class="polaroid-frame frame-2">
+                        <div class="polaroid-pin"></div>
+                        <div class="polaroid-content">
+                            <div class="polaroid-image">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="polaroid-caption">Coding Session</div>
+                        </div>
+                        <div class="polaroid-hover">
+                            <img src="https://via.placeholder.com/400x300/66bb6a/ffffff?text=Coding+Session" alt="Coding Session">
+                            <div class="hover-caption">Late night coding sessions</div>
+                        </div>
+                    </div>
+                    
+                    <div class="polaroid-frame frame-3">
+                        <div class="polaroid-pin"></div>
+                        <div class="polaroid-content">
+                            <div class="polaroid-image">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="polaroid-caption">Graduation</div>
+                        </div>
+                        <div class="polaroid-hover">
+                            <img src="https://via.placeholder.com/400x300/4caf50/ffffff?text=Graduation" alt="Graduation">
+                            <div class="hover-caption">Computer Science graduation day</div>
+                        </div>
+                    </div>
+                    
+                    <div class="polaroid-frame frame-4">
+                        <div class="polaroid-pin"></div>
+                        <div class="polaroid-content">
+                            <div class="polaroid-image">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="polaroid-caption">Award</div>
+                        </div>
+                        <div class="polaroid-hover">
+                            <img src="https://via.placeholder.com/400x300/66bb6a/ffffff?text=Award" alt="Award">
+                            <div class="hover-caption">Winning AI competition</div>
+                        </div>
+                    </div>
+                    
+                    <div class="polaroid-frame frame-5">
+                        <div class="polaroid-pin"></div>
+                        <div class="polaroid-content">
+                            <div class="polaroid-image">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="polaroid-caption">Team Work</div>
+                        </div>
+                        <div class="polaroid-hover">
+                            <img src="https://via.placeholder.com/400x300/4caf50/ffffff?text=Team+Work" alt="Team Work">
+                            <div class="hover-caption">Collaborating with amazing team</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
+
+    <!-- Education Timeline Section -->
+    <section id="education" class="education">
         <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Machine Learning</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span>Python</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="95%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>TensorFlow</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>PyTorch</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Scikit-learn</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="88%"></div>
-                            </div>
+            <h2 class="section-title">education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2021 - 2023</div>
+                        <h3 class="timeline-title">Master of Science in Computer and Electronics Convergence Engineering</h3>
+                        <h4 class="timeline-subtitle">Sun Moon University, South Korea</h4>
+                        <p class="timeline-description">
+                            Specialized in AI and machine learning applications. Focused on deep learning, 
+                            computer vision, and data analysis. Conducted research on machine learning 
+                            model-based demand prediction for public bike sharing services.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="tag">CGPA: 4.42/4.50</span>
+                            <span class="tag">Research Focus</span>
+                            <span class="tag">AI/ML</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="skill-category">
-                    <h3>Data Science</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span>Pandas</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="92%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>NumPy</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Matplotlib</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>SQL</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="80%"></div>
-                            </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2017 - 2021</div>
+                        <h3 class="timeline-title">Bachelor of Engineering in Electrical Communication and Electronic Engineering</h3>
+                        <h4 class="timeline-subtitle">King Mongkut's University of Technology Thonburi (KMUTT), Thailand</h4>
+                        <p class="timeline-description">
+                            Comprehensive study of electrical and electronic engineering with focus on 
+                            communication systems, signal processing, and embedded systems. 
+                            Foundation for advanced AI and computer vision applications.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="tag">CGPA: 3.17/4.00</span>
+                            <span class="tag">Engineering</span>
+                            <span class="tag">Communication Systems</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="skill-category">
-                    <h3>AI Technologies</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span>OpenAI API</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="88%"></div>
-                            </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025</div>
+                        <h3 class="timeline-title">Korean Language Proficiency</h3>
+                        <h4 class="timeline-subtitle">TOPIK II Level 4</h4>
+                        <p class="timeline-description">
+                            Achieved TOPIK II Level 4 certification demonstrating professional 
+                            working proficiency in Korean language, enabling effective 
+                            communication in Korean work environments.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="tag">TOPIK II Level 4</span>
+                            <span class="tag">May 2025</span>
+                            <span class="tag">Professional Proficiency</span>
                         </div>
-                        <div class="skill-item">
-                            <span>Computer Vision</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="85%"></div>
-                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Experience Section -->
+    <section id="experience" class="career-experience">
+        <div class="container">
+            <h2 class="section-title">career experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">November 2023 - August 2025</div>
+                        <h3 class="timeline-title">AI Research Engineer (Full-time)</h3>
+                        <h4 class="timeline-subtitle">FOUR LAB | ㈜포랩</h4>
+                        <p class="timeline-description">
+                            Optimized deep learning-based object detection models for fast-moving targets. 
+                            Researched and implemented tracking systems for high-velocity objects using deep learning frameworks, 
+                            enhancing trajectory prediction robustness. Designed sports-focused pose estimation algorithms 
+                            and created 3D motion reconstruction systems.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">OpenCV</span>
+                            <span class="tag">PyTorch</span>
+                            <span class="tag">Blender</span>
                         </div>
-                        <div class="skill-item">
-                            <span>NLP</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="82%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>MLOps</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="75%"></div>
-                            </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">July - December 2020</div>
+                        <h3 class="timeline-title">Radio Frequency Engineer (Intern)</h3>
+                        <h4 class="timeline-subtitle">Huawei Technologies (Thailand) Co., Ltd</h4>
+                        <p class="timeline-description">
+                            Prepared drive test routes and checked Signal Strength and Quality of Service of LTE/NR. 
+                            Analyzed and reported networking problems and abnormal call events from Drive test data. 
+                            Proposed network optimization solutions to improve coverage and quality of service on 5G networks.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="tag">5G Networks</span>
+                            <span class="tag">LTE/NR</span>
+                            <span class="tag">Signal Analysis</span>
+                            <span class="tag">Network Optimization</span>
                         </div>
                     </div>
                 </div>
@@ -219,80 +489,80 @@
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
+            <h2 class="section-title">featured projects</h2>
             <div class="projects-grid">
-                        <div class="project-card">
+                <div class="project-card">
                     <div class="project-image">
-                        <i class="fas fa-brain"></i>
+                        <i class="fas fa-bicycle"></i>
                     </div>
                     <div class="project-content">
-                        <h3>Advanced AI Chatbot</h3>
-                        <p>Intelligent conversational AI using GPT-4 and custom fine-tuned models for specialized domain knowledge and context-aware responses.</p>
+                        <h3>Machine Learning Model-Based Demand Prediction for Public Bike Sharing Services in Seoul</h3>
+                        <p>Performed analysis of machine learning model-based demand prediction using sharing bicycle data in Seoul incorporated with weather information to improve prediction accuracy. Published in The e-Business Studies, Volume 24, Number 3, June 2023.</p>
                         <div class="project-tech">
                             <span>Python</span>
-                            <span>OpenAI API</span>
-                            <span>Transformers</span>
+                            <span>Machine Learning</span>
+                            <span>Data Analysis</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="btn btn-small">View Project</a>
-                            <a href="#" class="btn btn-small btn-outline">GitHub</a>
+                            <a href="#" class="btn btn-small">View Publication</a>
+                            <a href="#" class="btn btn-small btn-outline">Research Paper</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-image">
-                        <i class="fas fa-eye"></i>
+                        <i class="fas fa-microchip"></i>
                     </div>
                     <div class="project-content">
-                        <h3>Real-time Computer Vision</h3>
-                        <p>Advanced object detection and recognition system using YOLOv8 and custom neural networks for real-time video analysis and classification.</p>
+                        <h3>Evaluation of Modern Accelerator-Based Edge Devices for Object Detection Applications</h3>
+                        <p>Performed object detection neural network benchmarks on edge devices. Benchmarked performance results in perspectives of detection accuracy, inference latency, and energy efficiency. Published in Mathematics 2022, Volume 10, Issue 22, 4299 (MDPI).</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Edge Computing</span>
+                            <span>Object Detection</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small">View Publication</a>
+                            <a href="#" class="btn btn-small btn-outline">MDPI Journal</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Sports-Focused Pose Estimation Algorithms</h3>
+                        <p>Designed sports-focused pose estimation algorithms using Python/OpenCV, produced visual analysis outputs for performance analytics. Created 3D motion reconstruction system by converting 2D pose data to 3D character models using Blender-Python.</p>
                         <div class="project-tech">
                             <span>Python</span>
                             <span>OpenCV</span>
-                            <span>YOLOv8</span>
+                            <span>Blender</span>
                         </div>
                         <div class="project-links">
                             <a href="#" class="btn btn-small">View Project</a>
-                            <a href="#" class="btn btn-small btn-outline">GitHub</a>
+                            <a href="#" class="btn btn-small btn-outline">Demo</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-image">
-                        <i class="fas fa-chart-line"></i>
+                        <i class="fas fa-satellite-dish"></i>
                     </div>
                     <div class="project-content">
-                        <h3>ML Predictive Analytics</h3>
-                        <p>Advanced machine learning pipeline for business forecasting using ensemble methods, time series analysis, and automated feature engineering.</p>
+                        <h3>5G Network Optimization Solutions</h3>
+                        <p>Proposed network optimization solutions to improve coverage and quality of service on 5G networks by changing parameters such as antenna azimuth, mechanical and electrical tilt. Analyzed drive test data for LTE/NR signal strength and quality.</p>
                         <div class="project-tech">
-                            <span>Python</span>
-                            <span>Scikit-learn</span>
-                            <span>XGBoost</span>
+                            <span>5G Networks</span>
+                            <span>Signal Analysis</span>
+                            <span>Network Optimization</span>
                         </div>
                         <div class="project-links">
                             <a href="#" class="btn btn-small">View Project</a>
-                            <a href="#" class="btn btn-small btn-outline">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Deep Learning Recommender</h3>
-                        <p>Neural collaborative filtering system with attention mechanisms and multi-task learning for personalized recommendations at scale.</p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>PyTorch</span>
-                            <span>Neural Networks</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small">View Project</a>
-                            <a href="#" class="btn btn-small btn-outline">GitHub</a>
+                            <a href="#" class="btn btn-small btn-outline">Report</a>
                         </div>
                     </div>
                 </div>
@@ -303,7 +573,7 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
+            <h2 class="section-title">get in touch</h2>
             <div class="contact-content">
                 <div class="contact-info">
                     <h3>Let's Connect</h3>
@@ -311,22 +581,20 @@
                     <div class="contact-details">
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
-                            <span>ai.developer@email.com</span>
+                            <span>athip.som@gmail.com</span>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
-                            <span>+1 (555) 123-4567</span>
+                            <span>+82-10-2273-6595</span>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>San Francisco, CA</span>
+                            <span>Gwangju-si, Gyeonggi, Republic of Korea (12757)</span>
                         </div>
                     </div>
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-medium"></i></a>
+                        <a href="https://www.linkedin.com/in/athip-somtham" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:athip.som@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
                 <form class="contact-form">
@@ -351,7 +619,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 AI Developer Portfolio. All rights reserved.</p>
+            <p>&copy; 2024 Athip Somtham - AI Research Engineer. All rights reserved.</p>
         </div>
     </footer>
 
