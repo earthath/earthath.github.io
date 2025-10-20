@@ -125,39 +125,71 @@ window.addEventListener('scroll', () => {
 });
 
 // Contact form handling
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(contactForm);
-        const name = contactForm.querySelector('input[type="text"]').value;
-        const email = contactForm.querySelector('input[type="email"]').value;
-        const subject = contactForm.querySelectorAll('input[type="text"]')[1].value;
-        const message = contactForm.querySelector('textarea').value;
-        
-        // Simple validation
-        if (!name || !email || !subject || !message) {
-            alert('Please fill in all fields');
-            return;
-        }
-        
-        // Simulate form submission
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
-        
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
-        
-        setTimeout(() => {
-            alert('Thank you for your message! I\'ll get back to you soon.');
-            contactForm.reset();
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        }, 2000);
-    });
-}
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize EmailJS
+    emailjs.init("tFwLnert7PgXN9q-t");
+    
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form data - use more specific selectors
+            const inputs = contactForm.querySelectorAll('input');
+            const name = inputs[0].value; // First input (name)
+            const email = inputs[1].value; // Second input (email)
+            const subject = inputs[2].value; // Third input (subject)
+            const message = contactForm.querySelector('textarea').value;
+            
+            // Simple validation
+            if (!name || !email || !subject || !message) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            // Get submit button
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Send email using EmailJS
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                subject: subject,
+                message: message,
+                to_email: 'athip.som@gmail.com'
+            };
+            
+            emailjs.send('service_7jd9dcr', 'template_contact', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    alert('Thank you for your message! I\'ll get back to you soon.');
+                    contactForm.reset();
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    // Fallback to mailto if EmailJS fails
+                    const mailtoLink = `mailto:athip.som@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${name} (${email})\n\nMessage:\n${message}`)}`;
+                    window.location.href = mailtoLink;
+                    alert('Opening your email client as backup...');
+                    contactForm.reset();
+                })
+                .finally(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                });
+        });
+    }
+});
 
 // Add hover effects to project cards
 document.querySelectorAll('.project-card').forEach(card => {
