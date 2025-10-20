@@ -1,0 +1,1934 @@
+@font-face {
+    font-family: 'Eulyoo1945-Regular';
+    src: url('src/fonts/Eulyoo1945-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Eulyoo1945-SemiBold';
+    src: url('src/fonts/Eulyoo1945-SemiBold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'GmarketSansBold';
+    src: url('src/fonts/GmarketSansBold.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'GmarketSansLight';
+    src: url('src/fonts/GmarketSansLight.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('src/fonts/GmarketSansMedium.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'NanumPen';
+    src: url('src/fonts/NanumPen.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'SportingGrotesque-Bold';
+    src: url('src/fonts/SportingGrotesque-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'SportingGrotesque-Regular';
+    src: url('src/fonts/SportingGrotesque-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Inter-Regular';
+    src: url('src/fonts/Inter-Regular.otf') format('opentype');
+}
+
+/* Importing Kanit font family */
+@font-face {
+    font-family: 'KanitBlack';
+    src: url('src/fonts/s2/Kanit-Black.ttf') format('truetype');
+    /* font-weight: bold; */
+}
+@font-face {
+    font-family: 'KanitBold';
+    src: url('src/fonts/s2/Kanit-Bold.ttf') format('truetype');
+    /* font-weight: bold; */
+}
+@font-face {
+    font-family: 'Kanit';
+    src: url('src/fonts/s2/Kanit-Regular.ttf') format('truetype');
+    /* font-weight: normal; */
+}
+
+/* Importing Montserrat font family */
+@font-face {
+    font-family: 'Montserrat';
+    src: url('src/fonts/s2/Montserrat-Regular.ttf') format('truetype');
+    /* font-weight: normal; */
+}
+
+/* Importing SukhumvitSet font family */
+@font-face {
+    font-family: 'SukhumvitSetBold';
+    src: url('src/fonts/s2/SukhumvitSet-Bold.ttf') format('truetype');
+    /* font-weight: bold; */
+}
+@font-face {
+    font-family: 'SukhumvitSetMedium';
+    src: url('src/fonts/s2/SukhumvitSet-Medium.ttf') format('truetype');
+    /* font-weight: 500; */
+}
+@font-face {
+    font-family: 'SukhumvitSetThin';
+    src: url('src/fonts/s2/SukhumvitSet-Thin.ttf') format('truetype');
+    /* font-weight: 100; */
+}
+
+
+/* General Styling */
+body {
+    font-family: SportingGrotesque-Regular, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* scroll-behavior: smooth; */
+    background-color: black;
+    /* color: white; */
+    overflow-x: hidden;
+}
+
+/* Navigation Bar Styles */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0); /* Semi-transparent background */
+    z-index: 10; /* Ensure it stays on top of content */
+    padding: 10px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Navigation Menu */
+nav.main-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 0 auto;
+    width: fit-content;
+    padding: 5px 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+}
+
+nav.main-menu ul.menu-links {
+    display: flex;
+    list-style-type: none;
+}
+
+nav.main-menu ul.menu-links li {
+    margin: 0 5px;
+}
+
+nav.main-menu ul.menu-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-family: Inter-Regular;
+    height: 40px; /* Set a fixed height */
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflowing text initially */
+}
+
+/* Hide text initially */
+nav.main-menu ul.menu-links li a span {
+    display: none;
+}
+
+/* Show text on hover and adjust width */
+nav.main-menu ul.menu-links li a:hover,
+nav.main-menu ul.menu-links li a.active {
+    width: auto; /* Expand width to fit content */
+    overflow: visible; /* Allow text to be visible */
+    background-color: rgba(255, 255, 255, 0.2); /* Background color on hover */
+    border-color: rgba(255, 255, 255, 0.7); /* Border color on hover */
+    border-radius: 20px; /* Border radius on hover */
+    padding: 5px 10px; /* Padding on hover */
+}
+
+nav.main-menu ul.menu-links li a:hover span,
+nav.main-menu ul.menu-links li a.active span {
+    display: inline;
+    font-size: 16px; /* Adjust text size on hover */
+}
+
+nav.main-menu ul.menu-links li a:hover ion-icon,
+nav.main-menu ul.menu-links li a.active ion-icon {
+    font-size: 20px; /* Adjust icon size on hover */
+}
+
+
+
+/* Mobile View */
+@media screen and (max-width: 768px) {
+    nav.main-menu {
+        position: fixed;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 2px;
+    }
+
+    nav.main-menu ul.menu-links li a span {
+        display: none;
+    }
+
+    /* .language-switcher {
+        bottom: 20px;
+        right: 10px;
+        top: auto;
+    } */
+}
+
+/* Space after the fixed header */
+#home {
+    padding-top: 80px; /* Ensure content isn't hidden behind the nav */
+}
+
+/* Mobile Menu */
+@media screen and (max-width: 768px) {
+    nav ul {
+        display: flex; /* Keep the menu horizontal */
+        justify-content: normal; /* Evenly space the items across the screen */
+        width: 100%; /* Ensure it takes up the full width */
+        font-size: 12px; /* Smaller font size for mobile */
+        padding: 5px 0; /* Reduced padding for mobile */
+    }
+
+    nav ul li {
+        margin: 0 px; /* Adjust margin for mobile */
+    }
+
+    nav ul li a {
+        font-size: 14px; /* Smaller font size for links on mobile */
+        padding: 5px 5px; /* Adjust padding for mobile */
+    }
+}
+
+
+/* ................................... */
+/* Typing effect container */
+.typing-container {
+    display: inline-flex; /* Align text and cursor inline */
+    justify-content: center; /* Center text horizontally */
+    align-items: center; /* Center text vertically */
+    font-size: 3rem;
+    white-space: nowrap; /* Prevent text from wrapping */
+    position: absolute; /* Position it absolutely in the center */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Offset the center positioning */
+    z-index: 999; /* Ensure it's above other elements */
+}
+
+/* Cursor styling */
+#cursor {
+    display: inline;
+    width: 1ch;
+    background-color: black;
+    animation: blink 0.7s step-end infinite;
+    margin-left: 5px;
+}
+
+/* Blink animation for cursor */
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Hide typing effect once scrolling starts */
+.hidden {
+    display: none;
+}
+
+
+/* Styling for the three texts */
+#text1 {
+    font-family: 'SportingGrotesque-Bold'; /* Default font */
+}
+
+.text2 {
+    font-family: 'Eulyoo1945-SemiBold';
+}
+
+.text3 {
+    font-family: 'SukhumvitSetBold';
+}
+
+/* ......................................  */
+
+
+/* Landing Section with Scroll Effect */
+#home {
+    position: relative;
+    padding: 100px 0;
+    text-align: center;
+    align-items: center;
+    color: white;
+    background: #000; /* Default background */
+    overflow: hidden; /* Prevent circles from spilling over */
+    z-index: 0;
+    height: 300vh; /* Extended height for long scroll effect */
+}
+
+#home p{
+    font-family: "GmarketSansLight"; /* 진행해주세요 */
+    
+
+}
+
+
+section {
+    padding: 50px;
+    text-align: center;
+}
+
+#scrolldown{
+    --lottie-player-seeker-track-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* --lottie-player-seeker-thumb-color: #ffcc00; */
+}
+
+#parallax {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1; /* Ensure the parallax content is above the background */
+}
+
+/* #parallax img, */
+#parallax dotlottie-player { /* Target both images and Lottie player */
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+
+#star1 {
+    top: 20%;
+    left: 0%;
+}
+
+#star2 {
+    top: 60%;
+    left: 80%;
+}
+/* Responsive adjustments for mobile screens */
+@media (max-width: 600px) {
+    #parallax dotlottie-player { 
+        width: 50px;  /* Smaller size for mobile */
+        height: 50px; 
+    }
+
+    #star1 {
+        top: 5%;   /* Adjust position for mobile */
+        left: 0%;
+    }
+
+    #star2 {
+        top: 40%;
+        left: 40%;
+    }
+}
+
+/* 4-Circle Background */
+#home .circle-container {
+    position: relative; /* Ensure the circles are contained within this div */
+    width: 100%;
+    height: 100vh; /* Ensure it takes the full height of the viewport */
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px); /* Increased blur for blending */
+    z-index: -1;
+    pointer-events: none;
+    animation: move-randomly 20s ease-in-out infinite;
+}
+
+.circle1 {
+    width: 1200px;
+    height: 1200px;
+    background: linear-gradient(45deg, #ff007f, #6a11cb); /* Pink to Purple */
+    top: 0;
+    left: 0;
+    animation: move-randomly1 20s ease-in-out infinite;
+}
+
+.circle2 {
+    width: 1300px;
+    height: 1300px;
+    background: linear-gradient(45deg, #00c6ff, #0072ff); /* Blue to Light Blue */
+    top: 0;
+    right: 0;
+    animation: move-randomly2 20s ease-in-out infinite;
+}
+
+.circle3 {
+    width: 1400px;
+    height: 1400px;
+    background: linear-gradient(45deg, #ffac41, #ff006d); /* Orange to Red */
+    bottom: 0;
+    left: 0;
+    animation: move-randomly3 20s ease-in-out infinite;
+}
+
+.circle4 {
+    width: 1500px;
+    height: 1500px;
+    background: linear-gradient(45deg, #2af598, #009efd); /* Green to Blue */
+    bottom: 0;
+    right: 0;
+    animation: move-randomly4 20s ease-in-out infinite;
+}
+
+
+
+/* Independent random movement for each circle */
+@keyframes move-randomly1 {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(250px, -300px); /* Random movement */
+    }
+    50% {
+        transform: translate(-350px, 500px);
+    }
+    75% {
+        transform: translate(500px, 700px);
+    }
+    100% {
+        transform: translate(-450px, -600px);
+    }
+}
+
+@keyframes move-randomly2 {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(-300px, 200px); /* Random movement */
+    }
+    50% {
+        transform: translate(400px, -350px);
+    }
+    75% {
+        transform: translate(-600px, 600px);
+    }
+    100% {
+        transform: translate(350px, -450px);
+    }
+}
+
+@keyframes move-randomly3 {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(400px, -200px); /* Random movement */
+    }
+    50% {
+        transform: translate(-500px, 300px);
+    }
+    75% {
+        transform: translate(250px, -600px);
+    }
+    100% {
+        transform: translate(-700px, 450px);
+    }
+}
+
+@keyframes move-randomly4 {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(-500px, 400px); /* Random movement */
+    }
+    50% {
+        transform: translate(600px, -500px);
+    }
+    75% {
+        transform: translate(-300px, 700px);
+    }
+    100% {
+        transform: translate(450px, -350px);
+    }
+}
+
+/* Landing Text Animations */
+.fade-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    
+}
+
+.fade-text-1 h1 {
+    font-size: 80px;
+    font-family: "GmarketSansBold";
+
+}
+
+.fade-text-1 h2 {
+    font-family: "GmarketSansMedium";
+}
+.fade-text-2 h1 {
+    font-size: 50px;
+    font-family: "GmarketSansMedium";
+
+}
+
+
+.fade-text-2 h2 {
+    font-family: "GmarketSansMedium";
+}
+.fade-text-2 p {
+    display: none; /* Completely hides the <p> tags */
+}
+
+/* Image and Button */
+.fade-content {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange items vertically */
+    opacity: 1; /* Make sure opacity is 1 when it's visible */
+    transition: opacity 1s ease;
+    z-index: 100; /* Ensure it's above other content */
+    overflow: hidden;
+}
+
+.fade-content img {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 50px; /* Space between image and button */
+}
+
+.fade-content .more-info-btn {
+    padding: 10px 20px;
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 20px; /* Rounded corners */
+    box-sizing: border-box; /* Include padding in width calculation */
+    font-family: "GmarketSansMedium";
+    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition on hover */
+    z-index: 200; /* Ensure the button is on top */
+}
+
+.fade-content .more-info-btn:hover {
+    background-color: white;
+    color: black;
+}
+
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .fade-text-1 h1, .fade-text-2 h1 {
+        font-size: 40px; /* Reduce font size on smaller screens */
+    }
+
+    .fade-text-1 h2, .fade-text-2 h2 {
+        font-size: 14px; /* Adjust font size for smaller text */
+    }
+
+    .fade-content {
+        top: 70%; /* Adjust the position of the image and button for smaller screens */
+        padding: 0 20px; /* Add padding for better spacing */
+    }
+
+    .fade-content img {
+        max-width: 120px; /* Reduce image size for mobile */
+        margin-bottom: 30px; /* Adjust spacing between image and button */
+    }
+
+    .fade-content .more-info-btn {
+        font-size: 14px; /* Make the button text smaller */
+        padding: 8px 16px; /* Adjust padding to fit mobile screen */
+    }
+}
+
+/* Extra small screens (Mobile portrait) */
+@media screen and (max-width: 480px) {
+    .fade-text-1 h1, .fade-text-2 h1 {
+        font-size: 24px; /* Further reduce font size */
+    }
+
+    .fade-text-1 h2, .fade-text-2 h2 {
+        font-size: 10px; /* Adjust for smaller screens */
+    }
+
+    .fade-content {
+        top: 60%; /* Adjust vertical position more */
+        padding: 0 15px; /* Reduce padding */
+    }
+
+    .fade-content img {
+        max-width: 100px; /* Further reduce image size */
+        margin-bottom: 20px; /* Less space between image and button */
+    }
+
+    .fade-content .more-info-btn {
+        font-size: 12px; /* Even smaller button text */
+        padding: 6px 12px; /* Smaller padding */
+    }
+}
+
+
+
+
+/* #resume-buttons {
+    margin-top: 20px;
+}
+
+#resume-buttons button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#resume-buttons button:hover {
+    background: #555;
+} */
+/* #about {
+    visibility: hidden;
+} */
+
+#about {
+    background: #ffffff;
+}
+
+
+/* about섹션 */
+.section-about {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center vertically */
+    flex-direction: column;
+    background-color: white;
+    padding: 80px 20px 140px 20px; /* Adjust padding */
+    margin: 0 0 140px 0;
+    min-height: 100vh; /* Ensure the section takes full height */
+}
+
+/* Section heading */
+.section-about h2 {
+    margin: 0 auto 50px; /* Reduce bottom margin */
+    display: inline-block;
+    font-family: "GmarketSansBold";
+    color: #333;
+    font-size: 40px;
+    text-align: center; /* Center align the heading */
+}
+
+#resume-buttons {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#resume-buttons button {
+    font-family: "GmarketSansMedium";
+    background-color: black; /* Black background */
+    color: white; /* White text */
+    border: 1px solid white; /* 1px white border */
+    border-radius: 20px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for the button */
+    font-size: 12px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    /* width: 100%; Full width */
+    box-sizing: border-box; /* Include padding in width calculation */
+    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition on hover */
+}
+
+/* Button hover effect */
+#resume-buttons button:hover {
+    background-color: #333; /* Darken the background color on hover */
+    border-color: #ccc; /* Change border color on hover */
+}
+/* ................................ */
+.cont-about {
+    display: flex;
+    margin: 0 auto;
+}
+
+.slide-container {
+    width: 438px;
+    margin: 0 auto;
+}
+
+.slide-album {
+    position: relative;
+    width: 438px;
+    height: 438px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.slide-images {
+    position: relative;
+    display: flex;
+    height: 438px;
+}
+
+.slide-images img {
+    flex-shrink: 0; /* Prevent images from shrinking */
+    width: 100%; /* Make sure images fill the width of the container */
+    height: 100%; /* Make sure images fill the height of the container */
+    object-fit: cover; /* Ensure the image covers the container without distortion */
+}
+
+.cont-about {
+    display: flex;
+    flex-direction: column; /* Stack items vertically for mobile */
+    margin: 0 auto;
+    align-items: center; /* Center-align content */
+}
+
+.slide-container {
+    width: 100%; /* Full width on mobile */
+    max-width: 360px; /* Limit the maximum width for better aesthetics */
+    margin: 0 auto;
+}
+
+.slide-album {
+    position: relative;
+    width: 100%; /* Adapt to container width */
+    height: 100%; /* Automatically adjust height */
+    max-width: 360px; /* Keep consistent with the container */
+    aspect-ratio: 1; /* Ensure square dimensions */
+    overflow: hidden;
+    border-radius: 16px; /* Slightly smaller radius for mobile */
+}
+
+.slide-images {
+    position: relative;
+    display: flex;
+    height: 100%; /* Adapt to the height of the slide-album */
+}
+
+.slide-images img {
+    flex-shrink: 0; /* Prevent images from shrinking */
+    width: 100%; /* Make images adapt to container width */
+    height: 100%; /* Maintain full height of the container */
+    object-fit: cover; /* Cover the container without distortion */
+}
+
+/* Media Query for smaller screens */
+@media screen and (max-width: 768px) {
+    .cont-about {
+        align-items: center; /* Center-align content */
+
+        flex-direction: column; /* Stack content vertically */
+        margin: 20px auto; /* Add some spacing */
+    }
+
+    .slide-container {
+        max-width: 320px; /* Further reduce size for smaller devices */
+    }
+
+    .slide-album {
+        max-width: 320px;
+        border-radius: 12px; /* Slightly smaller border radius for mobile */
+    }
+}
+
+/* Media Query for very small screens */
+@media screen and (max-width: 480px) {
+    .slide-container {
+        align-items: center; /* Center-align content */
+
+        max-width: 280px; /* Adapt to very small screens */
+    }
+
+    .slide-album {
+        max-width: 280px;
+        border-radius: 10px;
+    }
+}
+
+
+/* ................................ */
+
+/* Navigation buttons */
+.btn-next,
+.btn-prev {
+    background-color: #333; /* Dark background */
+    color: #fff; /* White icon color */
+    border: none; /* Remove border */
+    cursor: pointer;
+    padding: 15px; /* Adjust padding for a larger clickable area */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    border-radius: 50%; /* Make the button circular */
+    width: 50px; /* Set fixed width */
+    height: 50px; /* Set fixed height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+    /* position: absolute;
+    padding: 8px 14px 7px 8px;
+    background-color: #333;
+    color: white;
+    border: none;
+    font-size: 20px;
+    border-radius: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+} */
+
+.btn-next {
+    right: 18px;
+}
+
+.btn-prev {
+    left: 18px;
+}
+
+.btn-next:disabled,
+.btn-prev:disabled {
+    background-color: lightgray;
+}
+
+.btn-next:hover,
+.btn-prev:hover {
+    cursor: pointer;
+    background-color: white;
+    color: #555;
+    transition: 0.7s ease-out;
+}
+
+/* Info section */
+.info-about {
+    flex: 1; /* Allow equal space */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: flex-start;
+    max-width: 438px;
+    margin: 0 20px; /* Add some margin */
+}
+
+/* About text */
+.txt-about {
+    width: 100%;
+    margin-top: 55px;
+}
+
+.txt-about dt {
+    display: inline-block;
+    width: 110px;
+    font-size: 22px;
+    font-family: "GmarketSansBold";
+    color: #068554;
+    text-align: right; /* Align dt elements to the right */
+    margin-bottom: 17px;
+}
+
+.txt-about dd {
+    display: inline-block;
+    font-family: "GmarketSansMedium";
+    font-size: 22px;
+    text-align: left; /* Align dd elements to the left */
+    margin-left: 0; /* Reset the default margin */
+}
+
+/* Button section */
+/* Button section */
+.btn-about {
+    display: flex;  /* Use flexbox for horizontal layout */
+    gap: 20px;      /* Add spacing between buttons */
+    margin: 45px 0 0 20px;
+    align-items: center; /* Vertically center the buttons */
+}
+
+.btn-about button {
+    width: auto; /* Set width to auto to fit text + icon */
+    height: 100px;
+    padding: 10px 20px; /* Adjust padding to add space inside the button */
+    border-radius: 50px;
+    background-color: #333;
+    border: none;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column; /* Stack icon and text vertically */
+    justify-content: center;
+    align-items: center;
+    gap: 5px; /* Space between icon and text */
+}
+
+.btn-about button ion-icon {
+    font-size: 2.5em; /* Increase the size of the icon */
+}
+
+.btn-about button:hover {
+    cursor: pointer;
+    background-color: #068554;
+    color: #555;
+    transition: 0.5s ease-out;
+}
+
+.btn-about button span {
+    font-size: 14px; /* Adjust text size for better readability */
+}
+
+
+/* Image inside button */
+.btn-about button img {
+    width: 43px;
+    margin: 10px auto;
+}
+
+/* Modal Background */
+.modal-background {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Darker background */
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10; /* Ensure the modal is on top */
+}
+
+/* Modal */
+.modal {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.5); /* Translucent background */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  text-align: center;
+  width: 80%; /* Allow the modal to fit its content */
+  max-width: 400px; /* Limit the max width but let it grow based on content */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  /* box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5); */
+  padding: 15px 20px; /* Add padding but let the box adjust to content size */
+  overflow: hidden; /* Ensure content does not overflow the modal */
+  backdrop-filter: blur(20px); /* Apply blur effect to the content behind the modal */
+  /* margin: 0 auto; Center the modal horizontally */
+}
+
+
+/* Close Button */
+.btn-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.btn-close:hover {
+  color: #068554;
+}
+
+/* Title Styling */
+.modal h3 {
+  margin: 20px 0 7px 0;
+  font-size: 32px; /* Reduce title font size */
+  color: #fff;
+  font-family: "GmarketSansBold";
+}
+/* Text Styling under heading*/
+.modal h4 {
+  font-size: 32px; /* Reduce subtitle font size */
+  font-family: "NanumPen";
+  font-weight: 300;
+  color: #fff;
+}
+
+.modal p {
+    font-size: 18px; 
+    font-family: "GmarketSansMedium";
+    color: #fff;
+    text-align: left;
+    align-content: center;
+    margin: 0 auto;
+    width: 90%;
+    line-height: 30px;
+}
+
+.modal ul {
+    font-family: "GmarketSansLight";
+    color: #fff;
+    text-align: left;
+    align-content: center;
+    margin: 0 auto;
+    width: 90%;
+    line-height: 30px;
+    list-style-position: inside; /* Align the bullet inside the content width */
+    padding-left: 0; /* Remove extra padding */
+}
+
+.modal ul li {
+    padding-left: 10px; /* Optional: Add space between bullet and text */
+}
+
+/* Image Styling */
+.modal img {
+  width: 100%; /* Ensure image resizes to fit the modal */
+  max-width: 280px; /* Limit image size */
+  height: auto;
+  margin: 20px auto;
+  border-radius: 15px;
+}
+
+/* Text Styling */
+/* .modal p {
+  margin: 0 auto;
+  width: 90%; Ensure text fits properly
+  font-size: 15px; Slightly reduce paragraph font size
+  line-height: 22px; Adjust line-height for better readability
+  overflow-y: visible; Allow scrolling if needed
+  font-family: "GmarketSansLight";
+  color: #fff;
+} */
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  .modal {
+    width: 90%; /* Ensure modal is responsive on smaller screens */
+    max-width: 100%; /* Allow modal to use full width on smaller screens */
+    padding: 15px;
+  }
+
+  .modal h3 {
+    font-size: 18px; /* Adjust title font size on mobile */
+  }
+
+  .modal h4 {
+    font-size: 16px; /* Adjust subtitle font size */
+  }
+
+  .modal p {
+    font-size: 14px; /* Adjust paragraph font size */
+  }
+
+  .btn-close {
+    font-size: 20px; /* Adjust close button font size */
+  }
+
+  .modal img {
+    width: 100%;
+    height: auto;
+    max-width: 250px; /* Adjust image size on mobile */
+  }
+}
+
+
+
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    /* Section padding */
+    .section-about {
+        padding: 40px 15px 80px 15px; /* Adjust for smaller screens */
+    }
+
+    /* Heading */
+    .section-about h2 {
+        font-size: 30px; /* Adjust heading size */
+        margin-bottom: 30px; /* Adjust spacing */
+    }
+
+    /* Content container */
+    .cont-about {
+        flex-direction: column; /* Stack columns vertically on small screens */
+    }
+
+    /* Slide container */
+    .slide-container {
+        width: 100%; /* Make slide container take full width */
+        max-width: 500px; /* Optional, for better scaling */
+        margin: 0 auto 30px; /* Add margin at the bottom */
+    }
+
+    /* Slide album */
+    .slide-album {
+        width: 100%;
+        height: auto;
+        padding-bottom: 25%; /* Maintain aspect ratio */
+    }
+
+    /* Info section */
+    .info-about {
+        width: 100%;
+        text-align: center; /* Center info text */
+        align-items: center; /* Center content horizontally */
+    }
+
+    /* Text section */
+    .txt-about {
+        text-align: justify; /* Center the text */
+    }
+
+    .txt-about dt,
+    .txt-about dd {
+        font-size: 18px; /* Smaller font size */
+    }
+}
+
+
+#education {
+    position: relative;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px 0;
+    align-items: column;
+    font-family: "Montserrat";
+    color: #fff;
+}
+
+#education::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 100px; /* Position the line at the center or adjust as needed */
+    width: 4px;
+    height: 100%;
+    background-color: rgb(156, 67, 67); /* Contrast with black background */
+    z-index: 1;
+    transform: translateX(-50%); /* Adjust to ensure it's centered */
+}
+
+.timeline-item {
+    position: relative;
+    margin: 40px 0;
+    display: flex;
+    align-items: center; /* Vertically center content */
+    z-index: 2;
+}
+
+.timeline-item .year {
+    flex: 0 0 80px;
+    text-align: right;
+    font-size: 16px;
+    font-weight: bold;
+    color: white; /* Text color for dark background */
+}
+
+/* Dot style */
+.timeline-item .dot {
+    width: 16px;
+    height: 16px;
+    background-color: rgb(129, 41, 41); /* Red circle */
+    border-radius: 50%;
+    position: absolute; /* Position absolutely to the line */
+    left: 100px; /* Center it horizontally */
+    top: 10; /* Adjust if needed to align vertically with the line */
+    transform: translateX(-50%); /* Adjust to center horizontally */
+    z-index: 2;
+}
+
+
+.timeline-item .circle {
+    flex: 0 0 16px;
+    width: 16px;
+    height: 16px;
+    background-color: rgb(129, 41, 41); /* Red circle */
+    border-radius: 50%;
+    margin: 0 20px;
+    z-index: 10;
+    position: relative; /* Ensure z-index works */
+}
+
+.timeline-item .content {
+    display: flex; /* Flexbox layout for horizontal arrangement */
+    align-items: flex-start; /* Align content to the top */
+    gap: 15px; /* Space between logo and text */
+}
+
+
+
+.content .logo img {
+    /* max-width: 100%; Ensure the logo fits within its container */
+    /* max-height: 60px; Constrain the height */
+    width: 100px fit-content;
+
+    height: 100px fit-content;
+    border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+.content .text {
+    display: flex;
+    flex-direction: column; /* Arrange text vertically */
+    justify-content: center; /* Center-align text vertically with logo */
+    text-align: left;
+}
+
+.content .university {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.content .major {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    margin: 5px 0;
+}
+
+.content .detail {
+    font-size: 14px;
+    color: #bbb;
+}
+
+@media (max-width: 768px) {
+    #education {
+        padding: 20px 10px;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        align-items: center; /* Center items vertically */
+    }
+
+    .timeline-item .year {
+        font-size: 14px;
+        margin-bottom: 5px; /* Reduce gap between year and image */
+    }
+
+    .content {
+        flex-direction: column; /* Stack logo and text vertically */
+        gap: 5px; /* Reduce gap between items */
+        text-align: center; /* Center text */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .content .logo {
+        display: flex;
+        justify-content: center; /* Center image horizontally */
+        width: 100%; /* Ensure the container takes full width */
+    }
+
+    .content .logo img {
+        width: 100px; /* Increase image size */
+        height: 100px; /* Increase image size */
+    }
+
+    .content .university {
+        font-size: 16px;
+    }
+
+    .content .major {
+        font-size: 14px;
+    }
+
+    .content .detail {
+        font-size: 12px;
+    }
+    
+    /* Hide line and dot on mobile */
+    #education::before {
+        display: none; /* Remove the line */
+    }
+
+    .timeline-item .dot {
+        display: none; /* Remove the dot */
+    }
+}
+
+/* Additional Media Query for even smaller screens (mobile portrait) */
+@media (max-width: 480px) {
+
+    #education {
+        padding: 20px 10px;
+        align-items: center; /* Center items vertically */
+        justify-content: center;
+    }
+    
+    .timeline-item {
+        flex-direction: column;
+        align-items: center; /* Center items vertically */
+        justify-content: center;
+    }
+
+    .timeline-item .year {
+        font-size: 12px;
+        margin-bottom: 5px; /* Reduce gap between year and image */
+        align-items: center; /* Center items vertically */
+    }
+
+    .content {
+        flex-direction: column; /* Stack logo and text vertically */
+        text-align: center;
+        align-items: center;
+    }
+
+    .content .logo {
+        display: flex;
+        justify-content: center; /* Center image horizontally */
+        width: 100%; /* Ensure the container takes full width */
+    }
+
+    .content .logo img {
+        width: 80px; /* Increase image size */
+        height: 80px; /* Increase image size */
+    }
+
+    .content .university {
+        font-size: 14px;
+        text-align: center; /* Center text */
+    }
+
+    .content .major {
+        font-size: 12px;
+        text-align: center; /* Center text */
+    }
+
+    .content .detail {
+        font-size: 10px;
+        text-align: center; /* Center text */
+    }
+}
+
+
+/* #career {
+    background: #f4f4f4;
+    color: #000;
+    visibility: hidden;
+    padding: 20px;
+} */
+
+/* #career {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+} */#career {
+  padding: 20px;
+  background: #f4f4f4;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#career h2 {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#career h2 ion-icon {
+  margin-right: 8px;
+}
+
+.experiences {
+  margin-top: 20px;
+  width: 80%; /* Center content and limit its width */
+}
+
+.experience {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 20px;
+  position: relative;
+  flex-direction: row; /* Default: logo and text side-by-side */
+}
+
+.intern-badge {
+  display: inline-block;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 20px;
+  padding: 2px 10px;
+  margin-left: 10px; /* Space between text and badge */
+  vertical-align: middle;
+  text-align: center;
+  font-family: "GmarketSansLight";
+}
+
+.logo {
+  flex: 0 0 80px;
+  height: 80px;
+  margin-right: 20px;
+  /* border-radius: 50%; */
+  overflow: hidden;
+  position: relative;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vertical-line {
+  width: 1px;
+  background-color: #333;
+  height: 100%;
+  position: absolute;
+  left: 100px; /* Adjust to match the logo's width and spacing */
+}
+
+.details {
+  flex: 1;
+  text-align: left; /* Align text to the left */
+  padding-left: 20px;
+}
+
+.details h3 {
+  font-size: 20px;
+  margin: 0;
+  color: #333;
+  font-family: "GmarketSansBold";
+}
+
+.details p {
+  margin: 4px 0;
+  color: #666;
+  font-family: "GmarketSansMedium";
+}
+
+.details ul {
+  margin-top: 10px;
+  padding-left: 20px;
+  color: #333;
+  font-family: "GmarketSansMedium";
+}
+
+.details ul li {
+  margin-bottom: 5px;
+}
+
+/* Responsive Styling for Mobile */
+@media (max-width: 768px) {
+  .experience {
+    flex-direction: column; /* Stack logo and details vertically */
+    text-align: center; /* Center align the text */
+    align-items: center; /* Center align items */
+  }
+
+  .logo {
+    flex: 0 0 100px; /* Increase logo size */
+    height: 100px; /* Increase height to match width */
+    margin-right: 0; /* Remove right margin */
+    margin-bottom: 10px; /* Add space below the logo */
+    /* border-radius: 50%; Ensure the logo is circular */
+    overflow: hidden;
+  }
+
+  .logo img {
+    width: 100%; /* Ensure the image fills the logo container */
+    height: 100%; /* Maintain the aspect ratio */
+    object-fit: cover; /* Keep the image centered and cover the circle */
+  }
+
+  .vertical-line {
+    display: none; /* Hide the vertical line */
+  }
+
+  .details {
+    padding-left: 0; /* Remove left padding */
+    text-align: center; /* Center-align the text */
+  }
+
+  .details h3 {
+    font-size: 18px;
+  }
+
+  .details p {
+    font-size: 14px;
+  }
+
+  .details ul {
+    padding-left: 0; /* Remove extra padding */
+    text-align: left;
+  }
+
+  .intern-badge {
+    font-size: 10px; /* Reduce badge font size */
+    padding: 2px 8px; /* Adjust padding for smaller screens */
+    margin-left: 5px; /* Reduce margin for smaller spacing */
+  }
+}
+
+
+
+
+
+#work {
+    background: #000;
+    color: #fff;
+    /* background: #ffc107; */
+    /* visibility: hidden; */
+}
+
+.projects {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    /* width: stretch; */
+}
+
+/* whole project slide */
+.project-container {
+    display: flex;
+    scroll-behavior: smooth;
+    overflow-x: auto;
+
+    height: 500px;
+    width: 100%;
+    /* font-size: small; */
+    /* font-family: "GmarketSansMedium"; */
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); */
+    /* border-radius: 20px; */
+
+}
+
+/* each box */
+.project {
+    /* min-width: 300px; */
+    width: 300px;
+    margin: 15px 15px;
+    /* border: 1px solid #ddd; */
+    background: #fff;
+    flex: 0 0 auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    height: 90%;
+    box-shadow: 0 5px 20px rgba(58, 58, 58, 0.5);
+    border-radius: 20px;
+    color: #000;
+}
+
+.project h3 {
+    font-family: "GmarketSansMedium";
+    /* bottom: 2px; */
+    padding: 0px 10px;
+}
+
+.project p {
+    padding: 10px 10px;
+    font-family: "GmarketSansLight";
+}
+/* Style the images */
+.project img {
+    width: 100%; /* Make the image fill the container width */
+    height: 200px; /* Set a consistent height */
+    object-fit: cover; /* Maintain aspect ratio and crop if necessary */
+    border-radius: 8px; /* Optional: rounded corners for images */
+}
+
+.project:hover {
+    transform: scale(1.05);
+}
+
+/* .scroll-btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+#scroll-left {
+    left: 0;
+}
+
+#scroll-right {
+    right: 0;
+} */
+/* Scroll Buttons */
+.scroll-btn {
+    background-color: #333; /* Dark background */
+    color: #fff; /* White icon color */
+    border: none; /* Remove border */
+    cursor: pointer;
+    /* padding: 15px; Adjust padding for a larger clickable area */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    border-radius: 50%; /* Make the button circular */
+    width: 40px; /* Set fixed width */
+    height: 40px; /* Set fixed height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Scroll buttons on the left and right */
+#scroll-left {
+    left: 0px; /* Position left button */
+}
+
+#scroll-right {
+    right: 0px; /* Position right button */
+}
+
+/* Optional: Hover effect */
+.scroll-btn:hover {
+    background-color: #555; /* Darken button on hover */
+    transform: translateY(-50%) scale(1.1); /* Zoom effect */
+}
+
+@media screen and (max-width: 768px) {
+
+    
+    /* each box */
+    .project {
+        /* min-width: 300px; */
+        width: 90%;
+    }
+}
+/* Pop-up Styles */
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0,0,0,0.5);
+}
+
+
+
+
+  /* border-radius: 15px; */
+  /* padding: 15px 20px; Add padding but let the box adjust to content size */
+  /* overflow: hidden; Ensure content does not overflow the modal */
+
+.popup-content {
+    background: rgba(0, 0, 0, 0.5);;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    text-align: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: #fff;
+
+    font-size: small;
+    font-family: "GmarketSansMedium";
+
+}
+
+.popup-content p {
+   color: #fff;
+}
+
+.popup-content img {
+    width: 100%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* Contact Links */
+.contact-links {
+    display: flex;
+    justify-content: center; /* Center the icons horizontally */
+    margin-bottom: 20px;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    margin: 0 10px; /* Add space between the icons */
+}
+
+.contact-link ion-icon {
+    font-size: 1.8em; /* Increase the size of the icons by 20% */
+}
+
+.contact-link:hover {
+    color: #555;
+}
+
+.copy-message {
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    z-index: 1000;
+}
+
+.copy-message.show {
+    display: block;
+}
+
+
+#contact {
+    background: #fff;
+}
+
+/* form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label {
+    margin-top: 10px;
+} */
+/* --------------------------------------- */
+/* form input, form textarea {
+    padding: 10px;
+    margin-top: 5px;
+    width: 100%;
+    max-width: 400px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #555;
+} */
+/* General form styling */
+/* General form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    font-family: "GmarketSansLight";
+    /* visibility: hidden; */
+
+}
+
+/* Input and Textarea Styling */
+form input, form textarea {
+    background-color: #181818; /* Light gray background */
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 20px; /* Rounded corners */
+    padding: 20px 15px; /* Equal padding for top, bottom, left, and right */
+    width: 100%; /* Full width */
+    box-sizing: border-box; /* Include padding in width calculation */
+    margin-bottom: 15px; /* Space between fields */
+    font-size: 14px; /* Font size */
+    color: #fff; /* Default text color */
+    position: relative; /* To position the label */
+    transition: background-color 0.3s ease; /* Smooth transition */
+    /* height: 60px; Fixed height for input */
+}
+
+/* Label styling */
+form label {
+    position: absolute;
+    left: 20px; /* Left padding inside input box */
+    top: 50%; /* Vertically center the label initially */
+    transform: translateY(-50%); /* Center label vertically */
+    font-size: 14px;
+    color: #666; /* Dark gray color for label */
+    transition: all 0.3s ease; /* Smooth transition */
+    pointer-events: none; /* Prevent the label from being clickable */
+}
+
+/* Input fields focus state */
+form input:focus, form textarea:focus {
+    background-color: #343434; /* Brighter gray background on focus */
+    border-color: #fff; /* Border color when focused */
+    outline: none; /* Remove default outline */
+}
+
+/* Label when input is focused or has value */
+form input:focus + label, 
+form input:not(:placeholder-shown) + label,
+form textarea:focus + label,
+form textarea:not(:placeholder-shown) + label {
+    top: 10px; /* Move label to the top of the box */
+    left: 15px; /* Align label with the left side of the input */
+    font-size: 10px; /* Shrink the label */
+    color: #fff; /* Change color of label when focused */
+    transform: translateY(0); /* Remove vertical translation to keep label at top */
+}
+
+/* Styling for the button */
+form button {
+    font-family: "GmarketSansMedium";
+    background-color: black; /* Black background */
+    color: white; /* White text */
+    border: 1px solid white; /* 1px white border */
+    border-radius: 20px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for the button */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    /* width: 100%; Full width */
+    box-sizing: border-box; /* Include padding in width calculation */
+    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition on hover */
+}
+
+/* Button hover effect */
+form button:hover {
+    background-color: #333; /* Darken the background color on hover */
+    border-color: #ccc; /* Change border color on hover */
+}
+
+
+/* Hide mobile content on desktop */
+/* .mobile-only {
+    color: #fff;
+
+    display: none;
+  }
+  
+  .desktop-only {
+    color: #fff;
+
+    display: block;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .mobile-only {
+    color: #fff;
+
+      display: block;
+    }
+  
+    .desktop-only {
+        
+      display: none;
+    }
+  }
+   */
+
+/* Back-to-top Icon */
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 40px; /* Adjust size */
+    color: #333; /* Primary color */
+    cursor: pointer;
+    opacity: 0; /* Hidden by default */
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#backToTop:hover {
+    color: #555; /* Darker shade on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Show the icon when scrolling */
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+footer {
+    font-family: Montserrat;
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: small;
+}

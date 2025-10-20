@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollToPlugin.min.js"></script>
+    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+
+    <title>Book a Meeting</title>
+    <style>
+      /* Apply styling to any button with this custom class */
+      .cal-button {
+        font-family: "GmarketSansMedium";
+        background-color: black; /* Black background */
+        color: white; /* White text */
+        border: 1px solid white; /* 1px white border */
+        border-radius: 20px; /* Rounded corners */
+        padding: 10px 20px; /* Padding for the button */
+        font-size: 16px; /* Font size */
+        cursor: pointer; /* Pointer cursor on hover */
+        box-sizing: border-box; /* Include padding in width calculation */
+        transition: background-color 0.3s, border-color 0.3s; /* Smooth transition on hover */
+      }
+
+      .cal-button:hover {
+        background-color: #333; /* Darken the background color on hover */
+        border-color: #ccc; /* Change border color on hover */
+      }
+    </style>
+</head>
+<body>
+    <header>
+      <nav class="main-menu">
+          <ul class="menu-links">
+              <li><a href="#home"><ion-icon name="home"></ion-icon>  <span>Home</span></a></li>
+              <li><a href="#about"><ion-icon name="person-circle-outline"></ion-icon>  <span>About</span></a></li>
+              <li><a href="#education"><ion-icon name="school-outline"></ion-icon>  <span>Education</span></a></li>
+              <li><a href="#career"><ion-icon name="grid"></ion-icon>  <span>Career</span></a></li>
+              <li><a href="#work"><ion-icon name="terminal-outline"></ion-icon>  <span>Work</span></a></li>
+              <li><a href="#contact"><ion-icon name="mail"></ion-icon>  <span>Contact</span></a></li>
+          </ul>
+      </nav>
+    </header>
+  
+    <section id="home">
+        <!-- Landing Page -->
+        <div class="landing">
+            <!-- Typing Effect Text -->
+            <!-- <div class="typing-container">
+              <h1 id="typing-text"></h1>
+              <span id="cursor">|</span>
+            </div> -->
+
+            <!-- Text1 -->
+            <div class="fade-text fade-text-1">
+                <h1>안녕하세요</h1>
+                <h2>AI개발자 아티프입니다!</h2>
+            </div>
+
+            <!-- Text2 -->
+            <div class="fade-text fade-text-2">
+                <h1>HELLO!</h1>
+                <h2>기본에 충실하며 성장하고 싶은 AI 연구개발 경력 1년차 엔지니어입니다.</h2>
+                <!-- <p>기본에 충실하며 성장하고 싶은 AI 연구개발 경력 1년차 엔지니어입니다.</p> -->
+                <!-- <br>
+                  영상 분석, 3D, GIS 등 다양한 분야에서 경험을 쌓아왔으며, <br>
+                  깊이 있는 학습과 문제 해결에 열정을 가지고 있습니다.</p> -->
+            </div>
+
+            <!-- Image and Button -->
+            <!-- <div class="fade-content">
+                <img src="src/memoji.png" alt="Example Image" class="image">
+                <button class="more-info-btn" onclick="window.location.href='#about';">더 알고싶나요?</button>
+            </div> -->
+            <!-- <div class="fade-content">
+              <img src="src/memoji.png" alt="Example Image" id="exampleImage">
+              <button class="more-info-btn" 
+                      onmouseover="changeImage('src/memoji-hover.png')" 
+                      onmouseout="changeImage('src/memoji.png')">더 알고싶나요?</button>
+          </div> -->
+
+          <div class="fade-content">
+            <img src="src/memoji.png" alt="Default Image" class="image" id="exampleImage">
+            <button class="more-info-btn" onclick="navigateToAbout()">더 알고싶나요?</button>
+        </div>
+        </div>
+
+        <!-- Original Intro Content -->
+        <div id="scrolldown">
+            <dotlottie-player src="https://lottie.host/96d060c7-64e0-4fe4-89a7-9db9fcd51014/YM3Itr8UNI.lottie" background="transparent" speed="1" style="width: 50px; height: 50px" loop autoplay></dotlottie-player>
+        </div>
+        <p>↓ 스크롤하여 진행해주세요!</p>
+        <div id="intro">
+            <!-- <img src="src/profile-1.jpg" id="profile-pic" alt="Profile Picture"> -->
+        </div>
+        
+        <div id="parallax">
+            <dotlottie-player
+            id="star1"
+            src="https://lottie.host/ec0ec44d-799f-497a-9e2f-23c8e6f68351/JBUBDEQmlf.lottie"
+            background="transparent"
+            speed="1"
+            style="width: 300px; height: 300px"
+            loop
+            autoplay>
+            </dotlottie-player>
+    
+            <dotlottie-player
+            id="star2"
+            src="https://lottie.host/ec0ec44d-799f-497a-9e2f-23c8e6f68351/JBUBDEQmlf.lottie"
+            background="transparent"
+            speed="1"
+            style="width: 300px; height: 300px"
+            loop
+            autoplay>
+            </dotlottie-player>
+        </div>
+        <div class="circle-container"> <div class="circle circle1"></div> <div class="circle circle2"></div> <div class="circle circle3"></div> <div class="circle circle4"></div> </div>
+    </section>
+
+
+
+    <section id="about">
+        <h2>About Me</h2>
+        <!-- <img src="src/avatar.png" alt="내 사진" /> -->
+        <!-- <p>This is a brief bio about me.</p> -->
+        <div id="resume-buttons">
+            <button id="resume-kr"><ion-icon name="cloud-download"></ion-icon>이력서 (한)</button>
+            <button id="resume-en"><ion-icon name="cloud-download"></ion-icon> Resume (ENG)</button>
+        </div>
+        <img src="src/avatar.png" alt="내 사진" style="width: 100px; height: auto;" />
+        <div class="cont-about">
+            <div class="slide-container">
+              <div class="slide-album">
+                <div class="slide-images">
+                  <img src="src/img/img1.jpeg" alt="내 사진" />
+                  <img src="src/img/img2.jpeg" alt="내 사진" />
+                  <img src="src/img/img3.jpeg" alt="내 사진" />
+    
+                  <!-- <img src="src/img-4.jpg" alt="내 사진" /> -->
+                  <!-- <img src="src/img-5.jpg" alt="내 사진" /> -->
+                </div>
+                <button class="btn-next"><ion-icon name="chevron-forward-outline"></ion-icon></button>
+                <button class="btn-prev"><ion-icon name="chevron-back-outline"></ion-icon></button>
+              </div>
+            </div>
+            <div class="info-about">
+              <dl class="txt-about">
+                <div>
+                  <dt>이름</dt>
+                  <dd>솜땀 아티프</dd>
+                </div>
+                <div>
+                  <dt>생년월일</dt>
+                  <dd>1998.02.22</dd>
+                </div>
+                <div>
+                  <dt>거주지</dt>
+                  <dd>경기도 광주시</dd>
+                </div>
+                <div>
+                  <dt>학교</dt>
+                  <dd>선문대학교</dd>
+                </div>
+                <div>
+                    <dt>전공</dt>
+                    <dd>검퓨터공학과 (석사과정)</dd>
+                  </div>
+              </dl>
+              <div class="btn-about">
+                <button class="btn-open" type="button">
+                  <ion-icon name="language-outline">언어</ion-icon>
+                </button>
+                <button class="btn-open" type="button">
+                    <ion-icon name="code-slash-outline">Tech Stack</ion-icon>
+                </button>
+                <!-- <button class="btn-open" type="button">
+                    <ion-icon name="school">Edu</ion-icon>
+                </button> -->
+              </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+
+      <h2>학력</h2>
+      
+      <div class="timeline-item">
+          <div class="year">2021-2023</div>
+          <div class="circle">•</div>
+          <span class="dot"></span>
+          <div class="content">
+            <div class="logo"><img src="src/smu.png" alt="SMU Logo"></div>
+            <div class="text">
+                <div class="university">선문대학교 (대학원 석사과정)</div>
+                <div class="major">컴퓨터용합전자공학과 (CGPA: 4.42/4.50)</div>
+                <div class="detail">연구장학생</div>
+            </div>
+        </div>
+      <img src="src/avatar2.png" alt="내 사진" style="width: auto; height: 120px;" />
+
+      </div>
+
+      <div class="timeline-item">
+          <div class="year">2019</div>
+          <div class="circle">•</div>
+          <span class="dot"></span>
+          <div class="content">
+            <div class="logo"><img src="src/sit.png" alt="SIT Logo"></div>
+            <div class="text">
+                <div class="university">Shibaura Institute of Technology</div>
+                <div class="major">Cross-Cultural Engineering Program</div>
+                <div class="detail">교환학생</div>
+            </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+          <div class="year">2017-2021</div>
+          <div class="circle">•</div>
+          <span class="dot"></span>
+          <div class="content">
+            <div class="logo"><img src="src/kmutt.png" alt="KMUTT Logo"></div>
+            <div class="text">
+                <div class="university">King Mongkut's University of Technology Thonburi (KMUTT)</div>
+                <div class="major">전자통신공학과 (CGPA: 3.17/4.00)</div>
+                <div class="detail"></div>
+            </div>
+      <img src="src/avatar3.png" alt="내 사진" style="width: auto; height: 120px;" />
+          
+        </div>
+      </div>
+    </section>
+
+    <section id="career">
+      <h2>경력</h2>
+      <div class="experiences">
+        <!-- Toss -->
+        <div class="experience">
+          <div class="logo">
+            <img src="src/4lab.png" alt="4lab Logo">
+            <div class="vertical-line"></div>
+          </div>
+          <div class="details">
+            <h3>(주)포랩</h3>
+            <p>AI 연구개발</p>
+            <p>2023.08 - 현재 (1년 5개월)</p>
+            <!-- <p>ㅁㅇㄵ는 2021년 12월 출범부터 지금까지 가파르게 성장하여 800만 이상의 고객수를 보유하고 있는 제1금융 인터넷전문은행입니다.</p> -->
+            <ul>
+              <li>스포츠 애플리케이션을 위한 포즈 추정 알고리즘 연구 및 정확성, 견고성 향상</li>
+              <li>Python 및 OpenCV 라이브러리를 사용하여 포즈 추정 결과의 시각화 동영상 제작</li>
+              <li>프론트엔드 및 백엔드 개발 팀과 협력하여 포즈 추정 알고리즘의 모바일 애플리케이션 배포</li>
+                
+            </ul>
+          </div>
+        </div>
+        <!-- RIDI -->
+        <div class="experience">
+          <div class="logo">
+            <img src="src/Huawei-Logo.png" alt="HW Logo">
+            <div class="vertical-line"></div>
+          </div>
+          <div class="details">
+            <h3 style="position: relative;">
+              Huawei (Thailand)
+              <span class="intern-badge">인턴</span>
+            </h3>
+            <p>RF 엔지니어</p>
+            <p>2020.07 - 2020.12 (6 개월)</p>
+            <!-- <p>ㄹㄴㅁ는 웹툰, 웹소설, 만화, 전자책 등을 서비스하는 콘텐츠 플랫폼입니다. 2,200만 이상의 월간활성사용자(MAU)를 보유하고 있습니다.</p> -->
+            <ul>
+              <li>주행 테스트 경로를 준비하고 LTE/NR의 신호 강도 및 서비스 품질을 확인</li>
+              <li>드라이브 테스트 데이터에서 네트워킹 문제 및 비정상 통화 이벤트를 분석하고 보고</li>
+              <li>안테나 방위각, 기계적 및 전기적 기울기 등의 파라미터를 변경하여 5G 네트워크의 커버리지와 서비스 품질을 개선하기 위한 네트워크 최적화 솔루션을 고객에게 제안</li>
+            </ul>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+    
+
+    <section id="work">
+        <h2>프로젝트</h2>
+        <div class="projects">
+            <button class="scroll-btn" id="scroll-left">
+                <ion-icon name="chevron-back-outline"></ion-icon>
+            </button>
+            <div class="project-container">
+                <!-- <div class="project" data-title="Project Title 1" data-description="Description of Project 1">
+                    <img src="src/project1.jpg" alt="Project 1">
+                    <h3>Project Title 1</h3>
+                    <p>Description of Project 1</p>
+                </div>
+                <div class="project" data-title="Project Title 2" data-description="Description of Project 2">
+                    <img src="src/project2.jpg" alt="Project 2">
+                    <h3>Project Title 2</h3>
+                    <p>Description of Project 2</p>
+                </div> -->
+                <div class="project" data-title="An Evaluation of Modern Accelerator-Based Edge Devices for Object Detection Applications" data-description="Publication on Mathematics 2022, 10(22), 4299">
+                  <img src="src/mdpi.jpg" alt="Project 3">
+                  <h3>An Evaluation of Modern Accelerator-Based Edge Devices for Object Detection Applications</h3>
+                  <p>Publication on Mathematics 2022, 10(22), 4299 </p>
+              </div>
+            </div>
+            <button class="scroll-btn" id="scroll-right">
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+            </button>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        
+        <div class="contact-links">
+            <a href="mailto:athip.som@gmail.com" class="contact-link">
+                <ion-icon name="mail-open-outline"></ion-icon>
+            </a>
+            <a href="https://www.linkedin.com/in/athip-somtham" target="_blank" class="contact-link">
+                <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+            
+        </div>
+        <h2> or</h2>
+        <button
+        type="button"
+        class="cal-button"
+        data-cal-link="athipsom/book"
+        data-cal-namespace="book"
+        data-cal-config='{"layout":"month_view","theme":"dark"}'>
+        Schedule a Call
+      </button>
+    
+      <!-- Cal embed script -->
+      <script type="text/javascript">
+        (function (C, A, L) {
+          let p = function (a, ar) { a.q.push(ar); };
+          let d = C.document;
+          C.Cal = C.Cal || function () {
+            let cal = C.Cal;
+            let ar = arguments;
+            if (!cal.loaded) {
+              cal.ns = {};
+              cal.q = cal.q || [];
+              d.head.appendChild(d.createElement("script")).src = A;
+              cal.loaded = true;
+            }
+            if (ar[0] === L) {
+              const api = function () { p(api, arguments); };
+              const namespace = ar[1];
+              api.q = api.q || [];
+              if (typeof namespace === "string") {
+                cal.ns[namespace] = cal.ns[namespace] || api;
+                p(cal.ns[namespace], ar);
+                p(cal, ["initNamespace", namespace]);
+              } else p(cal, ar);
+              return;
+            }
+            p(cal, ar);
+          };
+        })(window, "https://app.cal.com/embed/embed.js", "init");
+    
+        Cal("init", "book", { origin: "https://cal.com" });
+        Cal.ns.book("ui", {
+          theme: "dark",
+          hideEventTypeDetails: false,
+          layout: "month_view"
+        });
+      </script>
+
+      <!-- <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.95/build/spline-viewer.js"></script>
+      <spline-viewer url="https://prod.spline.design/BxsafasvvIlDm0Nf/scene.splinecode"></spline-viewer> -->
+      
+        <!-- <h3>이메일 보내기</h3>
+        <form onsubmit="sendEmail(event)">
+            <div style="position: relative;">
+                <input type="text" id="name" name="name" placeholder=" " required>
+                <label for="name">Name</label>
+            </div>
+
+            <div style="position: relative;">
+                <input type="email" id="email" name="email" placeholder=" " required>
+                <label for="email">Email</label>
+            </div>
+
+            <div style="position: relative;">
+                <textarea id="message" name="message" placeholder=" " required></textarea>
+                <label for="message">Message</label>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        </form>
+
+        </form> -->
+        <!-- enddd -->
+        
+        <!-- <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+    
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+    
+            <button type="submit">Submit</button>
+        </form> -->
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Athip Somtham. All rights reserved.</p>
+    </footer>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h3 id="popup-title">An Evaluation of Modern Accelerator-Based Edge Devices for Object Detection Applications</h3>
+            <p id="popup-description">Publication on Mathematics 2022, 10(22), 4299 </p>
+            <img src="src/mdpi.jpg" alt="Project 3">
+            <a href="https://www.mdpi.com/2227-7390/10/22/4299" class="contact-link">
+              <p>See more..</p>
+          </a>
+                
+        </div>
+    </div>
+
+    <div class="modal-background">
+        <div class="modal">
+          <button type="button" class="btn-close">
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+          <h3>외국어</h3>
+          <!-- <h4>다이어리 꾸미기</h4> -->
+          <!-- <h5></h5> -->
+          <!-- <img src="src/profile-1.jpg" alt="다이어리 이미지" /> -->
+          <p>
+            🇰🇷 한국어 (제한된 근무 속력도)
+          </p>
+          <ul>
+            <li>TOPIK II: 3급 (2024년 10월)</li>
+          </ul>
+          <p>
+            🇺🇸 영어 (전문적인 업무 능력)
+          </p>
+          <ul>
+            <li>TOEIC Speaking: IH (2023년 07월)</li>
+            <li>TOEIC Writing: AL (2023년 07월)</li>
+          </ul>
+          <p>
+            🇹🇭 태국어 (모국어)
+          </p>
+        </div>
+      </div>
+      <div class="modal-background">
+        <div class="modal">
+          <button type="button" class="btn-close">
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+          <h3>기술 스택</h3>
+          <!-- <h4>Skill</h4> -->
+          <!-- <img src="src/profile-2.jpg" alt="책상 이미지" /> -->
+          <p>
+            Technical Skill
+          </p>
+          <ul>
+            <li>Python, SQL, C/C++, HTML, CSS, JS</li>
+            <li>Flask, Pytorch, Tensorflow, Pillow</li>
+            <li>CUDA, Linux, Windows, AWS, MariaDB</li>
+            <li>Figma, QGIS, Signal Optimization Tools</li>
+          </ul>
+          <p>
+            Computer Skill
+          </p>
+          <ul>
+            <li>Microsoft Office, Hancom Office</li>
+          </ul>
+        </div>
+    </div>
+      
+
+    <!-- <button onclick="moveToTop()">Top</button> -->
+    <ion-icon id="backToTop" name="chevron-up-circle-outline"></ion-icon>
+
+    <script src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.js" nomodule defer></script>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
+
+
+<!-- <ion-icon name="cloud-download"></ion-icon> -->

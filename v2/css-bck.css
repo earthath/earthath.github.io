@@ -1,0 +1,545 @@
+@font-face {
+    font-family: 'Eulyoo1945-Regular';
+    src: url('src/fonts/Eulyoo1945-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Eulyoo1945-SemiBold';
+    src: url('src/fonts/Eulyoo1945-SemiBold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'GmarketSansBold';
+    src: url('src/fonts/GmarketSansBold.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'GmarketSansLight';
+    src: url('src/fonts/GmarketSansLight.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('src/fonts/GmarketSansMedium.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'NanumPen';
+    src: url('src/fonts/NanumPen.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'SportingGrotesque-Bold';
+    src: url('src/fonts/SportingGrotesque-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'SportingGrotesque-Regular';
+    src: url('src/fonts/SportingGrotesque-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Inter-Regular';
+    src: url('src/fonts/Inter-Regular.otf') format('opentype');
+}
+
+
+body {
+    font-family: SportingGrotesque-Regular, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navigation Bar Styles */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0); /* Semi-transparent background */
+    z-index: 10; /* Ensure it stays on top of content */
+    padding: 10px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0);
+}
+
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav.main-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5); /* Transparent white background */
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 0 auto;
+    width: fit-content;
+    padding: 5px 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    backdrop-filter: blur(10px); /* Apply blur effect to the background */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+}
+
+
+nav.main-menu ul.menu-links {
+    display: flex;
+    list-style-type: none;
+}
+
+nav.main-menu ul.menu-links li {
+    margin: 0 5px;
+}
+
+nav.main-menu ul.menu-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    border-radius: 8px;
+    /* border: 2px solid white; White border added */
+    transition: all 0.3s ease;
+    font-family: Inter-Regular;
+}
+
+nav.main-menu ul.menu-links li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.7); /* Slightly change border color on hover */
+    border-radius: 15px;
+    padding: 5px 10px;
+
+    /* transform: scale(1.1); */
+}
+
+/* Mobile View */
+@media screen and (max-width: 768px) {
+    nav.main-menu {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 2px;
+    }
+
+    nav.main-menu ul.menu-links li a span {
+        display: none;
+    }
+
+    /* .language-switcher {
+        bottom: 20px;
+        right: 10px;
+        top: auto;
+    } */
+}
+
+/* Space after the fixed header */
+#home {
+    padding-top: 80px; /* Ensure content isn't hidden behind the nav */
+}
+
+/* Mobile Menu */
+@media screen and (max-width: 768px) {
+    nav ul {
+        display: flex; /* Keep the menu horizontal */
+        justify-content: normal; /* Evenly space the items across the screen */
+        width: 100%; /* Ensure it takes up the full width */
+        font-size: 12px; /* Smaller font size for mobile */
+        padding: 5px 0; /* Reduced padding for mobile */
+    }
+
+    nav ul li {
+        margin: 0 px; /* Adjust margin for mobile */
+    }
+
+    nav ul li a {
+        font-size: 14px; /* Smaller font size for links on mobile */
+        padding: 5px 5px; /* Adjust padding for mobile */
+    }
+}
+
+/* Space after the fixed header */
+#home {
+    padding-top: 80px; /* Ensure content isn't hidden behind the nav */
+}
+
+
+
+section {
+    padding: 50px;
+    text-align: center;
+}
+
+/* Container for home section */
+#home {
+    position: relative;
+    padding: 100px 0;
+    text-align: center;
+    color: white;
+    background: #000; /* Default background */
+    overflow: hidden; /* Prevent circles from spilling over */
+    z-index: 0;
+    height: 100vh; /* Full viewport height */
+}
+
+#intro {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    flex-direction: row; /* Align items in a row */
+    text-align: left;
+}
+
+#scrolldown{
+    --lottie-player-seeker-track-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* --lottie-player-seeker-thumb-color: #ffcc00; */
+}
+
+#typing-container {
+    margin-left: 20px;
+}
+.txt-title {
+    font-size: 3em;
+    font-family: 'GmarketSansBold'; /* Apply the GmarketSansBold font */
+    color: #000000; /* Change text color to white for better contrast */
+    white-space: normal; /* Ensure the text breaks into new lines */
+    word-wrap: normal; /* Ensure words are properly wrapped */
+    margin: 0; /* No extra margin between the lines */
+}
+
+/* Responsive adjustments */
+
+@media (max-width: 768px) {
+    #intro {
+        flex-direction: column; /* Stack items in a column for mobile view */
+        text-align: center;
+        gap: 10px;
+    }
+
+    .txt-title {
+        font-size: 1.5em; /* Adjust font size for smaller screens */
+    }
+
+    img {
+        margin-bottom: 10px; /* Adds space below the image */
+    }
+}
+
+#profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    object-fit: cover;
+}
+
+@media (max-width: 600px) {
+    #profile-pic {
+        width: 50vw;
+        height: 50vw;
+    }
+}
+
+#profile-pic:hover {
+    transform: scale(1.1);
+}
+
+#parallax {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1; /* Ensure the parallax content is above the background */
+}
+
+/* #parallax img, */
+#parallax dotlottie-player { /* Target both images and Lottie player */
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+
+#star1 {
+    top: 20%;
+    left: 0%;
+}
+
+#star2 {
+    top: 60%;
+    left: 80%;
+}
+/* Responsive adjustments for mobile screens */
+@media (max-width: 600px) {
+    #parallax dotlottie-player { 
+        width: 50px;  /* Smaller size for mobile */
+        height: 50px; 
+    }
+
+    #star1 {
+        top: 5%;   /* Adjust position for mobile */
+        left: 0%;
+    }
+
+    #star2 {
+        top: 40%;
+        left: 40%;
+    }
+}
+
+/* Create 4 large colorful gradient circles */
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px); /* Increased blur for blending */
+    z-index: -1; /* Ensure circles stay behind content */
+    pointer-events: none; /* Prevent interference with mouse events */
+    animation: move-randomly 20s ease-in-out infinite;
+}
+
+/* Circle Sizes (larger circles) */
+.circle1 {
+    width: 1200px;
+    height: 1200px;
+    background: linear-gradient(45deg, #ff007f, #6a11cb); /* Pink to Purple */
+    top: 0;
+    left: 0;
+    animation: move-randomly1 20s ease-in-out infinite;
+}
+
+.circle2 {
+    width: 1300px;
+    height: 1300px;
+    background: linear-gradient(45deg, #00c6ff, #0072ff); /* Blue to Light Blue */
+    top: 0;
+    right: 0;
+    animation: move-randomly2 20s ease-in-out infinite;
+}
+
+.circle3 {
+    width: 1400px;
+    height: 1400px;
+    background: linear-gradient(45deg, #ffac41, #ff006d); /* Orange to Red */
+    bottom: 0;
+    left: 0;
+    animation: move-randomly3 20s ease-in-out infinite;
+}
+
+.circle4 {
+    width: 1500px;
+    height: 1500px;
+    background: linear-gradient(45deg, #2af598, #009efd); /* Green to Blue */
+    bottom: 0;
+    right: 0;
+    animation: move-randomly4 20s ease-in-out infinite;
+}
+
+/* Independent random movement for each circle */
+@keyframes move-randomly1 {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(250px, -300px); /* Random movement */
+    }
+    50% {
+        transform: translate(-350px, 500px);
+    }
+    75% {
+        transform: translate(500px, 700px);
+    }
+    100% {
+        transform: translate(-450px, -600px);
+    }
+}
+
+@keyframes move-randomly2 {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(-300px, 200px); /* Random movement */
+    }
+    50% {
+        transform: translate(400px, -350px);
+    }
+    75% {
+        transform: translate(-600px, 600px);
+    }
+    100% {
+        transform: translate(350px, -450px);
+    }
+}
+
+@keyframes move-randomly3 {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(400px, -200px); /* Random movement */
+    }
+    50% {
+        transform: translate(-500px, 300px);
+    }
+    75% {
+        transform: translate(250px, -600px);
+    }
+    100% {
+        transform: translate(-700px, 450px);
+    }
+}
+
+@keyframes move-randomly4 {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(-500px, 400px); /* Random movement */
+    }
+    50% {
+        transform: translate(600px, -500px);
+    }
+    75% {
+        transform: translate(-300px, 700px);
+    }
+    100% {
+        transform: translate(450px, -350px);
+    }
+}
+
+
+/* ------------------------------------------------------------------------------------------ */
+
+/* nav no text hover */
+nav.main-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 0 auto;
+    width: fit-content;
+    padding: 5px 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+}
+
+nav.main-menu ul.menu-links {
+    display: flex;
+    list-style-type: none;
+}
+
+nav.main-menu ul.menu-links li {
+    margin: 0 5px;
+}
+
+nav.main-menu ul.menu-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-family: Inter-Regular;
+}
+
+nav.main-menu ul.menu-links li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    padding: 5px 10px;
+}
+/* ------------------------------------------------------------------------------------------ */
+/* hovering text show with no :current page  */
+/* Navigation Menu */
+nav.main-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 0 auto;
+    width: fit-content;
+    padding: 5px 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+}
+
+nav.main-menu ul.menu-links {
+    display: flex;
+    list-style-type: none;
+}
+
+nav.main-menu ul.menu-links li {
+    margin: 0 5px;
+}
+
+nav.main-menu ul.menu-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-family: Inter-Regular;
+    height: 40px; /* Set a fixed height */
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflowing text initially */
+}
+
+/* Hide text initially */
+nav.main-menu ul.menu-links li a span {
+    display: none;
+}
+
+/* Show text on hover and adjust width */
+nav.main-menu ul.menu-links li a:hover {
+    width: auto; /* Expand width to fit content */
+    overflow: visible; /* Allow text to be visible */
+    background-color: rgba(255, 255, 255, 0.2); /* Background color on hover */
+    border-color: rgba(255, 255, 255, 0.7); /* Border color on hover */
+    border-radius: 15px; /* Border radius on hover */
+    padding: 5px 10px; /* Padding on hover */
+}
+
+nav.main-menu ul.menu-links li a:hover span {
+    display: inline;
+    font-size: 16px; /* Adjust text size on hover */
+}
+
+nav.main-menu ul.menu-links li a:hover ion-icon {
+    font-size: 20px; /* Adjust icon size on hover */
+}
