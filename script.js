@@ -46,10 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Active navigation state based on scroll position (for popout menu)
+// Active navigation state based on scroll position (for popout menu) - Optimized with throttling
 document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.popout-menu-link');
     const sections = document.querySelectorAll('section[id]');
+    let ticking = false;
     
     function updateActiveNav() {
         let current = '';
@@ -69,9 +70,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 link.classList.add('active');
             }
         });
+        
+        ticking = false;
     }
     
-    window.addEventListener('scroll', updateActiveNav);
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(updateActiveNav);
+            ticking = true;
+        }
+    }, { passive: true });
     updateActiveNav(); // Initial call
 });
 
@@ -89,17 +97,24 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar background change on scroll
+// Navbar background change on scroll - Optimized with throttling
+let navbarTicking = false;
 window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(10, 10, 10, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.5)';
-    } else {
-        navbar.style.background = 'rgba(10, 10, 10, 0.95)';
-        navbar.style.boxShadow = 'none';
+    if (!navbarTicking) {
+        window.requestAnimationFrame(() => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.5)';
+            } else {
+                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+            navbarTicking = false;
+        });
+        navbarTicking = true;
     }
-});
+}, { passive: true });
 
 // Intersection Observer for animations
 const observerOptions = {
@@ -571,19 +586,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Liquid Ether Background Mouse Interaction
+// Liquid Ether Background Mouse Interaction - Optimized
 document.addEventListener('DOMContentLoaded', () => {
     const blobs = document.querySelectorAll('.blob');
     let mouseX = 0;
     let mouseY = 0;
     let isHovering = false;
+    let animationRunning = false;
     
-    // Update mouse position
+    // Update mouse position - throttled
+    let mouseUpdateTicking = false;
     document.addEventListener('mousemove', (e) => {
-        mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
-        mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
-        isHovering = true;
-    });
+        if (!mouseUpdateTicking) {
+            window.requestAnimationFrame(() => {
+                mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+                mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+                isHovering = true;
+                mouseUpdateTicking = false;
+            });
+            mouseUpdateTicking = true;
+        }
+    }, { passive: true });
     
     // Reset when mouse leaves
     document.addEventListener('mouseleave', () => {
@@ -592,27 +615,32 @@ document.addEventListener('DOMContentLoaded', () => {
         mouseY = 0;
     });
     
-    // Animate blobs based on mouse position
+    // Animate blobs based on mouse position - only when hovering
     function animateBlobs() {
         if (!isHovering) {
-            requestAnimationFrame(animateBlobs);
+            animationRunning = false;
             return;
         }
         
+        animationRunning = true;
         blobs.forEach((blob, index) => {
             const intensity = 30 * (index + 1);
             const x = mouseX * intensity;
             const y = mouseY * intensity;
             
-            // Get current transform values from CSS animations
-            const currentTransform = window.getComputedStyle(blob).transform;
-            
-            // Apply mouse influence
-            blob.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) ${currentTransform !== 'none' ? 'scale(1.05)' : ''}`;
+            // Use translate3d for GPU acceleration
+            blob.style.transform = `translate3d(calc(-50% + ${x}px), calc(-50% + ${y}px), 0)`;
         });
         
-        requestAnimationFrame(animateBlobs);
+        if (animationRunning) {
+            requestAnimationFrame(animateBlobs);
+        }
     }
     
-    animateBlobs();
+    // Start animation on first hover
+    document.addEventListener('mousemove', () => {
+        if (isHovering && !animationRunning) {
+            animateBlobs();
+        }
+    }, { once: true, passive: true });
 });

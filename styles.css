@@ -33,9 +33,11 @@ body {
 .blob {
     position: absolute;
     border-radius: 50%;
-    filter: blur(80px);
+    filter: blur(60px); /* Reduced blur for better performance */
     opacity: 0.7;
     animation: blob-animation 20s infinite;
+    will-change: transform;
+    transform: translateZ(0); /* Force GPU acceleration */
 }
 
 .blob-1 {
@@ -215,6 +217,8 @@ body {
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.2s ease;
+    transform: translateZ(0); /* GPU acceleration */
+    will-change: opacity;
 }
 
 .popout-menu.active {
@@ -276,14 +280,15 @@ body {
 
 .popout-menu-item {
     opacity: 0;
-    transform: translateY(60px) rotateX(50deg) scale(0.95);
+    transform: translate3d(0, 60px, 0) rotateX(50deg) scale(0.95);
     transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     transition-delay: var(--delay);
+    will-change: transform, opacity;
 }
 
 .popout-menu.active .popout-menu-item {
     opacity: 1;
-    transform: translateY(0) rotateX(0deg) scale(1);
+    transform: translate3d(0, 0, 0) rotateX(0deg) scale(1);
 }
 
 .popout-menu-link {
@@ -296,7 +301,7 @@ body {
     font-size: 1.5rem;
     font-weight: 300;
     text-transform: lowercase;
-    transition: all 0.15s ease;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
     box-shadow: 
         0 10px 40px rgba(0, 0, 0, 0.3),
         0 0 0 1px rgba(0, 0, 0, 0.05);
@@ -304,81 +309,83 @@ body {
     overflow: hidden;
     cursor: pointer;
     will-change: transform;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* Different rotations for each menu item */
+/* Different rotations for each menu item - GPU accelerated */
 .popout-menu-item:nth-child(1) .popout-menu-link {
-    transform: rotate(-12deg) perspective(1000px) rotateX(15deg) translateZ(20px);
+    transform: rotate(-12deg) perspective(1000px) rotateX(15deg) translate3d(0, 0, 20px);
 }
 
 .popout-menu-item:nth-child(2) .popout-menu-link {
-    transform: rotate(8deg) perspective(1000px) rotateX(12deg) translateZ(20px);
+    transform: rotate(8deg) perspective(1000px) rotateX(12deg) translate3d(0, 0, 20px);
 }
 
 .popout-menu-item:nth-child(3) .popout-menu-link {
-    transform: rotate(-5deg) perspective(1000px) rotateX(18deg) translateZ(20px);
+    transform: rotate(-5deg) perspective(1000px) rotateX(18deg) translate3d(0, 0, 20px);
 }
 
 .popout-menu-item:nth-child(4) .popout-menu-link {
-    transform: rotate(15deg) perspective(1000px) rotateX(10deg) translateZ(20px);
+    transform: rotate(15deg) perspective(1000px) rotateX(10deg) translate3d(0, 0, 20px);
 }
 
 .popout-menu-item:nth-child(5) .popout-menu-link {
-    transform: rotate(-10deg) perspective(1000px) rotateX(16deg) translateZ(20px);
+    transform: rotate(-10deg) perspective(1000px) rotateX(16deg) translate3d(0, 0, 20px);
 }
 
 .popout-menu-item:nth-child(6) .popout-menu-link {
-    transform: rotate(5deg) perspective(1000px) rotateX(14deg) translateZ(20px);
+    transform: rotate(5deg) perspective(1000px) rotateX(14deg) translate3d(0, 0, 20px);
 }
 
-/* Hover states with adjusted rotations */
+/* Hover states with adjusted rotations - GPU accelerated */
 .popout-menu-item:nth-child(1) .popout-menu-link:hover {
-    transform: rotate(-10deg) perspective(1000px) rotateX(10deg) translateZ(40px) scale(1.05);
+    transform: rotate(-10deg) perspective(1000px) rotateX(10deg) translate3d(0, 0, 40px) scale(1.05);
 }
 
 .popout-menu-item:nth-child(2) .popout-menu-link:hover {
-    transform: rotate(10deg) perspective(1000px) rotateX(8deg) translateZ(40px) scale(1.05);
+    transform: rotate(10deg) perspective(1000px) rotateX(8deg) translate3d(0, 0, 40px) scale(1.05);
 }
 
 .popout-menu-item:nth-child(3) .popout-menu-link:hover {
-    transform: rotate(-3deg) perspective(1000px) rotateX(13deg) translateZ(40px) scale(1.05);
+    transform: rotate(-3deg) perspective(1000px) rotateX(13deg) translate3d(0, 0, 40px) scale(1.05);
 }
 
 .popout-menu-item:nth-child(4) .popout-menu-link:hover {
-    transform: rotate(17deg) perspective(1000px) rotateX(6deg) translateZ(40px) scale(1.05);
+    transform: rotate(17deg) perspective(1000px) rotateX(6deg) translate3d(0, 0, 40px) scale(1.05);
 }
 
 .popout-menu-item:nth-child(5) .popout-menu-link:hover {
-    transform: rotate(-8deg) perspective(1000px) rotateX(12deg) translateZ(40px) scale(1.05);
+    transform: rotate(-8deg) perspective(1000px) rotateX(12deg) translate3d(0, 0, 40px) scale(1.05);
 }
 
 .popout-menu-item:nth-child(6) .popout-menu-link:hover {
-    transform: rotate(7deg) perspective(1000px) rotateX(10deg) translateZ(40px) scale(1.05);
+    transform: rotate(7deg) perspective(1000px) rotateX(10deg) translate3d(0, 0, 40px) scale(1.05);
 }
 
-/* Active/pressed states */
+/* Active/pressed states - GPU accelerated */
 .popout-menu-item:nth-child(1) .popout-menu-link:active {
-    transform: rotate(-11deg) perspective(1000px) rotateX(12deg) translateZ(30px) scale(1.02);
+    transform: rotate(-11deg) perspective(1000px) rotateX(12deg) translate3d(0, 0, 30px) scale(1.02);
 }
 
 .popout-menu-item:nth-child(2) .popout-menu-link:active {
-    transform: rotate(9deg) perspective(1000px) rotateX(10deg) translateZ(30px) scale(1.02);
+    transform: rotate(9deg) perspective(1000px) rotateX(10deg) translate3d(0, 0, 30px) scale(1.02);
 }
 
 .popout-menu-item:nth-child(3) .popout-menu-link:active {
-    transform: rotate(-4deg) perspective(1000px) rotateX(15deg) translateZ(30px) scale(1.02);
+    transform: rotate(-4deg) perspective(1000px) rotateX(15deg) translate3d(0, 0, 30px) scale(1.02);
 }
 
 .popout-menu-item:nth-child(4) .popout-menu-link:active {
-    transform: rotate(16deg) perspective(1000px) rotateX(8deg) translateZ(30px) scale(1.02);
+    transform: rotate(16deg) perspective(1000px) rotateX(8deg) translate3d(0, 0, 30px) scale(1.02);
 }
 
 .popout-menu-item:nth-child(5) .popout-menu-link:active {
-    transform: rotate(-9deg) perspective(1000px) rotateX(14deg) translateZ(30px) scale(1.02);
+    transform: rotate(-9deg) perspective(1000px) rotateX(14deg) translate3d(0, 0, 30px) scale(1.02);
 }
 
 .popout-menu-item:nth-child(6) .popout-menu-link:active {
-    transform: rotate(6deg) perspective(1000px) rotateX(12deg) translateZ(30px) scale(1.02);
+    transform: rotate(6deg) perspective(1000px) rotateX(12deg) translate3d(0, 0, 30px) scale(1.02);
 }
 
 .popout-menu-link:hover {

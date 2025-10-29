@@ -5,7 +5,7 @@ class FaultyTerminal {
         if (!this.canvas) return;
         
         this.ctx = this.canvas.getContext('2d');
-        this.cellSize = 25;
+        this.cellSize = 30; // Increased cell size for fewer cells and better performance
         this.grid = [];
         this.symbols = ['█', '▓', '▒', '░', '+', '×', '•', '·', '■', '□', '▲', '△'];
         this.frameCount = 0;
@@ -48,11 +48,22 @@ class FaultyTerminal {
     animate() {
         this.frameCount++;
         
+        // Only render every other frame for better performance
+        if (this.frameCount % 2 !== 0) {
+            requestAnimationFrame(() => this.animate());
+            return;
+        }
+        
         // Clear canvas
         this.ctx.fillStyle = '#000000';
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
-        // Draw grid with glitch effects
+        // Batch operations
+        this.ctx.font = `${this.cellSize * 0.75}px 'Courier New', monospace`;
+        this.ctx.textAlign = 'center';
+        this.ctx.textBaseline = 'middle';
+
+        // Draw grid with glitch effects - optimized
         for (let y = 0; y < this.rows; y++) {
             for (let x = 0; x < this.cols; x++) {
                 const cell = this.grid[y][x];
@@ -60,14 +71,14 @@ class FaultyTerminal {
                 // Update pulse animation
                 cell.pulse += cell.speed;
                 
-                // Random flickering (faulty terminal effect)
-                if (Math.random() < cell.flickerRate) {
+                // Random flickering (faulty terminal effect) - reduced frequency
+                if (Math.random() < cell.flickerRate * 0.5) {
                     cell.active = !cell.active;
                     cell.lastToggle = this.frameCount;
                 }
                 
-                // Change symbol occasionally (glitch effect)
-                if (Math.random() < 0.008) {
+                // Change symbol occasionally (glitch effect) - reduced frequency
+                if (Math.random() < 0.004) {
                     cell.symbol = this.symbols[Math.floor(Math.random() * this.symbols.length)];
                 }
                 
@@ -81,40 +92,18 @@ class FaultyTerminal {
                     const pulseBrightness = Math.sin(cell.pulse) * 0.2 + 0.8;
                     const alpha = cell.brightness * pulseBrightness;
                     
-                    // Draw symbol with varying opacity
-                    this.ctx.font = `${this.cellSize * 0.75}px 'Courier New', monospace`;
-                    this.ctx.fillStyle = `rgba(76, 175, 80, ${alpha * 0.7})`;
-                    this.ctx.textAlign = 'center';
-                    this.ctx.textBaseline = 'middle';
-                    
                     const px = x * this.cellSize + this.cellSize / 2;
                     const py = y * this.cellSize + this.cellSize / 2;
                     
-                    // Random position offset for glitch effect
-                    const offsetX = (Math.random() - 0.5) * 2;
-                    const offsetY = (Math.random() - 0.5) * 2;
-                    
-                    this.ctx.fillText(cell.symbol, px + offsetX, py + offsetY);
-                    
-                    // Add glow effect for brighter cells
-                    if (alpha > 0.5) {
-                        this.ctx.shadowBlur = 8;
-                        this.ctx.shadowColor = `rgba(76, 175, 80, ${alpha * 0.4})`;
-                        this.ctx.fillText(cell.symbol, px + offsetX, py + offsetY);
-                        this.ctx.shadowBlur = 0;
-                    }
-                    
-                    // Sometimes draw a square background for some cells
-                    if (Math.random() > 0.7 && cell.brightness > 0.5) {
-                        this.ctx.fillStyle = `rgba(76, 175, 80, ${alpha * 0.1})`;
-                        this.ctx.fillRect(x * this.cellSize, y * this.cellSize, this.cellSize, this.cellSize);
-                    }
+                    // Simplified drawing - only draw visible cells
+                    this.ctx.fillStyle = `rgba(76, 175, 80, ${alpha * 0.7})`;
+                    this.ctx.fillText(cell.symbol, px, py);
                 }
             }
         }
 
-        // Occasional full-screen glitch effect
-        if (Math.random() < 0.003) {
+        // Occasional full-screen glitch effect - reduced frequency
+        if (Math.random() < 0.0015) {
             this.applyGlitch();
         }
 
