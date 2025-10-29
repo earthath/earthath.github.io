@@ -10,46 +10,93 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!-- Three.js -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.162.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.162.0/examples/jsm/"
+        }
+    }
+    </script>
 </head>
 <body>
+    <!-- Liquid Ether Background -->
+    <div class="liquid-background">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="blob blob-4"></div>
+    </div>
+    
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
                 <span class="logo-text">AI Dev</span>
             </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#skills" class="nav-link">Skills</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#projects" class="nav-link">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span class="menu-toggle-icon">
+                    <i class="fas fa-bars"></i>
+                </span>
+            </button>
         </div>
     </nav>
 
+    <!-- Pop-out Menu -->
+    <div class="popout-menu" id="popoutMenu">
+        <button class="popout-close" id="popoutClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="popout-menu-items">
+            <li class="popout-menu-item" style="--delay: 0s">
+                <a href="#home" class="popout-menu-link" data-section="home">
+                    <span class="popout-text">home</span>
+                </a>
+            </li>
+            <li class="popout-menu-item" style="--delay: 0.05s">
+                <a href="#about" class="popout-menu-link" data-section="about">
+                    <span class="popout-text">about</span>
+                </a>
+            </li>
+            <li class="popout-menu-item" style="--delay: 0.1s">
+                <a href="#education" class="popout-menu-link" data-section="education">
+                    <span class="popout-text">education</span>
+                </a>
+            </li>
+            <li class="popout-menu-item" style="--delay: 0.15s">
+                <a href="#experience" class="popout-menu-link" data-section="experience">
+                    <span class="popout-text">experience</span>
+                </a>
+            </li>
+            <li class="popout-menu-item" style="--delay: 0.2s">
+                <a href="#projects" class="popout-menu-link" data-section="projects">
+                    <span class="popout-text">projects</span>
+                </a>
+            </li>
+            <li class="popout-menu-item" style="--delay: 0.25s">
+                <a href="#contact" class="popout-menu-link" data-section="contact">
+                    <span class="popout-text">contact</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Lanyard Badge (3D) -->
+    <div class="lanyard-container-3d" id="lanyard-container"></div>
+
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <!-- Faulty Terminal Background -->
+        <div class="faulty-terminal-bg">
+            <canvas id="terminal-canvas"></canvas>
+        </div>
         <div class="hero-container">
             <div class="hero-content">
                 <h1 class="hero-title">
-                    <span class="gradient-text">Athip Somtham</span>
-                    <br>AI Research Engineer
+                    <span class="gradient-text typing-text" id="typing-name"></span>
+                    <span class="typing-cursor">|</span>
+                    <br><span class="typing-subtitle" id="typing-subtitle">AI Research Engineer</span>
                 </h1>
                 <p class="hero-description">
                     AI Research Engineer specializing in deep learning-based object detection, 
@@ -494,77 +541,89 @@
             <h2 class="section-title">featured projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-bicycle"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Machine Learning Model-Based Demand Prediction for Public Bike Sharing Services in Seoul</h3>
-                        <p>Performed analysis of machine learning model-based demand prediction using sharing bicycle data in Seoul incorporated with weather information to improve prediction accuracy. Published in The e-Business Studies, Volume 24, Number 3, June 2023.</p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>Machine Learning</span>
-                            <span>Data Analysis</span>
+                    <div class="electric-border"></div>
+                    <div class="project-inner">
+                        <div class="project-image">
+                            <i class="fas fa-bicycle"></i>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small">View Publication</a>
-                            <a href="#" class="btn btn-small btn-outline">Research Paper</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-microchip"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Evaluation of Modern Accelerator-Based Edge Devices for Object Detection Applications</h3>
-                        <p>Performed object detection neural network benchmarks on edge devices. Benchmarked performance results in perspectives of detection accuracy, inference latency, and energy efficiency. Published in Mathematics 2022, Volume 10, Issue 22, 4299 (MDPI).</p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>Edge Computing</span>
-                            <span>Object Detection</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small">View Publication</a>
-                            <a href="#" class="btn btn-small btn-outline">MDPI Journal</a>
+                        <div class="project-content">
+                            <h3>Machine Learning Model-Based Demand Prediction for Public Bike Sharing Services in Seoul</h3>
+                            <p>Performed analysis of machine learning model-based demand prediction using sharing bicycle data in Seoul incorporated with weather information to improve prediction accuracy. Published in The e-Business Studies, Volume 24, Number 3, June 2023.</p>
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>Machine Learning</span>
+                                <span>Data Analysis</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-small">View Publication</a>
+                                <a href="#" class="btn btn-small btn-outline">Research Paper</a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-running"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Sports-Focused Pose Estimation Algorithms</h3>
-                        <p>Designed sports-focused pose estimation algorithms using Python/OpenCV, produced visual analysis outputs for performance analytics. Created 3D motion reconstruction system by converting 2D pose data to 3D character models using Blender-Python.</p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>OpenCV</span>
-                            <span>Blender</span>
+                    <div class="electric-border"></div>
+                    <div class="project-inner">
+                        <div class="project-image">
+                            <i class="fas fa-microchip"></i>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small">View Project</a>
-                            <a href="#" class="btn btn-small btn-outline">Demo</a>
+                        <div class="project-content">
+                            <h3>Evaluation of Modern Accelerator-Based Edge Devices for Object Detection Applications</h3>
+                            <p>Performed object detection neural network benchmarks on edge devices. Benchmarked performance results in perspectives of detection accuracy, inference latency, and energy efficiency. Published in Mathematics 2022, Volume 10, Issue 22, 4299 (MDPI).</p>
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>Edge Computing</span>
+                                <span>Object Detection</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-small">View Publication</a>
+                                <a href="#" class="btn btn-small btn-outline">MDPI Journal</a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-satellite-dish"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>5G Network Optimization Solutions</h3>
-                        <p>Proposed network optimization solutions to improve coverage and quality of service on 5G networks by changing parameters such as antenna azimuth, mechanical and electrical tilt. Analyzed drive test data for LTE/NR signal strength and quality.</p>
-                        <div class="project-tech">
-                            <span>5G Networks</span>
-                            <span>Signal Analysis</span>
-                            <span>Network Optimization</span>
+                    <div class="electric-border"></div>
+                    <div class="project-inner">
+                        <div class="project-image">
+                            <i class="fas fa-running"></i>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small">View Project</a>
-                            <a href="#" class="btn btn-small btn-outline">Report</a>
+                        <div class="project-content">
+                            <h3>Sports-Focused Pose Estimation Algorithms</h3>
+                            <p>Designed sports-focused pose estimation algorithms using Python/OpenCV, produced visual analysis outputs for performance analytics. Created 3D motion reconstruction system by converting 2D pose data to 3D character models using Blender-Python.</p>
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>OpenCV</span>
+                                <span>Blender</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-small">View Project</a>
+                                <a href="#" class="btn btn-small btn-outline">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="electric-border"></div>
+                    <div class="project-inner">
+                        <div class="project-image">
+                            <i class="fas fa-satellite-dish"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>5G Network Optimization Solutions</h3>
+                            <p>Proposed network optimization solutions to improve coverage and quality of service on 5G networks by changing parameters such as antenna azimuth, mechanical and electrical tilt. Analyzed drive test data for LTE/NR signal strength and quality.</p>
+                            <div class="project-tech">
+                                <span>5G Networks</span>
+                                <span>Signal Analysis</span>
+                                <span>Network Optimization</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-small">View Project</a>
+                                <a href="#" class="btn btn-small btn-outline">Report</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -625,6 +684,8 @@
         </div>
     </footer>
 
+    <script type="module" src="lanyard-3d.js"></script>
+    <script src="faulty-terminal.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,18 +1,78 @@
-// Mobile Navigation Toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+// Pop-out Menu Toggle
+document.addEventListener('DOMContentLoaded', () => {
+    const popoutMenu = document.getElementById('popoutMenu');
+    const menuToggle = document.getElementById('menuToggle');
+    const popoutClose = document.getElementById('popoutClose');
+    const popoutLinks = document.querySelectorAll('.popout-menu-link');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
+    function openMenu() {
+        popoutMenu.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+        popoutMenu.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openMenu();
+        });
+    }
+
+    if (popoutClose) {
+        popoutClose.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeMenu();
+        });
+    }
+
+    // Close menu when clicking outside
+    popoutMenu.addEventListener('click', (e) => {
+        if (e.target === popoutMenu) {
+            closeMenu();
+        }
+    });
+
+    // Close menu when clicking a link
+    popoutLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            setTimeout(() => {
+                closeMenu();
+            }, 200);
+        });
+    });
 });
 
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-    });
+// Active navigation state based on scroll position (for popout menu)
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('.popout-menu-link');
+    const sections = document.querySelectorAll('section[id]');
+    
+    function updateActiveNav() {
+        let current = '';
+        const scrollPosition = window.scrollY + 150;
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('data-section') === current) {
+                link.classList.add('active');
+            }
+        });
+    }
+    
+    window.addEventListener('scroll', updateActiveNav);
+    updateActiveNav(); // Initial call
 });
 
 // Smooth scrolling for navigation links
@@ -86,29 +146,101 @@ document.querySelectorAll('.skill-progress').forEach(bar => {
     skillObserver.observe(bar);
 });
 
-// Typing animation for hero title
-function typeWriter(element, text, speed = 100) {
-    let i = 0;
-    element.innerHTML = '';
-    
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
+// Typing animation for hero name (similar to reactbits.dev/text-animations/text-type)
+class TypeWriter {
+    constructor(element, text, options = {}) {
+        this.element = element;
+        this.text = text;
+        this.speed = options.speed || 100;
+        this.deleteSpeed = options.deleteSpeed || 50;
+        this.delay = options.delay || 0;
+        this.onComplete = options.onComplete || null;
+        this.currentIndex = 0;
+        this.isDeleting = false;
     }
-    
-    type();
+
+    type() {
+        const fullText = this.text;
+        
+        if (this.delay > 0) {
+            setTimeout(() => {
+                this.delay = 0;
+                this.type();
+            }, this.delay);
+            this.delay = 0;
+            return;
+        }
+
+        if (this.isDeleting) {
+            // Delete characters
+            this.element.textContent = fullText.substring(0, this.currentIndex - 1);
+            this.currentIndex--;
+            
+            if (this.currentIndex === 0) {
+                this.isDeleting = false;
+            }
+        } else {
+            // Type characters
+            this.element.textContent = fullText.substring(0, this.currentIndex + 1);
+            this.currentIndex++;
+            
+            if (this.currentIndex === fullText.length) {
+                if (this.onComplete) {
+                    this.onComplete();
+                }
+                return; // Stop typing
+            }
+        }
+
+        const typingSpeed = this.isDeleting ? this.deleteSpeed : this.speed;
+        setTimeout(() => this.type(), typingSpeed);
+    }
+
+    start() {
+        this.type();
+    }
 }
 
 // Initialize typing animation when page loads
-window.addEventListener('load', () => {
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        const originalText = heroTitle.innerHTML;
-        // Uncomment the line below to enable typing animation
-        // typeWriter(heroTitle, originalText, 50);
+document.addEventListener('DOMContentLoaded', () => {
+    const typingNameElement = document.getElementById('typing-name');
+    const cursorElement = document.querySelector('.typing-cursor');
+    const subtitleElement = document.getElementById('typing-subtitle');
+    
+    if (typingNameElement) {
+        const name = 'Athip Somtham';
+        
+        // Hide cursor initially
+        if (cursorElement) {
+            cursorElement.style.opacity = '0';
+        }
+        
+        // Start typing animation after a brief delay
+        setTimeout(() => {
+            if (cursorElement) {
+                cursorElement.style.opacity = '1';
+            }
+            
+            const typeWriter = new TypeWriter(typingNameElement, name, {
+                speed: 120,
+                delay: 300,
+                onComplete: () => {
+                    // After name is typed, show subtitle with fade in
+                    setTimeout(() => {
+                        if (subtitleElement) {
+                            subtitleElement.style.display = 'block';
+                            subtitleElement.classList.add('visible');
+                            // Trigger fade-in animation
+                            setTimeout(() => {
+                                subtitleElement.style.opacity = '1';
+                            }, 50);
+                        }
+                    }, 500);
+                }
+            });
+            
+            typeWriter.start();
+        }, 500);
     }
 });
 
@@ -404,4 +536,83 @@ document.addEventListener('DOMContentLoaded', () => {
         
         timelineObserver.observe(section);
     });
+});
+
+// Lanyard Badge Visibility - Show only on landing page
+document.addEventListener('DOMContentLoaded', () => {
+    const lanyardContainer = document.getElementById('lanyard-container');
+    const heroSection = document.querySelector('#home');
+    
+    if (!lanyardContainer || !heroSection) return;
+    
+    // Intersection Observer to show/hide lanyard based on hero section visibility
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                lanyardContainer.style.opacity = '1';
+                lanyardContainer.style.pointerEvents = 'none';
+            } else {
+                lanyardContainer.style.opacity = '0';
+                lanyardContainer.style.pointerEvents = 'none';
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '-100px 0px'
+    });
+    
+    observer.observe(heroSection);
+    
+    // Initially show if hero is visible
+    if (heroSection.getBoundingClientRect().top < window.innerHeight) {
+        lanyardContainer.style.opacity = '1';
+    } else {
+        lanyardContainer.style.opacity = '0';
+    }
+});
+
+// Liquid Ether Background Mouse Interaction
+document.addEventListener('DOMContentLoaded', () => {
+    const blobs = document.querySelectorAll('.blob');
+    let mouseX = 0;
+    let mouseY = 0;
+    let isHovering = false;
+    
+    // Update mouse position
+    document.addEventListener('mousemove', (e) => {
+        mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+        mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+        isHovering = true;
+    });
+    
+    // Reset when mouse leaves
+    document.addEventListener('mouseleave', () => {
+        isHovering = false;
+        mouseX = 0;
+        mouseY = 0;
+    });
+    
+    // Animate blobs based on mouse position
+    function animateBlobs() {
+        if (!isHovering) {
+            requestAnimationFrame(animateBlobs);
+            return;
+        }
+        
+        blobs.forEach((blob, index) => {
+            const intensity = 30 * (index + 1);
+            const x = mouseX * intensity;
+            const y = mouseY * intensity;
+            
+            // Get current transform values from CSS animations
+            const currentTransform = window.getComputedStyle(blob).transform;
+            
+            // Apply mouse influence
+            blob.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) ${currentTransform !== 'none' ? 'scale(1.05)' : ''}`;
+        });
+        
+        requestAnimationFrame(animateBlobs);
+    }
+    
+    animateBlobs();
 });
