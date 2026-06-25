@@ -143,16 +143,16 @@
 
   /* COMPETENCIES — pinned scroll reveal */
   #skills{padding:0}
-  .pin-section{position:relative;height:260vh;background:var(--ink)}
-  .pin-panel{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;
-    align-items:center;justify-content:center;padding:0 24px;color:#f4f2ee}
+  .pin-section{position:relative;height:200vh;background:var(--ink)}
+  .pin-panel{position:sticky;top:0;min-height:100vh;overflow:visible;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;padding:40px 24px;color:#f4f2ee}
   .pin-progress{position:absolute;left:0;top:0;height:3px;background:var(--accent);width:0%}
   .pin-eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-2);margin-bottom:16px;text-align:center}
   .pin-head{text-align:center;max-width:18ch;will-change:transform,opacity}
-  .pin-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(34px,5.5vw,68px);line-height:1.02;letter-spacing:-.02em;color:#fff}
+  .pin-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,4.2vw,50px);line-height:1.02;letter-spacing:-.02em;color:#fff}
   .pin-head h2 em{font-style:italic;color:var(--accent)}
-  .pin-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;width:100%;max-width:1000px;margin-top:40px}
-  .pin-card{opacity:0;will-change:transform,opacity;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:22px}
+  .pin-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;width:100%;max-width:1000px;margin-top:26px}
+  .pin-card{opacity:0;will-change:transform,opacity;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:17px}
   .pin-card h3{font-family:var(--serif);font-weight:400;font-size:19px;letter-spacing:-.01em;color:#fff}
   .pin-card .stack{font-family:var(--mono);font-size:11.5px;color:#9c9588;margin-top:6px;min-height:30px}
 
@@ -310,6 +310,37 @@
   .atp-logo{display:block;width:auto;color:var(--ink)}
   .nav-inner .brand .atp-logo{height:21px}
   .foot .brand .atp-logo{height:30px}
+
+  /* ===== mobile + reduced-motion ===== */
+  .contact06::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(circle at 28% 22%,rgba(255,90,31,.38),transparent 46%),
+               radial-gradient(circle at 82% 82%,rgba(255,178,64,.24),transparent 46%)}
+  @media(max-width:760px){
+    .pin-section{height:auto;background:var(--ink)}
+    .pin-panel{position:static;height:auto;overflow:visible;padding:60px 0;justify-content:flex-start}
+    .pin-progress{display:none}
+    .pin-grid{margin-top:28px}
+    .pin-card{opacity:1;transform:none}
+    .contact06 .c-bg{display:none}
+    .float-stage{display:none}
+    section{padding:64px 0}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
+      transition-duration:.001ms!important;scroll-behavior:auto!important}
+    .pin-card,.hero-logo .logo.anim{opacity:1!important;transform:none!important}
+  }
+
+  /* ===== mobile menu ===== */
+  @media(max-width:760px){
+    .nav-inner{flex-wrap:wrap}
+    .nav-links{display:none;order:3;width:100%;flex-direction:column;align-items:stretch;gap:2px;
+      margin-top:10px;padding-top:10px;border-top:1px solid rgba(25,23,20,.12)}
+    nav.open .nav-links{display:flex}
+    .nav-links a{padding:11px 4px;font-size:16px}
+    .nav-inner .nav-cta{text-align:center;margin-top:8px}
+    .nav-toggle{font-size:22px;line-height:1;padding:2px 4px}
+  }
 </style>
 </head>
 <body>
@@ -687,6 +718,15 @@
     toggle();
   })();
 
+  // mobile hamburger menu
+  (function(){
+    const nav=document.querySelector('nav');
+    const tog=nav&&nav.querySelector('.nav-toggle');
+    if(!tog) return;
+    tog.addEventListener('click', ()=>{ const open=nav.classList.toggle('open'); tog.textContent=open?'\u2715':'\u2630'; });
+    nav.querySelectorAll('.nav-links a').forEach(a=> a.addEventListener('click', ()=>{ nav.classList.remove('open'); tog.textContent='\u2630'; }));
+  })();
+
   // pinned competencies — per-card cascade driven by scroll progress
   (function(){
     const section = document.getElementById('skills');
@@ -694,6 +734,7 @@
     const cards    = [...document.querySelectorAll('#cGrid .pin-card')];
     const bar     = document.getElementById('cProgress');
     if(!section) return;
+    if(window.matchMedia('(max-width:760px)').matches){cards.forEach(c=>{c.style.opacity=1;c.style.transform='none';});return;}
     const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
     const range=(t,a,b)=>clamp((t-a)/(b-a),0,1);
     const easeOut=t=>1-Math.pow(1-t,3);
@@ -705,7 +746,7 @@
       const hp=easeOut(range(p,0,.5));
       head.style.transform=`translateY(${-hp*36}px)`;
       head.style.opacity=1-hp*0.25;
-      const start=0.12, span=0.15, gap=0.10;   // fast per-card cascade
+      const start=0.03, span=0.14, gap=0.085;   // fast per-card cascade
       cards.forEach((c,i)=>{
         const cp=easeOut(range(p, start+i*gap, start+i*gap+span));
         c.style.opacity=cp;
@@ -725,6 +766,7 @@
     if(typeof THREE === 'undefined') return;
     const container = document.getElementById('cbg');
     if(!container) return;
+    if(window.matchMedia('(max-width:760px)').matches) return;
 
     const vertexShader = `uniform float time; varying vec2 vUv; varying vec3 vPosition;
       void main(){ vUv=uv; vPosition=position; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0); }`;
@@ -784,6 +826,7 @@
     const swapFonts=["'Bebas Neue'","'Fraunces'","'Archivo Black'","'Space Grotesk'"];
     const FINAL="'IBM Plex Mono'";
     const t=logo.querySelector('.t'), p=logo.querySelector('.p');
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){logo.classList.remove('anim');header.classList.add('hero-go');return;}
     function run(){
       logo.classList.remove('draw','expanded');
       t.style.fontFamily=swapFonts[0]; p.style.fontFamily=swapFonts[0];
